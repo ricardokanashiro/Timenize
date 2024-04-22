@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.home__sidebar {
+  width: min-content;
+  height: 100%;
+  padding: 2.4rem 1.8rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sidebar__items-wrapper {
+  margin-top: 3.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.sidebar__items-wrapper__plans-items-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar__items-wrapper__main-items,
+.sidebar__items-wrapper__plans-items,
+.sidebar__items-wrapper__apps-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar__items-wrapper__plans-items-wrapper h4 {
+  color: #C3C3C3;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.sidebar__user-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-grow: 1;
+}
+
+.user-area__user-wrapper {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-area__user-wrapper p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #838393;
+}
+
+.user-wrapper__user-img {
+  width: 3rem;
+  height: auto;
+}
+
+/*# sourceMappingURL=sidebar.css.map */

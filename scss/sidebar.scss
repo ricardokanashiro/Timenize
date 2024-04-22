@@ -1,0 +1,66 @@
+@use './utils/mixins' as *;
+@use './utils/variables' as *;
+
+.home__sidebar {
+   width: min-content;
+   height: 100%;
+   padding: 2.4rem 1.8rem;
+
+   @include flex(flex-start, center);
+   flex-direction: column;
+}
+
+.sidebar__items-wrapper {
+   margin-top: 3.6rem;
+   @include flex(center, center);
+   flex-direction: column;
+   gap: 3rem;
+}
+
+.sidebar__items-wrapper__plans-items-wrapper {
+   @include flex(center, flex-start);
+   flex-direction: column;
+   gap: 1.5rem;
+}
+
+.sidebar__items-wrapper__main-items,
+.sidebar__items-wrapper__plans-items,
+.sidebar__items-wrapper__apps-items {
+   @include flex(center, center);
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.sidebar__items-wrapper__plans-items-wrapper {
+   h4 {
+      color: $lightGray;
+      font-size: 1.4rem;
+      font-weight: 400;
+   }
+}
+
+.sidebar__user-area {
+   width: 100%;
+   @include flex(center, flex-end);
+   flex-grow: 1;
+}
+
+.user-area__user-wrapper {
+
+   width: 100%;
+   cursor: pointer;
+
+   @include flex(space-between, center);
+
+   p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: $gray;
+   }
+
+}
+
+.user-wrapper__user-img {
+   width: 3rem;
+   height: auto;     
+}

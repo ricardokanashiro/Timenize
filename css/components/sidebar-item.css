@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.sidebar-item {
+  background-color: transparent;
+  padding: 1rem 1.2rem;
+  width: 16rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition-duration: 150ms;
+  transition-property: background-color;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.4rem;
+}
+.sidebar-item p {
+  color: #838393;
+  font-weight: 500;
+  font-size: 1.4rem;
+  transition-duration: 150ms;
+  transition-property: color;
+}
+.sidebar-item .icon {
+  width: 1.8rem;
+  height: auto;
+}
+
+.sidebar-item-active {
+  background-color: #615EFF;
+}
+.sidebar-item-active p {
+  color: white;
+}
+
+/*# sourceMappingURL=sidebar-item.css.map */

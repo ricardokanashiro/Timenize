@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../scss/utils/_variables.scss","../../scss/components/sidebar-item.scss","../../scss/utils/_mixins.scss"],"names":[],"mappings":"AAAQ;AACA;ACER;EACG;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;ECXA;EACA,iBDYc;ECXd,aDW0B;EAC1B;;AAEA;EACG,ODDC;ECED;EACA;EACA;EACA;;AAGH;EACG;EACA;;;AAIN;EACG,kBD1Be;;AC4Bf;EACG","file":"sidebar-item.css"}

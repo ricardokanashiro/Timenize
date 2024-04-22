@@ -1,0 +1,38 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.sidebar-item {
+   background-color: transparent;
+   padding: 1rem 1.2rem;
+   width: 16rem;
+   height: 4rem;
+   border-radius: .5rem;
+
+   cursor: pointer;
+   transition-duration: 150ms;
+   transition-property: background-color;
+
+   @include flex(flex-start, center);
+   gap: 1.4rem;
+
+   p {
+      color: $gray;
+      font-weight: 500;
+      font-size: 1.4rem;
+      transition-duration: 150ms;
+      transition-property: color;
+   }
+
+   .icon {
+      width: 1.8rem;
+      height: auto;
+   }
+}
+
+.sidebar-item-active {
+   background-color: $purplishBlue900;
+
+   p {
+      color: white;
+   }
+}
