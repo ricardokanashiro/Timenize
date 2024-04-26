@@ -16,6 +16,11 @@ html {
   font-size: 62.5%;
 }
 
+.home {
+  display: flex;
+  height: 100%;
+}
+
 .sidebar__logo {
   width: 12rem;
   height: auto;

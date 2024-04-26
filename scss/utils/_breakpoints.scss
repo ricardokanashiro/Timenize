@@ -1,0 +1,5 @@
+@mixin TabletsDown {
+   @media(max-width: 769px) {
+      @content;
+   }
+}

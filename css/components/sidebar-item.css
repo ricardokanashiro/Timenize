@@ -3,8 +3,7 @@
 .sidebar-item {
   background-color: transparent;
   padding: 1rem 1.2rem;
-  width: 16rem;
-  height: 4rem;
+  width: 100%;
   border-radius: 0.5rem;
   cursor: pointer;
   transition-duration: 150ms;
@@ -17,12 +16,12 @@
 .sidebar-item p {
   color: #838393;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 0.9rem + 0.3vw, 1.6rem);
   transition-duration: 150ms;
   transition-property: color;
 }
 .sidebar-item .icon {
-  width: 1.8rem;
+  width: clamp(1.5rem, 0.7rem + 0.7vw, 2rem);
   height: auto;
 }
 
@@ -31,6 +30,21 @@
 }
 .sidebar-item-active p {
   color: white;
+}
+
+@media (max-width: 769px) {
+  .sidebar-item {
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sidebar-item p {
+    display: none;
+  }
+  .sidebar-item .icon {
+    width: 1.8rem;
+  }
 }
 
 /*# sourceMappingURL=sidebar-item.css.map */

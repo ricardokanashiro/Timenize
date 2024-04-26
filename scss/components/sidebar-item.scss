@@ -1,11 +1,11 @@
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
+@use '../utils//breakpoints' as *;
 
 .sidebar-item {
    background-color: transparent;
    padding: 1rem 1.2rem;
-   width: 16rem;
-   height: 4rem;
+   width: 100%;
    border-radius: .5rem;
 
    cursor: pointer;
@@ -18,13 +18,13 @@
    p {
       color: $gray;
       font-weight: 500;
-      font-size: 1.4rem;
+      font-size: clamp(1rem, .9rem + .3vw, 1.6rem);
       transition-duration: 150ms;
       transition-property: color;
    }
 
    .icon {
-      width: 1.8rem;
+      width: clamp(1.5rem, .7rem + .7vw, 2rem);
       height: auto;
    }
 }
@@ -34,5 +34,21 @@
 
    p {
       color: white;
+   }
+}
+
+@include TabletsDown {
+   .sidebar-item {
+      aspect-ratio: 1/1;
+
+      @include flex(center, center);
+
+      p {
+         display: none;
+      }
+
+      .icon {
+         width: 1.8rem;
+      }
    }
 }
