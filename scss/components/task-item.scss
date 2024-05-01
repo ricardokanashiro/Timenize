@@ -1,0 +1,50 @@
+@use '../utils/' as *;
+
+.task-item {
+   border-right: .6rem solid $purplishBlue900;
+   border-radius: .6rem;
+   background-color: $purplishBlue100;
+   padding: 1.2rem;
+
+   @include flex(center, center);
+}
+
+.task-item__content-area {
+   @include flex(flex-start, center);
+   flex-grow: 1;
+   gap: 1.4rem;
+
+   p {
+      font-size: 1.4rem;
+      font-weight: 600;
+   }
+
+   button {
+      width: 2.4rem;
+      height: 2.4rem;
+
+      .content-area__check-icon {
+         cursor: pointer;
+         width: 2.4rem;
+         height: 2.4rem;
+      }
+   }
+
+}
+
+.task-item__actions-area {
+   display: flex;
+   gap: 1.6rem;
+
+   button {
+      background-color: transparent;
+      aspect-ratio: 1 / 1;
+      width: 2rem;
+   }
+}
+
+.actions-area__icon {
+   cursor: pointer;
+   width: 100%;
+   height: 100%;
+}

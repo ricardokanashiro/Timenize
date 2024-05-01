@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.goal {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goal:nth-child(1) {
+  margin-top: 3rem;
+}
+
+.goal__content-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+.goal__content-area p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #5B5B68;
+}
+.goal__content-area button {
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+}
+
+.goal__actions-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.4rem;
+}
+.goal__actions-area .actions-area__icon {
+  height: 1.6rem;
+}
+
+/*# sourceMappingURL=goal.css.map */

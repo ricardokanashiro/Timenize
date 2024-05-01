@@ -1,0 +1,36 @@
+@use '../utils/' as *;
+
+.goal {
+   width: 100%;
+   @include flex(space-between, center);
+}
+
+.goal:nth-child(1) {
+   margin-top: 3rem;
+}
+
+.goal__content-area {
+   @include flex(center, center);
+   gap: 1.2rem;
+
+   p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: $darkGray;
+   }
+
+   button {
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+   }
+}
+
+.goal__actions-area {
+   @include flex(flex-start, center);
+   gap: 1.4rem;
+
+   .actions-area__icon {
+      height: 1.6rem;
+   }
+}

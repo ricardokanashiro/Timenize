@@ -3,3 +3,9 @@
       @content;
    }
 }
+
+@mixin LargeScreensDown {
+   @media(max-width: 1150px) {
+      @content;
+   }
+}

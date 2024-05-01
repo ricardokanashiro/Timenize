@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 
-import "@/css/sidebar.css"
+import "@/css/components/sidebar.css"
 
 import { SidebarItem, Dashboard, Settings, Habits, Plans, Pomodoro } from "@/components"
 
@@ -92,12 +92,22 @@ const Home = () => {
 
          </nav>
 
-         <section>
-            {selectedBtn === 'dashboard' && (<Dashboard />) }
-            {selectedBtn === 'settings' && (<Settings />) }
-            {selectedBtn === 'hábitos' && (<Habits />) }
-            {selectedBtn === 'planos' && (<Plans />) }
-            {selectedBtn === 'pomodoro' && (<Pomodoro />) }
+         <section className="home__sections-area">
+
+            <header className="sections-area__header">
+               <h1>{selectedBtn[0].toUpperCase() + selectedBtn.substring(1)}</h1>
+            </header>
+
+            <section className="sections-area__section-wrapper">
+               
+               {selectedBtn === 'dashboard' && (<Dashboard />) }
+               {selectedBtn === 'settings' && (<Settings />) }
+               {selectedBtn === 'hábitos' && (<Habits />) }
+               {selectedBtn === 'planos' && (<Plans />) }
+               {selectedBtn === 'pomodoro' && (<Pomodoro />) }
+
+            </section>
+
          </section>
       </section>
    )

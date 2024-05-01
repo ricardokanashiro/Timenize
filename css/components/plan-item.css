@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.plan-item {
+  background-color: #F3F3FF;
+  padding: 1.4rem;
+  border-radius: 0.6rem;
+  border-right: 0.6rem solid #615EFF;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.plan-item__information-area {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan-item__content-area {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+.plan-item__content-area .content-area__title {
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #5B5B68;
+}
+
+.content-area__warnings-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.4rem;
+}
+.content-area__warnings-area .warnings-area__goals-amount {
+  background-color: #615EFF;
+  color: white;
+  width: min-content;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.6rem;
+}
+.content-area__warnings-area .warnings-area__date-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.content-area__warnings-area .warnings-area__date-area .date-area__date-color {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background-color: red;
+}
+.content-area__warnings-area .warnings-area__date-area p {
+  font-weight: 600;
+  color: #838393;
+}
+
+.information-area__arrow-down-icon {
+  transition-duration: 300ms;
+  transition-property: transform;
+}
+
+.information-area__arrow-down-icon--actived {
+  transform: rotate(180deg);
+}
+
+.plan-item__goals-area {
+  width: 100%;
+  max-height: 30rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.2rem;
+  overflow: hidden;
+  transition-duration: 1000ms;
+  transition-property: max-height;
+}
+
+.plan-item__goals-area--inactived {
+  max-height: 0;
+  transition-duration: 1000ms;
+}
+
+/*# sourceMappingURL=plan-item.css.map */
