@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 .goal {
   width: 100%;
+  border-right: 0.6rem solid #615EFF;
+  border-radius: 0.6rem;
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +21,7 @@
   gap: 1.2rem;
 }
 .goal__content-area p {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #5B5B68;
 }
@@ -36,6 +39,11 @@
 }
 .goal__actions-area .actions-area__icon {
   height: 1.6rem;
+}
+
+.goal--dashboard {
+  border: none;
+  padding: 0;
 }
 
 /*# sourceMappingURL=goal.css.map */

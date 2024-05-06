@@ -5,11 +5,11 @@ import "@/css/components/goal.css"
 import { SquareUncheckedIcon, SquareCheckedIcon, IconTrash, IconEdit } from "@/assets"
 import { useState } from "react"
 
-const Goal = ({ text }) => {
+const Goal = ({ text, onDashboard }) => {
    const [checked, setChecked] = useState(false)
 
    return (
-      <div className="goal">
+      <div className={onDashboard ? "goal goal--dashboard" : "goal"}>
 
          <div className="goal__content-area">
 
@@ -35,9 +35,13 @@ const Goal = ({ text }) => {
 
          <div className="goal__actions-area">
 
-            <button>
-               <Image src={IconEdit} alt="edit icon" className="actions-area__icon" />
-            </button>
+            {
+               !checked && (
+                  <button>
+                     <Image src={IconEdit} alt="edit icon" className="actions-area__icon" />
+                  </button>
+               )
+            }
 
             <button>
                <Image src={IconTrash} alt="trash icon" className="actions-area__icon" />

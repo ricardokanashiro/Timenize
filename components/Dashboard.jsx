@@ -4,7 +4,7 @@ import "@/css/components/dashboard.css"
 
 import { TaskItem, PlanItem } from "./"
 
-import { DashboardIllustration, ClipboardIconWhite, IconPlus } from "@/assets"
+import { DashboardIllustration, ClipboardIconWhite, IconPlus, IconBookMark, IconCrosshair } from "@/assets"
 
 const Dashboard = () => {
    return (
@@ -30,7 +30,7 @@ const Dashboard = () => {
 
                   <button>
                      <p>Manage List</p>
-                     <Image src={ClipboardIconWhite} alt="clipboard icon" />
+                     <Image src={ClipboardIconWhite} alt="clipboard icon" className="header__clipboard-icon" />
                   </button>
                </header>
 
@@ -52,16 +52,48 @@ const Dashboard = () => {
 
          <section className="dashboard__plans-card">
 
-            <header className="task-list-card__header">
+            <header className="plans-card__header">
                <h3>Plans</h3>
 
                <a href="#">Veja Tudo</a>
             </header>
 
-            <section className="task-list-card__plans-wrapper">
-               <PlanItem />
-            </section>
+            <section className="plans-card__plans-wrapper">
 
+               <section className="plans-wrapper__pinned-area">
+
+                  <div className="pinned-area__header">
+
+                     <p>Pinned</p>
+
+                     <Image src={IconBookMark} alt="icon bookmark" className="pinned-area__header__icon" />
+
+                  </div>
+
+                  <div className="pinned-area__plans-wrapper">
+                     <PlanItem />
+                     <PlanItem />
+                  </div>
+
+               </section>
+
+               <section className="plans-wrapper__deadline-area">
+
+                  <div className="deadline-area__header">
+
+                     <p>Deadline</p>
+
+                     <Image src={IconCrosshair} alt="icon crosshair" className="pinned-area__header__icon" />
+
+                  </div>
+
+                  <div className="deadline-area__plans-wrapper">
+                     <PlanItem />
+                  </div>
+
+               </section>
+
+            </section>
 
          </section>
 

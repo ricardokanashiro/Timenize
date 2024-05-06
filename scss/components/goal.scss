@@ -2,6 +2,9 @@
 
 .goal {
    width: 100%;
+   border-right: .6rem solid $purplishBlue900;
+   border-radius: .6rem;
+   padding: 1.5rem;
    @include flex(space-between, center);
 }
 
@@ -14,7 +17,7 @@
    gap: 1.2rem;
 
    p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
       color: $darkGray;
    }
@@ -33,4 +36,9 @@
    .actions-area__icon {
       height: 1.6rem;
    }
+}
+
+.goal--dashboard {
+   border: none;
+   padding: 0;
 }

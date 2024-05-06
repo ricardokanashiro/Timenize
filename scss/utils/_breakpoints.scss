@@ -1,3 +1,9 @@
+@mixin SmallScreensDown {
+   @media(max-width: 550px) {
+      @content;
+   }
+}
+
 @mixin TabletsDown {
    @media(max-width: 769px) {
       @content;

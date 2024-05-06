@@ -47,9 +47,9 @@ const PlanItem = () => {
          </div>
 
          <div className={actived ? "plan-item__goals-area" : "plan-item__goals-area plan-item__goals-area--inactived"}>
-            <Goal text="Meta de exemplo" />
-            <Goal text="Meta de exemplo" />
-            <Goal text="Meta de exemplo" />
+            <Goal text="Meta de exemplo" onDashboard={true} />
+            <Goal text="Meta de exemplo" onDashboard={true} />
+            <Goal text="Meta de exemplo" onDashboard={true} />
          </div>
 
       </div>

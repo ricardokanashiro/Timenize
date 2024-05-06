@@ -3,15 +3,17 @@
 .dashboard {
   width: 100%;
   height: 100%;
+  max-height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 3.5rem;
 }
 
 .dashboard__tasks-area {
   width: 55%;
   height: 100%;
+  max-height: 100%;
   display: flex;
   flex-flow: column nowrap;
   gap: 3.5rem;
@@ -104,16 +106,6 @@
   height: 2.2rem;
 }
 
-.task-list-card__header h3 {
-  color: #615EFF;
-  font-size: 2.4rem;
-}
-.task-list-card__header a {
-  color: #838393;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
 .dashboard__plans-card {
   width: 45%;
   height: 100%;
@@ -126,11 +118,63 @@
   flex-flow: column nowrap;
   gap: 3.5rem;
 }
-.dashboard__plans-card .task-list-card__header {
+
+.plans-card__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.plans-card__header h3 {
+  color: #615EFF;
+  font-size: 2.4rem;
+}
+.plans-card__header a {
+  color: #838393;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.plans-card__plans-wrapper {
+  width: 100%;
+  overflow: auto;
+}
+
+.plans-wrapper__pinned-area,
+.plans-wrapper__deadline-area {
   width: 100%;
 }
-.dashboard__plans-card .task-list-card__plans-wrapper {
+
+.pinned-area__header,
+.deadline-area__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.pinned-area__header p,
+.deadline-area__header p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #838393;
+}
+.pinned-area__header .pinned-area__header__icon,
+.deadline-area__header .pinned-area__header__icon {
+  height: 1.4rem;
+  width: 1.4rem;
+}
+
+.deadline-area__header {
+  margin-top: 2rem;
+}
+
+.pinned-area__plans-wrapper,
+.deadline-area__plans-wrapper {
   width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 @media (max-width: 1150px) {
@@ -142,6 +186,37 @@
   }
   .dashboard__plans-card {
     width: 100%;
+  }
+}
+@media (max-width: 769px) {
+  .tasks-area__warnings-area {
+    padding: 0 5vw;
+  }
+  .warnings-area__content h4 {
+    font-size: clamp(1rem, 1rem + 0.7vw, 2.4rem);
+  }
+  .warnings-area__content h3 {
+    font-size: clamp(2rem, 2rem + 1.2vw, 4rem);
+  }
+  .warnings-area__illustration {
+    height: clamp(8rem, 10rem + 3vw, 16rem);
+  }
+}
+@media (max-width: 550px) {
+  .tasks-area__warnings-area {
+    padding: 2rem 4rem;
+  }
+  .warnings-area__illustration {
+    display: none;
+  }
+  .task-list-card__header h3 {
+    font-size: clamp(2rem, 1.8rem + 0.2vw, 2.4rem);
+  }
+  .task-list-card__header button {
+    padding: 1rem 1.2rem;
+  }
+  .task-list-card__header button p {
+    display: none;
   }
 }
 
