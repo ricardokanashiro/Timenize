@@ -7,7 +7,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 3.5rem;
+  gap: clamp(1.5rem, 1rem + 2vw, 3.5rem);
 }
 
 .dashboard__tasks-area {
@@ -16,7 +16,7 @@
   max-height: 100%;
   display: flex;
   flex-flow: column nowrap;
-  gap: 3.5rem;
+  gap: clamp(1.5rem, 1rem + 2vw, 3.5rem);
 }
 
 .tasks-area__warnings-area {
@@ -57,10 +57,10 @@
   background-color: white;
   flex-grow: 1;
   border-radius: 0.6rem;
-  padding: 3.5rem;
+  padding: clamp(2rem, 1.5rem + 1.5vw, 3.5rem);
   display: flex;
   flex-flow: column nowrap;
-  gap: 3.5rem;
+  gap: clamp(2rem, 2rem + 1vw, 3.5rem);
 }
 
 .task-list-card__header {
@@ -70,7 +70,7 @@
 }
 .task-list-card__header h3 {
   color: #615EFF;
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 1.4rem + 0.8vw, 2.4rem);
 }
 .task-list-card__header button {
   background-color: #615EFF;
@@ -83,6 +83,11 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+.header__clipboard-icon {
+  width: clamp(1.6rem, 1.2rem + 0.6vw, 2rem);
+  height: clamp(1.6rem, 1.2rem + 0.6vw, 2rem);
 }
 
 .task-list-card__task-list {
@@ -103,7 +108,7 @@
   align-items: center;
 }
 .task-list__add-task-alt-btn .add-task-alt-btn__plus-icon {
-  height: 2.2rem;
+  height: clamp(1.8rem, 1.1rem + 1.1vw, 2.2rem);
 }
 
 .dashboard__plans-card {
@@ -111,7 +116,7 @@
   height: 100%;
   background-color: white;
   border-radius: 0.6rem;
-  padding: 3.5rem;
+  padding: clamp(2rem, 1.5rem + 1.5vw, 3.5rem);
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -127,12 +132,12 @@
 }
 .plans-card__header h3 {
   color: #615EFF;
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 1.4rem + 0.8vw, 2.4rem);
 }
 .plans-card__header a {
   color: #838393;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 0.6rem + 0.6vw, 1.2rem);
 }
 
 .plans-card__plans-wrapper {
@@ -154,14 +159,16 @@
 }
 .pinned-area__header p,
 .deadline-area__header p {
-  font-size: 1.4rem;
+  font-size: clamp(1.1rem, 0.7rem + 0.7vw, 1.4rem);
   font-weight: 600;
   color: #838393;
 }
 .pinned-area__header .pinned-area__header__icon,
-.deadline-area__header .pinned-area__header__icon {
-  height: 1.4rem;
-  width: 1.4rem;
+.pinned-area__header .deadline-area__header__icon,
+.deadline-area__header .pinned-area__header__icon,
+.deadline-area__header .deadline-area__header__icon {
+  height: clamp(1.1rem, 0.7rem + 0.7vw, 1.4rem);
+  width: clamp(1.1rem, 0.7rem + 0.7vw, 1.4rem);
 }
 
 .deadline-area__header {
@@ -201,22 +208,28 @@
   .warnings-area__illustration {
     height: clamp(8rem, 10rem + 3vw, 16rem);
   }
-}
-@media (max-width: 550px) {
-  .tasks-area__warnings-area {
-    padding: 2rem 4rem;
-  }
-  .warnings-area__illustration {
-    display: none;
-  }
-  .task-list-card__header h3 {
-    font-size: clamp(2rem, 1.8rem + 0.2vw, 2.4rem);
-  }
   .task-list-card__header button {
     padding: 1rem 1.2rem;
   }
   .task-list-card__header button p {
     display: none;
+  }
+}
+@media (max-width: 550px) {
+  .tasks-area__warnings-area {
+    padding: clamp(1.2rem, 1rem + 1vw, 2rem) clamp(2.5rem, 2rem + 2vw, 4rem);
+  }
+  .warnings-area__illustration {
+    display: none;
+  }
+  .task-list-card__header button {
+    padding: 0.8rem 1rem;
+  }
+  .task-list-card__header button p {
+    display: none;
+  }
+  .dashboard__plans-card {
+    margin-bottom: 7rem;
   }
 }
 

@@ -6,7 +6,7 @@
    max-height: calc(100%);
 
    @include flex(flex-start, flex-start);
-   gap: 3.5rem;
+   gap: clamp(1.5rem, 1rem + 2vw, 3.5rem);
 }
 
 .dashboard__tasks-area {
@@ -16,7 +16,7 @@
 
    display: flex;
    flex-flow: column nowrap;
-   gap: 3.5rem;
+   gap: clamp(1.5rem, 1rem + 2vw, 3.5rem);
 }
 
 .tasks-area__warnings-area {
@@ -57,11 +57,11 @@
    background-color: white;
    flex-grow: 1;
    border-radius: .6rem;
-   padding: 3.5rem;
+   padding: clamp(2rem, 1.5rem + 1.5vw, 3.5rem);
 
    display: flex;
    flex-flow: column nowrap;
-   gap: 3.5rem;
+   gap: clamp(2rem, 2rem + 1vw, 3.5rem);
 }
 
 .task-list-card__header {
@@ -69,7 +69,7 @@
 
    h3 {
       color: $purplishBlue900;
-      font-size: 2.4rem;
+      font-size: clamp(1.8rem, 1.4rem + .8vw, 2.4rem);
    }
 
    button {
@@ -83,6 +83,11 @@
       @include flex(center, center);
       gap: 1rem;
    }
+}
+
+.header__clipboard-icon {
+   width: clamp(1.6rem, 1.2rem + .6vw , 2rem);
+   height: clamp(1.6rem, 1.2rem + .6vw , 2rem);
 }
 
 .task-list-card__task-list {
@@ -101,7 +106,7 @@
    @include flex(center, center);
 
    .add-task-alt-btn__plus-icon {
-      height: 2.2rem;
+      height: clamp(1.8rem, 1.1rem + 1.1vw, 2.2rem);
    }
 }
 
@@ -110,7 +115,7 @@
    height: 100%;
    background-color: white;
    border-radius: .6rem;
-   padding: 3.5rem;
+   padding: clamp(2rem, 1.5rem + 1.5vw, 3.5rem);
 
    @include flex(flex-start, flex-start);
    flex-flow: column nowrap;
@@ -123,13 +128,13 @@
 
    h3 {
       color: $purplishBlue900;
-      font-size: 2.4rem;
+      font-size: clamp(1.8rem, 1.4rem + .8vw, 2.4rem);
    }
 
    a {
       color: $gray;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: clamp(1rem, .6rem + .6vw, 1.2rem);
    }
 }
 
@@ -149,14 +154,15 @@
    gap: 1rem;
 
    p {
-      font-size: 1.4rem;
+      font-size: clamp(1.1rem, .7rem + .7vw, 1.4rem);
       font-weight: 600;
       color: $gray;
    }
 
-   .pinned-area__header__icon {
-      height: 1.4rem;
-      width: 1.4rem;
+   .pinned-area__header__icon,
+   .deadline-area__header__icon {
+      height: clamp(1.1rem, .7rem + .7vw, 1.4rem);
+      width: clamp(1.1rem, .7rem + .7vw, 1.4rem);
    }
 }
 
@@ -205,22 +211,8 @@
    .warnings-area__illustration {
       height: clamp(8rem, 10rem + 3vw, 16rem);
    }
-}
-
-@include SmallScreensDown {
-   .tasks-area__warnings-area {
-      padding: 2rem 4rem;
-   }
-
-   .warnings-area__illustration {
-      display: none;
-   }
 
    .task-list-card__header {
-      h3 {
-         font-size: clamp(2rem, 1.8rem + .2vw, 2.4rem);
-      }
-
       button {
          padding: 1rem 1.2rem;
 
@@ -228,5 +220,29 @@
             display: none;
          }
       }
+   }
+}
+
+@include SmallScreensDown {
+   .tasks-area__warnings-area {
+      padding: clamp(1.2rem, 1rem + 1vw, 2rem) clamp(2.5rem, 2rem + 2vw, 4rem);
+   }
+
+   .warnings-area__illustration {
+      display: none;
+   }
+
+   .task-list-card__header {
+      button {
+         padding: .8rem 1rem;
+
+         p {
+            display: none;
+         }
+      }
+   }
+
+   .dashboard__plans-card {
+      margin-bottom: 7rem;
    }
 }

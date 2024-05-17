@@ -7,7 +7,7 @@ import "@/css/components/sidebar.css"
 
 import { SidebarItem, Dashboard, Settings, Habits, Plans, Pomodoro } from "@/components"
 
-import { Logo, IconHome, IconHomeWhite, IconSettings, IconSettingsWhite, IconTarget, IconTargetWhite, IconCalendar, IconCalendarWhite, IconClock, IconClockWhite, IconArrowDown, UserImage } from "@/assets"
+import { Logo, IconHome, IconHomeWhite, IconSettings, IconSettingsWhite, IconTarget, IconTargetWhite, IconCalendar, IconCalendarWhite, IconClock, IconClockWhite, IconLogOut, UserImage } from "@/assets"
 
 const Home = () => {
    const [selectedBtn, setSelectedBtn] = useState('dashboard')
@@ -86,8 +86,12 @@ const Home = () => {
                <div className="user-area__user-wrapper">
                   <Image src={UserImage} className="user-wrapper__user-img" alt="user image" />
                   <p>Mano RiK</p>
-                  <Image src={IconArrowDown} className="user-wrapper__arrow-down" alt="arrow down image" />
                </div>
+
+               <button className="user-area__logout-button">
+                  <Image src={IconLogOut} alt="icon logout" className="logout-button__icon" />
+                  <p>Logout</p>
+               </button>
             </div>
 
          </nav>
@@ -95,18 +99,65 @@ const Home = () => {
          <section className="home__sections-area">
 
             <header className="sections-area__header">
+
                <h1>{selectedBtn[0].toUpperCase() + selectedBtn.substring(1)}</h1>
+
             </header>
 
             <section className="sections-area__section-wrapper">
-               
-               {selectedBtn === 'dashboard' && (<Dashboard />) }
-               {selectedBtn === 'settings' && (<Settings />) }
-               {selectedBtn === 'hábitos' && (<Habits />) }
-               {selectedBtn === 'planos' && (<Plans />) }
-               {selectedBtn === 'pomodoro' && (<Pomodoro />) }
+
+               {selectedBtn === 'dashboard' && (<Dashboard />)}
+               {selectedBtn === 'settings' && (<Settings />)}
+               {selectedBtn === 'hábitos' && (<Habits />)}
+               {selectedBtn === 'planos' && (<Plans />)}
+               {selectedBtn === 'pomodoro' && (<Pomodoro />)}
 
             </section>
+
+         </section>
+
+         <section className="home__mobile-menu">
+            <SidebarItem
+               image={selectedBtn === 'dashboard' ? IconHomeWhite : IconHome}
+               text="Dashboard"
+               alt="dashboard icon"
+               actived={selectedBtn === 'dashboard' ? true : false}
+               setSelectedBtn={setSelectedBtn}
+            />
+
+            <SidebarItem
+               image={selectedBtn === 'settings' ? IconSettingsWhite : IconSettings}
+               text="Settings"
+               alt="settigns icon"
+               actived={selectedBtn === 'settings' ? true : false}
+               setSelectedBtn={setSelectedBtn}
+            />
+
+            <SidebarItem
+               image={selectedBtn === 'hábitos' ? IconTargetWhite : IconTarget}
+               text="Hábitos"
+               alt="hábitos icon"
+               actived={selectedBtn === 'hábitos' ? true : false}
+               setSelectedBtn={setSelectedBtn}
+            />
+
+            <SidebarItem
+               image={selectedBtn === 'planos' ? IconCalendarWhite : IconCalendar}
+               text="Planos"
+               alt="planos icon"
+               actived={selectedBtn === 'planos' ? true : false}
+               setSelectedBtn={setSelectedBtn}
+            />
+
+            <SidebarItem
+               image={selectedBtn === 'pomodoro' ? IconClockWhite : IconClock}
+               text="Pomodoro"
+               alt="pomodoro icon"
+               actived={selectedBtn === 'pomodoro' ? true : false}
+               setSelectedBtn={setSelectedBtn}
+            />
+
+            <Image src={UserImage} className="mobile-menu__user-image" alt="user image" />
 
          </section>
       </section>

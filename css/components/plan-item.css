@@ -28,7 +28,7 @@
 }
 .plan-item__content-area .content-area__title {
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: clamp(1.2rem, 0.8rem + 0.8vw, 1.6rem);
   color: #5B5B68;
 }
 
@@ -43,7 +43,7 @@
   color: white;
   width: min-content;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: clamp(0.9rem, 0.6rem + 0.6vw, 1.2rem);
   padding: 0.4rem 0.8rem;
   border-radius: 0.6rem;
 }
@@ -54,14 +54,16 @@
   gap: 1rem;
 }
 .content-area__warnings-area .warnings-area__date-area .date-area__date-color {
-  width: 0.8rem;
-  height: 0.8rem;
+  width: clamp(0.6rem, 0.4rem + 0.4vw, 0.8rem);
+  height: clamp(0.6rem, 0.4rem + 0.4vw, 0.8rem);
   border-radius: 50%;
   background-color: red;
+  flex-shrink: 0;
 }
 .content-area__warnings-area .warnings-area__date-area p {
   font-weight: 600;
   color: #838393;
+  font-size: clamp(0.8rem, 0.5rem + 0.5vw, 1rem);
 }
 
 .information-area__arrow-down-icon {

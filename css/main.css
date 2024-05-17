@@ -36,7 +36,7 @@ html {
 .sections-area__section-wrapper {
   width: 100%;
   height: calc(100% - 8rem);
-  padding: 3.5rem;
+  padding: clamp(1.5rem, 1rem + 2vw, 3.5rem);
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -51,16 +51,80 @@ html {
   position: sticky;
   top: 0;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column nowrap;
 }
 .sections-area__header h1 {
   font-size: 2.5rem;
 }
 
+.expandable-menu-area__hamburger-menu {
+  width: 3rem;
+  cursor: pointer;
+  display: none;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+
+.hamburger-menu__line {
+  width: 100%;
+  height: 0.3rem;
+  background-color: black;
+  border-radius: 0.5rem;
+  transition-duration: 550ms, 100ms;
+  transition-property: transform, opacity;
+}
+
+.home__mobile-menu {
+  display: none;
+}
+
+.mobile-menu__user-image {
+  width: clamp(2.2rem, 2rem + 1vw, 3rem);
+}
+
 @media (max-width: 1150px) {
   body {
     height: auto;
+    max-height: max-content;
+  }
+}
+@media (max-width: 550px) {
+  .expandable-menu-area__hamburger-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .expandable-menu-area__hamburger-menu--active {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .expandable-menu-area__hamburger-menu--active .hamburger-menu__line {
+    position: absolute;
+  }
+  .expandable-menu-area__hamburger-menu--active .hamburger-menu__line1 {
+    transform: rotate(225deg);
+  }
+  .expandable-menu-area__hamburger-menu--active .hamburger-menu__line2 {
+    opacity: 0;
+  }
+  .expandable-menu-area__hamburger-menu--active .hamburger-menu__line3 {
+    transform: rotate(-225deg);
+  }
+  .home__mobile-menu {
+    position: fixed;
+    bottom: 0;
+    height: min-content;
+    width: 100%;
+    background-color: white;
+    padding: 1.2rem 0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 

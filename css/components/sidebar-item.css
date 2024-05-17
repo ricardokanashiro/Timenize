@@ -21,7 +21,7 @@
   transition-property: color;
 }
 .sidebar-item .icon {
-  width: clamp(1.5rem, 0.7rem + 0.7vw, 2rem);
+  width: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
   height: auto;
 }
 
@@ -42,8 +42,10 @@
   .sidebar-item p {
     display: none;
   }
-  .sidebar-item .icon {
-    width: 1.8rem;
+}
+@media (max-width: 550px) {
+  .sidebar-item {
+    width: clamp(4rem, 3rem + 1.5vw, 5rem);
   }
 }
 

@@ -17,15 +17,21 @@
    gap: 1.2rem;
 
    p {
-      font-size: 1.25rem;
+      font-size: clamp(.9rem, .62rem + .62vw , 1.25rem);
       font-weight: 600;
       color: $darkGray;
    }
 
    button {
       cursor: pointer;
-      width: 2rem;
-      height: 2rem;
+      width: clamp(1.7rem, 1rem + 1vw , 2rem);
+      height: clamp(1.7rem, 1rem + 1vw , 2rem);
+      background-color: transparent;
+
+      img {
+         width: 100%;
+         height: 100%;
+      }
    }
 }
 
@@ -33,8 +39,12 @@
    @include flex(flex-start, center);
    gap: 1.4rem;
 
+   button {
+      background-color: transparent;
+   }
+
    .actions-area__icon {
-      height: 1.6rem;
+      height: clamp(1.4rem, .8rem + .8vw, 1.6rem);
    }
 }
 

@@ -24,7 +24,7 @@
    }
 
    .icon {
-      width: clamp(1.5rem, .7rem + .7vw, 2rem);
+      width: clamp(1.5rem, 1.4rem + .5vw, 2rem);
       height: auto;
    }
 }
@@ -46,9 +46,11 @@
       p {
          display: none;
       }
+   }
+}
 
-      .icon {
-         width: 1.8rem;
-      }
+@include SmallScreensDown {
+   .sidebar-item {
+      width: clamp(4rem, 3rem + 1.5vw, 5rem);
    }
 }

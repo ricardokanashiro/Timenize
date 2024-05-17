@@ -83,7 +83,7 @@ const Dashboard = () => {
 
                      <p>Deadline</p>
 
-                     <Image src={IconCrosshair} alt="icon crosshair" className="pinned-area__header__icon" />
+                     <Image src={IconCrosshair} alt="icon crosshair" className="deadline-area__header__icon" />
 
                   </div>
 

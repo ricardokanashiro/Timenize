@@ -55,8 +55,10 @@
 .sidebar__user-area {
    width: 100%;
 
-   @include flex(center, flex-end);
+   @include flex(flex-end, center);
    flex-grow: 1;
+   flex-flow: column nowrap;
+   gap: 1.4rem;
 }
 
 .user-area__user-wrapper {
@@ -64,23 +66,41 @@
    width: 100%;
    cursor: pointer;
 
-   @include flex(space-between, center);
+   @include flex(flex-start, center);
+   gap: 1.6rem;
 
    p {
       font-size: clamp(1rem, 1.05rem + .3vw, 1.8rem);
       font-weight: 500;
       color: $gray;
    }
+}
 
+.user-area__logout-button {
+   width: 100%;
+   border: 1.5px solid $gray;
+   padding: .6rem 1.2rem;
+   background-color: white;
+   cursor: pointer;
+   border-radius: .6rem;
+
+   @include flex(flex-start, center);
+   gap: 1.6rem;
+
+   p {
+      color: $gray;
+      font-weight: 600;
+      font-size: 1.2rem;
+   }
+
+   .logout-button__icon {
+      width: 1.8rem;
+   }
 }
 
 .user-wrapper__user-img {
    width: clamp(2.8rem, 2.3rem + .5vw, 3.2rem);
    height: auto;     
-}
-
-.user-wrapper__arrow-down {
-   width: clamp(1.6rem, 1.3rem + .3vw, 2rem);
 }
 
 @include TabletsDown {
@@ -98,12 +118,28 @@
    }
 
    .user-area__user-wrapper {
+      justify-content: center;
+
+      p {
+         display: none;
+      }
+
+      .user-wrapper__user-img {
+         width: 4.2rem;
+      }
+   }
+
+   .user-area__logout-button {
+      justify-content: center;
+
       p {
          display: none;
       }
    }
+}
 
-   .user-wrapper__arrow-down {
+@include SmallScreensDown {
+   .home__sidebar {
       display: none;
    }
 }
