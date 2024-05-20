@@ -1,3 +1,7 @@
+import moment from "moment";
+import 'moment/locale/pt-br'
+
+import { useEffect, useState } from "react"
 import Image from "next/image"
 
 import "@/css/components/plan-item.css"
@@ -6,10 +10,15 @@ import { Goal } from "."
 
 import { IconArrowDownBlue } from "@/assets"
 
-import { useState } from "react"
-
-const PlanItem = () => {
+const PlanItem = ({ plan, index }) => {
    const [actived, setActived] = useState(false)
+   const [counter, setCounter] = useState(0)
+
+   useEffect(() => {
+      plan.goals.forEach((goal) => {
+         goal.checked && setCounter((prev) => prev + 1)
+      })
+   }, [])
 
    return (
       <div className={actived ? "plan-item plan-item--actived" : "plan-item"}>
@@ -18,15 +27,15 @@ const PlanItem = () => {
 
             <div className="plan-item__content-area">
 
-               <p className="content-area__title">Estudar e passar na prova da TOEFL</p>
+               <p className="content-area__title">{plan.title}</p>
 
                <div className="content-area__warnings-area">
 
-                  <div className="warnings-area__goals-amount">5/10</div>
+                  <div className="warnings-area__goals-amount">{counter}/{plan.goals.length}</div>
 
                   <div className="warnings-area__date-area">
 
-                     <p>Acaba em 10/12/2024</p>
+                     <p>Acaba em {moment(plan.deadline).locale('pt-br').format('L')}</p>
 
                      <div className="date-area__date-color"></div>
 
@@ -47,9 +56,13 @@ const PlanItem = () => {
          </div>
 
          <div className={actived ? "plan-item__goals-area" : "plan-item__goals-area plan-item__goals-area--inactived"}>
-            <Goal text="Meta de exemplo" onDashboard={true} />
-            <Goal text="Meta de exemplo" onDashboard={true} />
-            <Goal text="Meta de exemplo" onDashboard={true} />
+
+            {
+               plan.goals.map((goal, key) => (
+               <Goal goal={goal} onDashboard={true} setCounter={setCounter} index={key} planIndex={index} key={key} />
+            ))
+            }
+
          </div>
 
       </div>

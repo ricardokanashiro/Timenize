@@ -7,16 +7,22 @@ import "@/css/components/task-item.css"
 
 import { IconTrash, IconClock, IconEdit, UncheckedIcon, CheckedIcon } from "@/assets"
 
-const TaskItem = ({ text }) => {
+import { tasks } from "./Dashboard"
 
-   const [checked, setChecked] = useState(false)
+const TaskItem = ({ task, index, setTaskCounter }) => {
+
+   const [checked, setChecked] = useState(task.checked)
 
    return (
       <div className="task-item">
 
          <div className="task-item__content-area">
 
-            <button onClick={() => setChecked((prev) => !prev)}>
+            <button onClick={() => {
+               setChecked((prev) => !prev)
+               checked ? setTaskCounter((prev) => prev - 1) : setTaskCounter((prev) => prev + 1)
+               tasks[index].checked = !tasks[index].checked
+            }}>
                {
                   checked ? (
                      <Image src={CheckedIcon} alt="checked icon" className="content-area__check-icon" />
@@ -28,9 +34,9 @@ const TaskItem = ({ text }) => {
 
             {
                checked ? (
-                  <p><s>{text}</s></p>
+                  <p><s>{task.title}</s></p>
                ) : (
-                  <p>{text}</p>
+                  <p>{task.title}</p>
                )
             }
 

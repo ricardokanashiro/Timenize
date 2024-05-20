@@ -1,19 +1,26 @@
+import { useState } from "react"
 import Image from "next/image"
 
 import "@/css/components/goal.css"
 
 import { SquareUncheckedIcon, SquareCheckedIcon, IconTrash, IconEdit } from "@/assets"
-import { useState } from "react"
 
-const Goal = ({ text, onDashboard }) => {
-   const [checked, setChecked] = useState(false)
+import { plans } from "./Dashboard"
+
+const Goal = ({ goal, onDashboard, setCounter, index, planIndex }) => {
+
+   const [checked, setChecked] = useState(goal.checked)
 
    return (
       <div className={onDashboard ? "goal goal--dashboard" : "goal"}>
 
          <div className="goal__content-area">
 
-            <button onClick={() => setChecked((prev) => !prev)}>
+            <button onClick={() => {
+               setChecked((prev) => !prev)
+               checked ? setCounter((prev) => prev - 1) : setCounter((prev) => prev + 1)
+               plans[planIndex].goals[index].checked = !plans[planIndex].goals[index].checked
+            }}>
                {
                   checked ? (
                      <Image src={SquareCheckedIcon} alt="checked icon" />
@@ -25,9 +32,9 @@ const Goal = ({ text, onDashboard }) => {
 
             {
                checked ? (
-                  <p><s>{text}</s></p>
+                  <p><s>{goal.title}</s></p>
                ) : (
-                  <p>{text}</p>
+                  <p>{goal.title}</p>
                )
             }
 

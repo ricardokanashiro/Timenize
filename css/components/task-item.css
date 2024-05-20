@@ -25,6 +25,7 @@
 .task-item__content-area button {
   width: 2.4rem;
   height: 2.4rem;
+  background-color: transparent;
 }
 .task-item__content-area button .content-area__check-icon {
   cursor: pointer;

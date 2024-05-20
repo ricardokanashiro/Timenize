@@ -1,3 +1,5 @@
+import moment from "moment"
+
 import Image from "next/image"
 
 import "@/css/components/dashboard.css"
@@ -5,8 +7,84 @@ import "@/css/components/dashboard.css"
 import { TaskItem, PlanItem } from "./"
 
 import { DashboardIllustration, ClipboardIconWhite, IconPlus, IconBookMark, IconCrosshair } from "@/assets"
+import { useEffect, useState } from "react"
+
+export let tasks = [
+   {
+      title: "Executar tarefa teste 1",
+      checked: true
+   },
+
+   {
+      title: "Executar tarefa teste 2",
+      checked: false
+   },
+
+   {
+      title: "Executar tarefa teste 3",
+      checked: false
+   },
+
+   {
+      title: "Executar tarefa teste 4",
+      checked: false
+   },
+]
+
+export let plans = [
+   {
+      title: "Titulo do Plano 1",
+      deadline: moment("2034-12-30"),
+      category: "pinned",
+      goals: [
+         {
+            title: "Meta de exemplo 1",
+            checked: false
+         },
+
+         {
+            title: "Meta de exemplo 2",
+            checked: false
+         },
+
+         {
+            title: "Meta de exemplo 3",
+            checked: false
+         }
+      ]
+   },
+
+   {
+      title: "Titulo do Plano 2",
+      deadline: moment("2034-12-30"),
+      category: "deadline",
+      goals: [
+         {
+            title: "Meta de exemplo 1",
+            checked: false
+         },
+
+         {
+            title: "Meta de exemplo 2",
+            checked: false
+         },
+
+         {
+            title: "Meta de exemplo 3",
+            checked: false
+         }
+      ]
+   }
+]
 
 const Dashboard = () => {
+
+   const [taskCounter, setTaskCounter] = useState(0)
+
+   useEffect(() => {
+      tasks.map((task) => task.checked && setTaskCounter((prev) => prev + 1))
+   }, [])
+
    return (
       <section className="dashboard">
 
@@ -16,7 +94,7 @@ const Dashboard = () => {
 
                <div className="warnings-area__content">
                   <h4>Today - <span>Medium</span> </h4>
-                  <h3>7/10 tasks</h3>
+                  <h3>{taskCounter}/{tasks.length} tasks</h3>
                </div>
 
                <Image src={DashboardIllustration} alt="warnings area illustration" className="warnings-area__illustration" />
@@ -36,9 +114,13 @@ const Dashboard = () => {
 
                <section className="task-list-card__task-list">
 
-                  <TaskItem text="Task de exemplo executada" />
-                  <TaskItem text="Task de exemplo executada" />
-                  <TaskItem text="Task de exemplo executada" />
+                  {
+                     tasks.map(
+                        (task, key) => (
+                           <TaskItem key={key} task={task} index={key} setTaskCounter={setTaskCounter} />
+                        )
+                     )
+                  }
 
                   <button className="task-list__add-task-alt-btn">
                      <Image src={IconPlus} alt="plus icon" className="add-task-alt-btn__plus-icon" />
@@ -71,8 +153,17 @@ const Dashboard = () => {
                   </div>
 
                   <div className="pinned-area__plans-wrapper">
-                     <PlanItem />
-                     <PlanItem />
+
+                     {
+                        plans.map((plan, key) => {
+                           if (plan.category === "pinned") {
+                              return <PlanItem plan={plan} index={key} key={key} />
+                           } else {
+                              return
+                           }
+                        })
+                     }
+
                   </div>
 
                </section>
@@ -88,7 +179,17 @@ const Dashboard = () => {
                   </div>
 
                   <div className="deadline-area__plans-wrapper">
-                     <PlanItem />
+
+                     {
+                        plans.map((plan, key) => {
+                           if (plan.category === "deadline") {
+                              return <PlanItem plan={plan} index={key} key={key} />
+                           } else {
+                              return
+                           }
+                        })
+                     }
+
                   </div>
 
                </section>
