@@ -61,10 +61,7 @@ const Dashboard = () => {
                <section className="task-list-card__task-list">
 
                   {
-                     dashboardTasks.map((task, key) => {
-                        console.log(task)
-                        return <TaskItem key={key} task={task} id={task.id} handleChangeTaskCounter={handleChangeTaskCounter} setDashboardTasks={setDashboardTasks} dashboardTasks={dashboardTasks} />
-                     })
+                     dashboardTasks.map((task) => (<TaskItem key={task.id} task={task} id={task.id} handleChangeTaskCounter={handleChangeTaskCounter} setDashboardTasks={setDashboardTasks} dashboardTasks={dashboardTasks} />))
                   }
 
                   <button className="task-list__add-task-alt-btn">

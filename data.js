@@ -5,7 +5,7 @@ export let tasks = [
       id: "1",
       title: "Executar tarefa teste 1",
       checked: false,
-      level: "básico"
+      level: "médio"
    },
 
    {

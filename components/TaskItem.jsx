@@ -17,7 +17,7 @@ const TaskItem = ({ task, id, handleChangeTaskCounter, setDashboardTasks, dashbo
    function handleCheckTask() {
       setChecked((prev) => !prev)
       handleChangeTaskCounter(checked)
-      setDashboardTasks(prev => prev.map(task => task.id === id ? {...task, checked: true} : task ))
+      setDashboardTasks(prev => prev.map(task => task.id === id ? { ...task, checked: true } : task))
    }
 
    function handleEditingValue(e) {
@@ -35,14 +35,13 @@ const TaskItem = ({ task, id, handleChangeTaskCounter, setDashboardTasks, dashbo
    }
 
    function handleEditWithEnter(e) {
-      if(e.key === 'Enter') {
+      if (e.key === 'Enter') {
          handleSetEditValue()
       }
    }
 
    function handleDelete() {
       let filteredTasks = dashboardTasks.filter(task => task.id !== id)
-      console.log(filteredTasks)
       setDashboardTasks(filteredTasks)
    }
 
@@ -64,13 +63,13 @@ const TaskItem = ({ task, id, handleChangeTaskCounter, setDashboardTasks, dashbo
             {
                editActive ? <input type="text" onChange={(e) => handleEditingValue(e)} value={editValue} className="content-area__edit-input" autoFocus onKeyDown={(e) => handleEditWithEnter(e)} />
 
-               :
+                  :
 
-               checked ? (
-                  <p><s>{taskTitle}</s></p>
-               ) : (
-                  <p>{taskTitle}</p>
-               )
+                  checked ? (
+                     <p><s>{taskTitle}</s></p>
+                  ) : (
+                     <p>{taskTitle}</p>
+                  )
             }
 
 
@@ -81,38 +80,38 @@ const TaskItem = ({ task, id, handleChangeTaskCounter, setDashboardTasks, dashbo
             {
                editActive ?
 
-               <>
-                  <button>
-                     <Image src={IconX} alt="X icon" className="actions-area__icon" onClick={() => {
-                        setEditActive(false)
-                     }} />
-                  </button>
+                  <>
+                     <button>
+                        <Image src={IconX} alt="X icon" className="actions-area__icon" onClick={() => {
+                           setEditActive(false)
+                        }} />
+                     </button>
 
-                  <button>
-                     <Image src={IconCheck} alt="Check icon" className="actions-area__icon" onClick={handleSetEditValue} />
-                  </button>
-               </>
+                     <button>
+                        <Image src={IconCheck} alt="Check icon" className="actions-area__icon" onClick={handleSetEditValue} />
+                     </button>
+                  </>
 
 
-               :
+                  :
 
-               <>
-                  {!checked && (
-                     <>
-                        <button>
-                           <Image src={IconClock} alt="clock icon" className="actions-area__icon" />
-                        </button>
-   
-                        <button>
-                           <Image src={IconEdit} alt="edit icon" className="actions-area__icon" onClick={handleEditValue} />
-                        </button>
-                     </>
-                  )}
+                  <>
+                     {!checked && (
+                        <>
+                           <button>
+                              <Image src={IconClock} alt="clock icon" className="actions-area__icon" />
+                           </button>
 
-                  <button>
-                     <Image src={IconTrash} alt="trash icon" className="actions-area__icon" onClick={handleDelete} />
-                  </button>
-               </>
+                           <button>
+                              <Image src={IconEdit} alt="edit icon" className="actions-area__icon" onClick={handleEditValue} />
+                           </button>
+                        </>
+                     )}
+
+                     <button>
+                        <Image src={IconTrash} alt="trash icon" className="actions-area__icon" onClick={handleDelete} />
+                     </button>
+                  </>
             }
 
          </div>
