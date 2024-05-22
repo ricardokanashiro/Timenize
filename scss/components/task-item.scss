@@ -31,7 +31,12 @@
          height: clamp(2rem, 1.6rem + .4vw, 2.4rem);
       }
    }
+}
 
+.content-area__edit-input {
+   background-color: transparent;
+   outline: none;
+   width: 100%;
 }
 
 .task-item__actions-area {
@@ -60,5 +65,4 @@
          width: clamp(1.4rem, .8rem + .4vw, 1.8rem);
       }
    }
-
 }

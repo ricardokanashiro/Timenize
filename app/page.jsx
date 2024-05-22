@@ -5,7 +5,9 @@ import Image from "next/image"
 
 import "@/css/components/sidebar.css"
 
-import { SidebarItem, Dashboard, Settings, Habits, Plans, Pomodoro } from "@/components"
+import { SidebarItem } from "@/components"
+
+import { Dashboard, Settings, Habits, Plans, Pomodoro } from "@/screens"
 
 import { Logo, IconHome, IconHomeWhite, IconSettings, IconSettingsWhite, IconTarget, IconTargetWhite, IconCalendar, IconCalendarWhite, IconClock, IconClockWhite, IconLogOut, UserImage } from "@/assets"
 

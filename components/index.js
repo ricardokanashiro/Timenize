@@ -1,11 +1,11 @@
 import SidebarItem from "./SidebarItem";
-import Dashboard from "./Dashboard";
-import Settings from "./Settings";
-import Habits from "./Habits";
-import Plans from "./Plans";
-import Pomodoro from "./Pomodoro";
 import TaskItem from "./TaskItem";
 import PlanItem from "./PlanItem";
 import Goal from "./Goal";
+import Dashboard from "../screens/Dashboard";
+import Pomodoro from "../screens/Pomodoro";
+import Settings from "../screens/Settings";
+import Plans from "../screens/Plans";
+import Habits from "../screens/Habits";
 
-export { SidebarItem, Dashboard, Settings, Habits, Plans, Pomodoro, TaskItem, PlanItem, Goal };
+export { SidebarItem, Dashboard, TaskItem, PlanItem, Goal, Pomodoro, Settings, Plans, Habits };

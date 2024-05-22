@@ -5,7 +5,7 @@ import "@/css/components/goal.css"
 
 import { SquareUncheckedIcon, SquareCheckedIcon, IconTrash, IconEdit } from "@/assets"
 
-import { plans } from "./Dashboard"
+import { plans } from "@/data"
 
 const Goal = ({ goal, onDashboard, setCounter, index, planIndex }) => {
 
