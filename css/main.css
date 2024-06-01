@@ -21,7 +21,25 @@ html {
   display: flex;
   height: 100%;
   width: 100%;
+  overflow-y: hidden;
   background-color: #F3F3FF;
+  position: relative;
+}
+
+.home__modals-wrapper {
+  position: absolute;
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__modal-blur {
+  background-color: rgba(0, 0, 0, 0.425);
+  width: 100dvw;
+  height: 100dvh;
+  position: absolute;
 }
 
 .home__sections-area {

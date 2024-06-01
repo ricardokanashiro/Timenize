@@ -1,0 +1,61 @@
+@use "../utils" as *;
+
+.list-task-item {
+   width: 100%;
+   background-color: $purplishBlue100;
+   border-radius: .6rem;
+   border-right: .6rem solid $purplishBlue900;
+   padding: 1.2rem;
+
+   @include flex(center, center);
+}
+
+.list-task-item__content-area {
+   width: 100%;
+   @include flex(center, center);
+   gap: .6rem;
+}
+
+.list-task-item__drag-button {
+   background-color: transparent;
+   cursor: pointer;
+
+   .drag-button__icon {
+      height: 1.6rem;
+      margin-bottom: -.3rem;
+   }
+}
+
+.list-task-item__text {
+   flex-grow: 1;
+   font-size: 1.25rem;
+   font-weight: 500;
+}
+
+.list-task-item__actions-area {
+   @include flex(center, center);
+   gap: 1rem;
+}
+
+.list-task-item__level-color {
+   width: 1.4rem;
+   height: 1.4rem;
+   border-radius: 50%;
+}
+
+.list-task-item__level-color--basic {
+   background-color: $softGreen;
+}
+
+.list-task-item__level-color--middle {
+   background-color: $softYellow;
+}
+
+.list-task-item__level-color--complete {
+   background-color: $softRed;
+}
+
+.list-task-icon__actions-area__trash-icon {
+   height: 1.7rem;
+   margin-bottom: -.25rem;
+}

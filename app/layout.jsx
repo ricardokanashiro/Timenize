@@ -1,3 +1,5 @@
+import { DataProvider } from '@/components'
+
 import '@/css/main.css'
 
 export const metadata = {
@@ -10,11 +12,13 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
    return (
-      <html lang='pt-br'>
-         <body>
-            {children}
-         </body>
-      </html>
+      <DataProvider>
+         <html lang='pt-br'>
+            <body>
+               {children}
+            </body>
+         </html>
+      </DataProvider>
    )
 }
 

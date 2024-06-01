@@ -6,6 +6,7 @@
    border-radius: .6rem;
    padding: 1.5rem;
    @include flex(space-between, center);
+   gap: 2rem;
 }
 
 .goal:nth-child(1) {
@@ -13,8 +14,9 @@
 }
 
 .goal__content-area {
-   @include flex(center, center);
+   @include flex(flex-start, center);
    gap: 1.2rem;
+   flex-grow: 1;
 
    p {
       font-size: clamp(.9rem, .62rem + .62vw , 1.25rem);
@@ -24,9 +26,10 @@
 
    button {
       cursor: pointer;
-      width: clamp(1.7rem, 1rem + 1vw , 2rem);
-      height: clamp(1.7rem, 1rem + 1vw , 2rem);
+      width: clamp(1.7rem, 1rem + 1vw , 1.9rem);
+      height: clamp(1.7rem, 1rem + 1vw , 1.9rem);
       background-color: transparent;
+      flex-shrink: 0;
 
       img {
          width: 100%;
@@ -35,9 +38,16 @@
    }
 }
 
+.content-area__edit-input {
+   background-color: transparent;
+   outline: none;
+   width: 100%;
+}
+
 .goal__actions-area {
    @include flex(flex-start, center);
    gap: 1.4rem;
+   flex-shrink: 0;
 
    button {
       background-color: transparent;

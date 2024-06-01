@@ -1,33 +1,18 @@
-// 'use client'
+"use client"
 
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Image from "next/image"
+
+import { TaskItem, PlanItem } from "../components"
+import { DataContext } from "@/components/DataContext"
 
 import "@/css/components/dashboard.css"
 
 import { DashboardIllustration, ClipboardIconWhite, IconPlus, IconBookMark, IconCrosshair } from "@/assets"
 
-import { TaskItem, PlanItem } from "../components"
-
-import { tasks, plans } from "@/data"
-
 const Dashboard = () => {
 
-   let currentLevel = "médio"
-
-   const [taskCounter, setTaskCounter] = useState(0)
-   const [dashboardTasks, setDashboardTasks] = useState([])
-   const [dashboardPlans, setDashboardPlans] = useState([])
-
-   useEffect(() => {
-      tasks.map((task) => task.checked && setTaskCounter((prev) => prev + 1))
-      setDashboardTasks(tasks.filter(task => task.level === currentLevel))
-      setDashboardPlans(plans)
-   }, [])
-
-   function handleChangeTaskCounter(checked) {
-      checked ? setTaskCounter((prev) => prev - 1) : setTaskCounter((prev) => prev + 1)
-   }
+   const { sharedTasks, sharedPlans } = useContext(DataContext)
 
    return (
       <section className="dashboard">
@@ -37,9 +22,13 @@ const Dashboard = () => {
             <div className="tasks-area__warnings-area">
 
                <div className="warnings-area__content">
-                  <h4>Today - <span>Medium</span> </h4>
+                  <h4>Today - <span>Medium</span></h4>
                   <h3>
-                     {dashboardTasks.length > 0 ? `${taskCounter}/${dashboardTasks.length} tasks` : 'Adicione Tasks'}
+                     {
+                        sharedTasks.length > 0 ?
+                           `${sharedTasks.filter(task => task.checked).length}/${sharedTasks.length} tasks`
+                           : 'Adicione Tasks'
+                     }
                   </h3>
                </div>
 
@@ -61,7 +50,13 @@ const Dashboard = () => {
                <section className="task-list-card__task-list">
 
                   {
-                     dashboardTasks.map((task) => (<TaskItem key={task.id} task={task} id={task.id} handleChangeTaskCounter={handleChangeTaskCounter} setDashboardTasks={setDashboardTasks} dashboardTasks={dashboardTasks} />))
+                     sharedTasks.map((task) => (
+                        <TaskItem
+                           key={task.id}
+                           task={task}
+                           id={task.id}
+                        />
+                     ))
                   }
 
                   <button className="task-list__add-task-alt-btn">
@@ -97,9 +92,14 @@ const Dashboard = () => {
                   <div className="pinned-area__plans-wrapper">
 
                      {
-                        dashboardPlans.map((plan, key) => (
-                           plan.category === "pinned" && <PlanItem plan={plan} key={key} />
-                        ))
+                        sharedPlans.map((plan) => (
+                           plan.category === "pinned" && (
+                              <PlanItem
+                                 plan={plan}
+                                 id={plan.id}
+                                 key={plan.id}
+                              />
+                           )))
                      }
 
                   </div>
@@ -119,9 +119,14 @@ const Dashboard = () => {
                   <div className="deadline-area__plans-wrapper">
 
                      {
-                        plans.map((plan, key) => (
-                           plan.category === "deadline" && (<PlanItem plan={plan} index={key} key={key} />
-                        )))
+                        sharedPlans.map((plan) => (
+                           plan.category === "deadline" && (
+                              <PlanItem
+                                 plan={plan}
+                                 id={plan.id}
+                                 key={plan.id}
+                              />
+                           )))
                      }
 
                   </div>

@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.create-task-list-modal {
+  background-color: white;
+  position: absolute;
+  padding: 4rem 5rem;
+  border-radius: 0.6rem;
+  box-shadow: rgba(243, 243, 255, 0.3764705882) 0px 7px 29px 0px;
+  z-index: 1;
+  width: min(90%, 55rem);
+  max-height: 80%;
+}
+.create-task-list-modal h1 {
+  font-size: 2.3rem;
+}
+
+.create-task-list-modal__configurations {
+  width: 100%;
+  height: 100%;
+}
+
+.configurations__tasks-configs-area {
+  margin-top: 2.5rem;
+  width: 100%;
+}
+.configurations__tasks-configs-area h2 {
+  color: #838393;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.tasks-configs__create-title-area {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.tasks-configs__create-title-area input {
+  color: #838393;
+  background-color: #F3F3FF;
+  flex-grow: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 0.6rem;
+  outline: none;
+}
+.tasks-configs__create-title-area input::placeholder {
+  color: #C3C3C3;
+}
+
+.list-task-item__actions-area button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.tasks-configs__level-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2.5rem;
+}
+.tasks-configs__level-area p {
+  font-size: 1.2rem;
+  color: #838393;
+}
+
+.level-area__levels-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.configurations__task-list-wrapper {
+  margin-top: 2.5rem;
+  max-height: 100%;
+}
+.configurations__task-list-wrapper h2 {
+  color: #838393;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.task-list-wrapper__task-list {
+  width: 100%;
+  max-height: 20rem;
+  overflow-y: scroll;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+}
+
+.task-list-wrapper__task-list::-webkit-scrollbar {
+  width: 16px;
+}
+
+.task-list-wrapper__task-list::-webkit-scrollbar-thumb {
+  background-color: #e2e2e2;
+  border-radius: 50px;
+  border: 6px solid white;
+}
+
+.create-task-list-modal__action-area {
+  width: 100%;
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+/*# sourceMappingURL=create-task-list-modal.css.map */

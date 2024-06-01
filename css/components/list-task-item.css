@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.list-task-item {
+  width: 100%;
+  background-color: #F3F3FF;
+  border-radius: 0.6rem;
+  border-right: 0.6rem solid #615EFF;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-task-item__content-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.list-task-item__drag-button {
+  background-color: transparent;
+  cursor: pointer;
+}
+.list-task-item__drag-button .drag-button__icon {
+  height: 1.6rem;
+  margin-bottom: -0.3rem;
+}
+
+.list-task-item__text {
+  flex-grow: 1;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.list-task-item__actions-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.list-task-item__level-color {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+}
+
+.list-task-item__level-color--basic {
+  background-color: #90EE90;
+}
+
+.list-task-item__level-color--middle {
+  background-color: #FFC553;
+}
+
+.list-task-item__level-color--complete {
+  background-color: #FF5558;
+}
+
+.list-task-icon__actions-area__trash-icon {
+  height: 1.7rem;
+  margin-bottom: -0.25rem;
+}
+
+/*# sourceMappingURL=list-task-item.css.map */

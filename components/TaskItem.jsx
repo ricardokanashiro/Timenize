@@ -1,23 +1,22 @@
 "use client"
 
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Image from "next/image"
 
 import "@/css/components/task-item.css"
 
 import { IconTrash, IconClock, IconEdit, UncheckedIcon, CheckedIcon, IconX, IconCheck } from "@/assets"
 
-const TaskItem = ({ task, id, handleChangeTaskCounter, setDashboardTasks, dashboardTasks }) => {
+import { DataContext } from "./DataContext"
 
-   const [checked, setChecked] = useState(task.checked)
+const TaskItem = ({ task, id }) => {
+
+   const {sharedTasks, setSharedTasks} = useContext(DataContext)
    const [editActive, setEditActive] = useState(false)
-   const [taskTitle, setTaskTitle] = useState(task.title)
    const [editValue, setEditValue] = useState('')
 
    function handleCheckTask() {
-      setChecked((prev) => !prev)
-      handleChangeTaskCounter(checked)
-      setDashboardTasks(prev => prev.map(task => task.id === id ? { ...task, checked: true } : task))
+      setSharedTasks(prev => prev.map(task => task.id === id ? { ...task, checked: !task.checked } : task))
    }
 
    function handleEditingValue(e) {
@@ -26,12 +25,12 @@ const TaskItem = ({ task, id, handleChangeTaskCounter, setDashboardTasks, dashbo
 
    function handleEditValue() {
       setEditActive(true)
-      setEditValue(taskTitle)
+      setEditValue(task.title)
    }
 
    function handleSetEditValue() {
       setEditActive(false)
-      setTaskTitle(editValue)
+      setSharedTasks(prev => prev.map(task => task.id === id ? { ...task, title: editValue } : task))
    }
 
    function handleEditWithEnter(e) {
@@ -41,8 +40,8 @@ const TaskItem = ({ task, id, handleChangeTaskCounter, setDashboardTasks, dashbo
    }
 
    function handleDelete() {
-      let filteredTasks = dashboardTasks.filter(task => task.id !== id)
-      setDashboardTasks(filteredTasks)
+      let filteredTasks = sharedTasks.filter(task => task.id !== id)
+      setSharedTasks(filteredTasks)
    }
 
    return (
@@ -52,7 +51,7 @@ const TaskItem = ({ task, id, handleChangeTaskCounter, setDashboardTasks, dashbo
 
             <button onClick={handleCheckTask}>
                {
-                  checked ? (
+                  task.checked ? (
                      <Image src={CheckedIcon} alt="checked icon" className="content-area__check-icon" />
                   ) : (
                      <Image src={UncheckedIcon} alt="unchecked icon" className="content-area__check-icon" />
@@ -65,10 +64,10 @@ const TaskItem = ({ task, id, handleChangeTaskCounter, setDashboardTasks, dashbo
 
                   :
 
-                  checked ? (
-                     <p><s>{taskTitle}</s></p>
+                  task.checked ? (
+                     <p><s>{task.title}</s></p>
                   ) : (
-                     <p>{taskTitle}</p>
+                     <p>{task.title}</p>
                   )
             }
 
@@ -96,7 +95,7 @@ const TaskItem = ({ task, id, handleChangeTaskCounter, setDashboardTasks, dashbo
                   :
 
                   <>
-                     {!checked && (
+                     {!task.checked && (
                         <>
                            <button>
                               <Image src={IconClock} alt="clock icon" className="actions-area__icon" />

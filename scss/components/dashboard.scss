@@ -4,6 +4,7 @@
    width: 100%;
    height: 100%;
    max-height: calc(100%);
+   position: relative;
 
    @include flex(flex-start, flex-start);
    gap: clamp(1.5rem, 1rem + 2vw, 3.5rem);

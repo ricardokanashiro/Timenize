@@ -5,13 +5,14 @@ import Image from "next/image"
 
 import "@/css/components/sidebar.css"
 
-import { SidebarItem } from "@/components"
-
-import { Dashboard, Settings, Habits, Plans, Pomodoro } from "@/screens"
-
 import { Logo, IconHome, IconHomeWhite, IconSettings, IconSettingsWhite, IconTarget, IconTargetWhite, IconCalendar, IconCalendarWhite, IconClock, IconClockWhite, IconLogOut, UserImage } from "@/assets"
 
+import { SidebarItem } from "@/components"
+import { Dashboard, Settings, Habits, Plans, Pomodoro } from "@/screens"
+import { CreateTaskListModal } from "@/modals"
+
 const Home = () => {
+
    const [selectedBtn, setSelectedBtn] = useState('dashboard')
 
    return (
@@ -162,6 +163,18 @@ const Home = () => {
             <Image src={UserImage} className="mobile-menu__user-image" alt="user image" />
 
          </section>
+
+         <div className="home__modal-blur"></div>
+
+         <div className="home__modals-wrapper">
+            {
+               selectedBtn === "dashboard" &&
+               <>
+                  <CreateTaskListModal />
+               </>
+            }
+         </div>
+         
       </section>
    )
 }

@@ -1,3 +1,5 @@
+"use client"
+
 import moment from "moment";
 import 'moment/locale/pt-br'
 
@@ -10,7 +12,7 @@ import { Goal } from "."
 
 import { IconArrowDownBlue } from "@/assets"
 
-const PlanItem = ({ plan, index }) => {
+const PlanItem = ({ plan, id }) => {
    const [actived, setActived] = useState(false)
    const [counter, setCounter] = useState(0)
 
@@ -59,8 +61,15 @@ const PlanItem = ({ plan, index }) => {
 
             {
                plan.goals.map((goal, key) => (
-               <Goal goal={goal} onDashboard={true} setCounter={setCounter} index={key} planIndex={index} key={key} />
-            ))
+                  <Goal 
+                     goal={goal} 
+                     onDashboard={true}
+                     setCounter={setCounter} 
+                     id={goal.id} 
+                     planId={id}
+                     key={key}
+                  />
+               ))
             }
 
          </div>
