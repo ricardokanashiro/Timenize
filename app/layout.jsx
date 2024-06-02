@@ -8,7 +8,7 @@ export const metadata = {
    title: 'RiK Tasks',
    description: 'Um webapp de to-dos focado em produtividade e organização',
    icons: {
-      icon: '/favicon.ico',
+      icon: ['/favicon.ico'],
    },
 }
 
