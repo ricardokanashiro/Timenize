@@ -1,10 +1,11 @@
 "use client"
 
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import Image from "next/image"
 
 import { TaskItem, PlanItem } from "../components"
 import { DataContext } from "@/components/DataContext"
+import { ModalsContext } from "@/components/ModalsContext"
 
 import "@/css/components/dashboard.css"
 
@@ -12,7 +13,14 @@ import { DashboardIllustration, ClipboardIconWhite, IconPlus, IconBookMark, Icon
 
 const Dashboard = () => {
 
-   const { sharedTasks, sharedPlans } = useContext(DataContext)
+   const {sharedTasks, sharedPlans} = useContext(DataContext)
+   const {setTaskListModalActive, setModalBlurActive, setModalWrapperActive} = useContext(ModalsContext)
+
+   function handleSetModalActive() {
+      setTaskListModalActive(true)
+      setModalBlurActive(true)
+      setModalWrapperActive(true)
+   }
 
    return (
       <section className="dashboard">
@@ -41,7 +49,7 @@ const Dashboard = () => {
                <header className="task-list-card__header">
                   <h3>ToDo-List</h3>
 
-                  <button>
+                  <button onClick={handleSetModalActive}>
                      <p>Manage List</p>
                      <Image src={ClipboardIconWhite} alt="clipboard icon" className="header__clipboard-icon" />
                   </button>

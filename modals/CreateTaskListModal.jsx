@@ -8,17 +8,29 @@ import { DragDropContext, Droppable } from '@hello-pangea/dnd'
 
 import { ModalButton, ListLevelButton, ListTaskItem } from '@/components'
 import { DataContext } from "@/components/DataContext"
+import { ModalsContext } from '@/components/ModalsContext'
 
 const CreateTaskListModal = () => {
 
    const {sharedTasks, setSharedTasks} = useContext(DataContext)
+
+   const {
+      taskListModalActive, setTaskListModalActive,
+      setModalBlurActive, setModalWrapperActive
+   } = useContext(ModalsContext)
+
    const [levelSelected, setLevelSelected] = useState("")
    const [taskTitle, setTaskTitle] = useState("")
    const [tempList, setTempList] = useState([])
+   const [animateClass, setAnimateClass] = useState("")
 
    useEffect(() => {
       setTempList([...sharedTasks])
    }, [sharedTasks])
+
+   useEffect(() => {
+      handleLoadAnimation()
+   }, [taskListModalActive])
 
    function reorderList(list, startIndex, endIndex) {
       const result = Array.from(list)
@@ -59,8 +71,19 @@ const CreateTaskListModal = () => {
       setTaskTitle("")
    }
 
+   function handleLoadAnimation() {
+      taskListModalActive && setTimeout(() => setAnimateClass("fade-up-left"), 100)
+   }
+
+   function handleSetModalDisabled() {
+      setTaskListModalActive(false)
+      setModalWrapperActive(false)
+      setModalBlurActive(false)
+      setAnimateClass("")
+   }
+
    return (
-      <div className="create-task-list-modal">
+      <div className={taskListModalActive ? "create-task-list-modal " + animateClass : "create-task-list-modal create-task-list-modal--disabled"}>
 
          <h1>Gerenciar Lista</h1>
 
@@ -149,7 +172,7 @@ const CreateTaskListModal = () => {
 
          <section className="create-task-list-modal__action-area">
 
-            <ModalButton backButton={true}>Cancelar</ModalButton>
+            <ModalButton backButton={true} action={handleSetModalDisabled}>Cancelar</ModalButton>
             <ModalButton backButton={false}>Aplicar</ModalButton>
 
          </section>

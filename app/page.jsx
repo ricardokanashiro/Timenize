@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Image from "next/image"
 
 import "@/css/components/sidebar.css"
@@ -11,7 +11,11 @@ import { SidebarItem } from "@/components"
 import { Dashboard, Settings, Habits, Plans, Pomodoro } from "@/screens"
 import { CreateTaskListModal } from "@/modals"
 
+import { ModalsContext } from "@/components/ModalsContext"
+
 const Home = () => {
+
+   const { modalWrapperActive, modalBlurActive } = useContext(ModalsContext)
 
    const [selectedBtn, setSelectedBtn] = useState('dashboard')
 
@@ -164,9 +168,9 @@ const Home = () => {
 
          </section>
 
-         <div className="home__modal-blur"></div>
+         <div className={modalBlurActive ? "home__modal-blur" : "home__modal-blur home__modal-blur--disabled"}></div>
 
-         <div className="home__modals-wrapper">
+         <div className={modalWrapperActive ? "home__modals-wrapper" : "home__modals-wrapper home__modals-wrapper--disabled"}>
             {
                selectedBtn === "dashboard" &&
                <>

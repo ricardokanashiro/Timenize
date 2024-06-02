@@ -9,9 +9,17 @@
   z-index: 1;
   width: min(90%, 55rem);
   max-height: 80%;
+  transition-property: opacity, transform;
+  transition-duration: 280ms;
+  opacity: 0;
+  transform: translate3d(0, 100px, 0);
 }
 .create-task-list-modal h1 {
   font-size: 2.3rem;
+}
+
+.create-task-list-modal--disabled {
+  display: none;
 }
 
 .create-task-list-modal__configurations {
@@ -111,6 +119,11 @@
   justify-content: flex-end;
   align-items: center;
   gap: 2rem;
+}
+
+.fade-up-left {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 /*# sourceMappingURL=create-task-list-modal.css.map */

@@ -35,11 +35,19 @@ html {
    @include flex(center, center);
 }
 
+.home__modals-wrapper--disabled {
+   display: none;
+}
+
 .home__modal-blur {
    background-color: rgba(0, 0, 0, 0.425);
    width: 100dvw;
    height: 100dvh;
    position: absolute;
+}
+
+.home__modal-blur--disabled {
+   display: none;
 }
 
 .home__sections-area {
