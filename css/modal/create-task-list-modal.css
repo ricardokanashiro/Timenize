@@ -3,7 +3,7 @@
 .create-task-list-modal {
   background-color: white;
   position: absolute;
-  padding: 4rem 5rem;
+  padding: clamp(2rem, 1.5rem + 2.5vw, 4rem) clamp(3rem, 2rem + 3vw, 5rem);
   border-radius: 0.6rem;
   box-shadow: rgba(243, 243, 255, 0.3764705882) 0px 7px 29px 0px;
   z-index: 1;
@@ -15,7 +15,7 @@
   transform: translate3d(0, 100px, 0);
 }
 .create-task-list-modal h1 {
-  font-size: 2.3rem;
+  font-size: clamp(1.8rem, 1.1rem + 1.1vw, 2.3rem);
 }
 
 .create-task-list-modal--disabled {
@@ -34,11 +34,14 @@
 .configurations__tasks-configs-area h2 {
   color: #838393;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: clamp(1.3rem, 0.75rem + 0.75vw, 1.5rem);
+}
+
+.tasks-configs__tasks-configs {
+  width: 100%;
 }
 
 .tasks-configs__create-title-area {
-  width: 100%;
   margin: 2rem 0;
   display: flex;
   justify-content: space-between;
@@ -52,6 +55,7 @@
   padding: 1rem 1.5rem;
   border-radius: 0.6rem;
   outline: none;
+  font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
 }
 .tasks-configs__create-title-area input::placeholder {
   color: #C3C3C3;
@@ -66,10 +70,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 2.5rem;
+  gap: clamp(2rem, 1.25rem + 1.25vw, 2.5rem);
 }
 .tasks-configs__level-area p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 0.6rem + 0.6vw, 1.2rem);
   color: #838393;
 }
 
@@ -77,7 +81,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.5rem;
+  gap: clamp(1rem, 0.75rem + 0.75vw, 1.5rem);
 }
 
 .configurations__task-list-wrapper {
@@ -87,7 +91,7 @@
 .configurations__task-list-wrapper h2 {
   color: #838393;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: clamp(1.3rem, 0.75rem + 0.75vw, 1.5rem);
   margin-bottom: 2rem;
 }
 
@@ -124,6 +128,88 @@
 .fade-up-left {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+}
+
+.create-task-list-modal__apply-button {
+  background-color: #615EFF;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  border: 2px solid transparent;
+  transition-duration: 250ms;
+  transition-property: color, border, background-color;
+}
+
+.create-task-list-modal__apply-button:hover {
+  border: 2px solid #615EFF;
+  background-color: transparent;
+  color: #615EFF;
+}
+
+.create-task-list-modal__back-button {
+  background-color: transparent;
+  color: #838393;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 0.3rem;
+}
+
+.create-task-list-modal__add-button {
+  background-color: #615EFF;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  border: 2px solid transparent;
+  transition-duration: 250ms;
+  transition-property: color, border, background-color;
+}
+
+.create-task-list-modal__add-button:hover {
+  border: 2px solid #615EFF;
+  background-color: transparent;
+  color: #615EFF;
+}
+
+.modal-button__icon {
+  display: none;
+}
+
+.create-task-list-modal__back-button,
+.create-task-list-modal__apply-button,
+.create-task-list-modal__add-btn {
+  font-size: clamp(1rem, 0.7rem + 0.7vw, 1.4rem);
+}
+
+@media (max-width: 550px) {
+  .tasks-configs__level-area p {
+    display: none;
+  }
+  .tasks-configs__create-title-area {
+    gap: 0;
+    align-items: stretch;
+  }
+  .tasks-configs__create-title-area input {
+    border-radius: 0.3rem 0 0 0.3rem;
+  }
+  .create-task-list-modal__add-button {
+    border-radius: 0 0.3rem 0.3rem 0;
+    display: flex;
+  }
+  .modal-button__text {
+    display: none;
+  }
+  .modal-button__icon {
+    display: flex;
+    width: clamp(1.8rem, 1.25rem + 1.25vw, 2.5rem);
+    height: clamp(1.8rem, 1.25rem + 1.25vw, 2.5rem);
+    flex-shrink: 0;
+  }
 }
 
 /*# sourceMappingURL=create-task-list-modal.css.map */

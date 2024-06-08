@@ -1,32 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
-.modal-button {
-  background-color: #615EFF;
-  color: white;
-  padding: 0.8rem 1.6rem;
-  cursor: pointer;
-  font-size: 1.4rem;
-  font-weight: 500;
-  border-radius: 0.3rem;
-  border: 2px solid transparent;
-  transition-duration: 250ms;
-  transition-property: color, border, background-color;
-}
-
-.modal-button:hover {
-  border: 2px solid #615EFF;
-  background-color: transparent;
-  color: #615EFF;
-}
-
-.modal-back-button {
-  background-color: transparent;
-  color: #838393;
-  padding: 0.8rem 1.6rem;
-  cursor: pointer;
-  font-size: 1.4rem;
-  font-weight: 500;
-  border-radius: 0.3rem;
-}
 
 /*# sourceMappingURL=modal-button.css.map */

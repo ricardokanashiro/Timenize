@@ -13,6 +13,12 @@
   transition-duration: 250ms;
 }
 
+.list-level-button--complete,
+.list-level-button--middle,
+.list-level-button--basic {
+  font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
+}
+
 .list-level-button--complete:hover {
   border-color: #FF5558;
   color: #FF5558;

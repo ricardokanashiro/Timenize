@@ -13,6 +13,13 @@
    transition-duration: 250ms;
 }
 
+.list-level-button--complete,
+.list-level-button--middle,
+.list-level-button--basic {
+   // font-size: 1.3rem;
+   font-size: clamp(1rem, .65rem + .65vw , 1.3rem);
+}
+
 .list-level-button--complete:hover {
    border-color: $softRed;
    color: $softRed;

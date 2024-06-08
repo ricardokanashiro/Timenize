@@ -6,13 +6,16 @@ import '@/css/modal/create-task-list-modal.css'
 
 import { DragDropContext, Droppable } from '@hello-pangea/dnd'
 
-import { ModalButton, ListLevelButton, ListTaskItem } from '@/components'
+import { ListLevelButton, ListTaskItem } from '@/components'
 import { DataContext } from "@/components/DataContext"
 import { ModalsContext } from '@/components/ModalsContext'
 
+import { IconPlusWhite } from '@/assets'
+import Image from 'next/image'
+
 const CreateTaskListModal = () => {
 
-   const {sharedTasks, setSharedTasks} = useContext(DataContext)
+   const { sharedTasks, setSharedTasks } = useContext(DataContext)
 
    const {
       taskListModalActive, setTaskListModalActive,
@@ -41,7 +44,7 @@ const CreateTaskListModal = () => {
    }
 
    function handleOnDragEnd(result) {
-      
+
       if (!result.destination) {
          return
       }
@@ -59,7 +62,7 @@ const CreateTaskListModal = () => {
    }
 
    function handleCreateTempTask() {
-      
+
       const newTask = {
          id: uuidV4(),
          title: taskTitle,
@@ -82,6 +85,10 @@ const CreateTaskListModal = () => {
       setAnimateClass("")
    }
 
+   function handleApplyChanges() {
+      setSharedTasks(tempList)
+   }
+
    return (
       <div className={taskListModalActive ? "create-task-list-modal " + animateClass : "create-task-list-modal create-task-list-modal--disabled"}>
 
@@ -98,7 +105,11 @@ const CreateTaskListModal = () => {
                   <div className="tasks-configs__create-title-area">
 
                      <input type="text" placeholder="Nome da nova task..." onChange={(e) => handleSetTaskTitle(e.target.value)} value={taskTitle} />
-                     <ModalButton backButton={false} action={handleCreateTempTask}>Criar</ModalButton>
+
+                     <button onClick={handleCreateTempTask} className="create-task-list-modal__add-button">
+                        <p className="modal-button__text">Criar</p>
+                        <Image src={IconPlusWhite} alt="" className="modal-button__icon" />
+                     </button>
 
                   </div>
 
@@ -172,8 +183,16 @@ const CreateTaskListModal = () => {
 
          <section className="create-task-list-modal__action-area">
 
-            <ModalButton backButton={true} action={handleSetModalDisabled}>Cancelar</ModalButton>
-            <ModalButton backButton={false}>Aplicar</ModalButton>
+            <button onClick={handleSetModalDisabled} className="create-task-list-modal__back-button">Cancelar</button>
+
+            <button 
+               className="create-task-list-modal__apply-button" 
+               onClick={() => {
+                  handleApplyChanges()
+                  handleSetModalDisabled()
+            }}>
+               Aplicar
+            </button>
 
          </section>
 

@@ -30,7 +30,7 @@
 
 .list-task-item__text {
   flex-grow: 1;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 0.6125rem + 0.6125vw, 1.25rem);
   font-weight: 500;
 }
 
@@ -42,8 +42,8 @@
 }
 
 .list-task-item__level-color {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: clamp(1.1rem, 0.7rem + 0.7vw, 1.4rem);
+  height: clamp(1.1rem, 0.7rem + 0.7vw, 1.4rem);
   border-radius: 50%;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .list-task-icon__actions-area__trash-icon {
-  height: 1.7rem;
+  height: clamp(1.4rem, 0.85rem + 0.85vw, 1.7rem);
   margin-bottom: -0.25rem;
 }
 
