@@ -49,21 +49,49 @@
   gap: 2rem;
 }
 .tasks-configs__create-title-area input {
-  color: #838393;
-  background-color: #F3F3FF;
-  flex-grow: 1;
-  padding: 1rem 1.5rem;
-  border-radius: 0.6rem;
+  background-color: transparent;
+  height: 100%;
+  width: 0;
+  flex: 1;
   outline: none;
   font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
 }
 .tasks-configs__create-title-area input::placeholder {
   color: #C3C3C3;
 }
+.tasks-configs__create-title-area span {
+  font-size: clamp(1rem, 0.6rem + 0.6vw, 1.2rem);
+  font-weight: 500;
+  color: #838393;
+}
 
+.create-title-area__input-wrapper {
+  background-color: #F3F3FF;
+  flex-grow: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.list-task-item__actions-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
 .list-task-item__actions-area button {
   background-color: transparent;
   cursor: pointer;
+}
+
+.list-task-item__actions-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .tasks-configs__level-area {
@@ -93,6 +121,10 @@
   font-weight: 400;
   font-size: clamp(1.3rem, 0.75rem + 0.75vw, 1.5rem);
   margin-bottom: 2rem;
+}
+
+.create-task-list-modal__draggable-list-wrapper {
+  position: relative;
 }
 
 .task-list-wrapper__task-list {

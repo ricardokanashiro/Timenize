@@ -7,16 +7,10 @@
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
   font-weight: 400;
   transition-property: border-color, color, background-color;
   transition-duration: 250ms;
-}
-
-.list-level-button--complete,
-.list-level-button--middle,
-.list-level-button--basic {
-  font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
 }
 
 .list-level-button--complete:hover {

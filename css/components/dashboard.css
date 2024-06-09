@@ -234,9 +234,6 @@
   .task-list-card__header button {
     padding: 1rem 1.2rem;
   }
-  .task-list-card__header button p {
-    display: none;
-  }
 }
 @media (max-width: 550px) {
   .tasks-area__warnings-area {

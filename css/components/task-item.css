@@ -21,6 +21,7 @@
 .task-item__content-area p {
   font-size: clamp(0.9rem, 0.7rem + 0.7vw, 1.4rem);
   font-weight: 600;
+  word-break: break-all;
 }
 .task-item__content-area button {
   width: 2.4rem;

@@ -23,6 +23,7 @@ import IconList from './icon-list.svg';
 import IconLogIn from './icon-log-in.svg';   
 import IconLogOut from './icon-log-out.svg';
 import IconMinusWhite from './icon-minus-white.svg';
+import IconMenu from './icon-menu.svg';
 import IconMoreVertical from './icon-more-vertical.svg';
 import IconPlusWhite from './icon-plus-white.svg';
 import IconPlus from './icon-plus.svg';
@@ -47,4 +48,4 @@ import Wave1 from './wave1.svg';
 import Wave2 from './wave2.svg';
 import Wave3 from './wave3.svg';
 
-export { CheckEmoji,CheckedIcon, ClipboardIconWhite, DashboardIllustration, FireEmoji, GoogleLogo, IconArrowDownBlue, IconArrowDown, IconBookMark, IconCalendarWhite, IconCalendar, IconCheck, IconClockBlue, IconClockWhite, IconClock, IconCrosshair, IconEdit, IconEyeOff, IconHeart, IconHomeWhite, IconHome, IconList, IconMinusWhite, IconMoreVertical, IconPlusWhite, IconPlus, IconSearchWhite, IconSettingsWhite, IconSettings, IconTargetWhite, IconTarget, IconTrash, IconX, LoginIllustration, Logo, Mountain1, Mountain2, Mountain3, SkullEmoji, SquareCheckedIcon, SquareUncheckedIcon, UncheckedIcon, UserImage, Wave1, Wave2, Wave3, IconLogIn, IconLogOut };
+export { CheckEmoji,CheckedIcon, ClipboardIconWhite, DashboardIllustration, FireEmoji, GoogleLogo, IconArrowDownBlue, IconArrowDown, IconBookMark, IconCalendarWhite, IconCalendar, IconCheck, IconClockBlue, IconClockWhite, IconClock, IconCrosshair, IconEdit, IconEyeOff, IconHeart, IconHomeWhite, IconHome, IconList, IconMinusWhite, IconMoreVertical, IconPlusWhite, IconPlus, IconSearchWhite, IconSettingsWhite, IconSettings, IconTargetWhite, IconTarget, IconTrash, IconX, LoginIllustration, Logo, Mountain1, Mountain2, Mountain3, SkullEmoji, SquareCheckedIcon, SquareUncheckedIcon, UncheckedIcon, UserImage, Wave1, Wave2, Wave3, IconLogIn, IconLogOut, IconMenu };

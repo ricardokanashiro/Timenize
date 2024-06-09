@@ -53,11 +53,10 @@
    gap: 2rem;
 
    input {
-      color: $gray;
-      background-color: $purplishBlue100;
-      flex-grow: 1;
-      padding: 1rem 1.5rem;
-      border-radius: .6rem;
+      background-color: transparent;
+      height: 100%;
+      width: 0;
+      flex: 1;
       outline: none;
       font-size: clamp(1rem, .65rem + .65vw , 1.3rem);
    }
@@ -65,13 +64,37 @@
    input::placeholder {
       color: $lightGray;
    }
+
+   span {
+      font-size: clamp(1rem, .6rem + .6vw, 1.2rem);
+      font-weight: 500;
+      color: $gray;
+   }
+}
+
+.create-title-area__input-wrapper {
+   background-color: $purplishBlue100;
+   flex-grow: 1;
+   padding: 1rem 1.5rem;
+   border-radius: .6rem;
+
+   @include flex(center, center);
+   gap: 1.4rem;
 }
 
 .list-task-item__actions-area {
+   @include flex(center, center);
+   gap: 1.5rem;
+
    button {
       background-color: transparent;
       cursor: pointer;
    }
+}
+
+.list-task-item__actions-wrapper {
+   @include flex(center, center);
+   gap: 1rem;
 }
 
 .tasks-configs__level-area {
@@ -99,6 +122,10 @@
       font-size: clamp(1.3rem, .75rem + .75vw, 1.5rem);
       margin-bottom: 2rem;
    }
+}
+
+.create-task-list-modal__draggable-list-wrapper {
+   position: relative;
 }
 
 .task-list-wrapper__task-list {

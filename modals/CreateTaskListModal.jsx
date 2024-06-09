@@ -1,17 +1,15 @@
 import { useContext, useEffect, useState } from 'react'
 
+import Image from 'next/image'
 import { v4 as uuidV4 } from 'uuid'
 
-import '@/css/modal/create-task-list-modal.css'
-
-import { DragDropContext, Droppable } from '@hello-pangea/dnd'
-
-import { ListLevelButton, ListTaskItem } from '@/components'
+import { ListLevelButton, DraggableList } from '@/components'
 import { DataContext } from "@/components/DataContext"
 import { ModalsContext } from '@/components/ModalsContext'
 
+import '@/css/modal/create-task-list-modal.css'
+
 import { IconPlusWhite } from '@/assets'
-import Image from 'next/image'
 
 const CreateTaskListModal = () => {
 
@@ -27,6 +25,8 @@ const CreateTaskListModal = () => {
    const [tempList, setTempList] = useState([])
    const [animateClass, setAnimateClass] = useState("")
 
+   const [taskItemEditActive, setTaskItemEditActive] = useState("")
+
    useEffect(() => {
       setTempList([...sharedTasks])
    }, [sharedTasks])
@@ -35,33 +35,25 @@ const CreateTaskListModal = () => {
       handleLoadAnimation()
    }, [taskListModalActive])
 
-   function reorderList(list, startIndex, endIndex) {
-      const result = Array.from(list)
-      const [removed] = result.splice(startIndex, 1)
-      result.splice(endIndex, 0, removed)
-
-      return result
-   }
-
-   function handleOnDragEnd(result) {
-
-      if (!result.destination) {
+   function handleSetTaskTitle(e) {
+      if (taskTitle.length === 50 && e.target.value > taskTitle) {
          return
       }
 
-      setTempList(reorderList(tempList, result.source.index, result.destination.index))
-   }
-
-   function handleSetTaskTitle(value) {
-      setTaskTitle(value)
-   }
-
-   function handleDeleteTempTask(id) {
-      const filteredList = tempList.filter(task => task.id != id)
-      setTempList(filteredList)
+      setTaskTitle(e.target.value)
    }
 
    function handleCreateTempTask() {
+
+      if (!taskTitle) {
+         alert("Insira um valor válido")
+         return
+      }
+
+      if (!levelSelected) {
+         alert("Insira um nível válido")
+         return
+      }
 
       const newTask = {
          id: uuidV4(),
@@ -72,6 +64,13 @@ const CreateTaskListModal = () => {
 
       setTempList(prev => [newTask, ...prev])
       setTaskTitle("")
+      setLevelSelected("")
+   }
+
+   function handleCreateTempTaskWithEnter(e) {
+      if (e.key === "Enter") {
+         handleCreateTempTask()
+      }
    }
 
    function handleLoadAnimation() {
@@ -83,14 +82,21 @@ const CreateTaskListModal = () => {
       setModalWrapperActive(false)
       setModalBlurActive(false)
       setAnimateClass("")
+
+      setTempList(sharedTasks)
+
+      setTaskTitle("")
+      setLevelSelected("")
+      setTaskItemEditActive("")
    }
 
    function handleApplyChanges() {
       setSharedTasks(tempList)
+      handleSetModalDisabled()
    }
 
    return (
-      <div className={taskListModalActive ? "create-task-list-modal " + animateClass : "create-task-list-modal create-task-list-modal--disabled"}>
+      <div className={taskListModalActive ? "create-task-list-modal " + animateClass : "create-task-list-modal create-task-list-modal--disabled"} tabIndex={1} onKeyDown={(e) => handleCreateTempTaskWithEnter(e)}>
 
          <h1>Gerenciar Lista</h1>
 
@@ -104,7 +110,19 @@ const CreateTaskListModal = () => {
 
                   <div className="tasks-configs__create-title-area">
 
-                     <input type="text" placeholder="Nome da nova task..." onChange={(e) => handleSetTaskTitle(e.target.value)} value={taskTitle} />
+                     <div className="create-title-area__input-wrapper">
+                        <input
+                           type="text"
+                           placeholder="Nome da nova task..."
+                           onChange={(e) => handleSetTaskTitle(e)}
+                           value={taskTitle}
+                        />
+
+                        {
+                           taskTitle && <span>{taskTitle.length}/50</span>
+                        }
+                     </div>
+
 
                      <button onClick={handleCreateTempTask} className="create-task-list-modal__add-button">
                         <p className="modal-button__text">Criar</p>
@@ -115,7 +133,7 @@ const CreateTaskListModal = () => {
 
                   <div className="tasks-configs__level-area">
 
-                     <p>Dificuldade</p>
+                     <p>Importância</p>
 
                      <div className="level-area__levels-wrapper">
 
@@ -124,7 +142,7 @@ const CreateTaskListModal = () => {
                            setLevelSelected={setLevelSelected}
                            actived={levelSelected === "básico"}
                         >
-                           Básico
+                           Trivial
                         </ListLevelButton>
 
                         <ListLevelButton
@@ -132,7 +150,7 @@ const CreateTaskListModal = () => {
                            setLevelSelected={setLevelSelected}
                            actived={levelSelected === "médio"}
                         >
-                           Médio
+                           Importante
                         </ListLevelButton>
 
                         <ListLevelButton
@@ -140,7 +158,7 @@ const CreateTaskListModal = () => {
                            setLevelSelected={setLevelSelected}
                            actived={levelSelected === "completo"}
                         >
-                           Completo
+                           Essencial
                         </ListLevelButton>
 
                      </div>
@@ -155,27 +173,17 @@ const CreateTaskListModal = () => {
 
                <h2>Lista de Tasks</h2>
 
-               <DragDropContext onDragEnd={handleOnDragEnd}>
-                  <Droppable droppableId="tasks" type="list" direction="vertical">
+               <section className="create-task-list-modal__draggable-list-wrapper">
 
-                     {(provided) => (
-                        <section className="task-list-wrapper__task-list" ref={provided.innerRef} {...provided.droppableProps}>
+                  <DraggableList
+                     tempList={tempList}
+                     setTempList={setTempList}
+                     taskItemEditActive={taskItemEditActive}
+                     setTaskItemEditActive={setTaskItemEditActive}
+                  />
 
-                           {
-                              tempList.map((task, index) => (
-                                 <ListTaskItem key={task.id} level={task.level} index={index} id={task.id.toString()} handleDeleteTempTask={handleDeleteTempTask}>
-                                    {task.title}
-                                 </ListTaskItem>
-                              ))
-                           }
+               </section>
 
-                           {provided.placeholder}
-
-                        </section>
-                     )}
-
-                  </Droppable>
-               </DragDropContext>
 
             </section>
 
@@ -185,12 +193,12 @@ const CreateTaskListModal = () => {
 
             <button onClick={handleSetModalDisabled} className="create-task-list-modal__back-button">Cancelar</button>
 
-            <button 
-               className="create-task-list-modal__apply-button" 
+            <button
+               className="create-task-list-modal__apply-button"
                onClick={() => {
                   handleApplyChanges()
                   handleSetModalDisabled()
-            }}>
+               }}>
                Aplicar
             </button>
 
