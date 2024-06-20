@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 import { DragDropContext, Droppable } from '@hello-pangea/dnd'
 
@@ -9,6 +9,7 @@ import { ListTaskItem } from '@/components'
 const DraggableList = ({ tempList, setTempList, taskItemEditActive, setTaskItemEditActive }) => {
 
    const [changeColorMenuSelected, setChangeColorMenuSelected] = useState("")
+   const containerRef = useRef()
 
    function reorderList(list, startIndex, endIndex) {
       const result = Array.from(list)
@@ -32,30 +33,32 @@ const DraggableList = ({ tempList, setTempList, taskItemEditActive, setTaskItemE
          <Droppable droppableId="tasks" type="list" direction="vertical">
 
             {(provided) => (
-               <section className="task-list-wrapper__task-list" ref={provided.innerRef} {...provided.droppableProps}>
+               <section ref={containerRef}>
+                  <section className="task-list-wrapper__task-list" ref={provided.innerRef} {...provided.droppableProps}>
 
-                  {
-                     tempList.map((task, index) => (
-                        <ListTaskItem
-                           key={task.id}
-                           level={task.level}
-                           index={index}
-                           id={task.id.toString()}
-                           tempList={tempList}
-                           setTempList={setTempList}
-                           taskItemEditActive={taskItemEditActive}
-                           setTaskItemEditActive={setTaskItemEditActive}
-                           changeColorMenuSelected={changeColorMenuSelected}
-                           setChangeColorMenuSelected={setChangeColorMenuSelected}
+                     {
+                        tempList.map((task, index) => (
+                           <ListTaskItem
+                              key={task.id}
+                              level={task.level}
+                              index={index}
+                              id={task.id.toString()}
+                              tempList={tempList}
+                              setTempList={setTempList}
+                              taskItemEditActive={taskItemEditActive}
+                              setTaskItemEditActive={setTaskItemEditActive}
+                              changeColorMenuSelected={changeColorMenuSelected}
+                              setChangeColorMenuSelected={setChangeColorMenuSelected}
+                              containerRef={containerRef}
+                           >
+                              {task.title}
+                           </ListTaskItem>
+                        ))
+                     }
 
-                        >
-                           {task.title}
-                        </ListTaskItem>
-                     ))
-                  }
+                     {provided.placeholder}
 
-                  {provided.placeholder}
-
+                  </section>
                </section>
             )}
 

@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react'
 
 import Image from 'next/image'
 import { v4 as uuidV4 } from 'uuid'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 import { ListLevelButton, DraggableList } from '@/components'
 import { DataContext } from "@/components/DataContext"
@@ -90,9 +92,17 @@ const CreateTaskListModal = () => {
       setTaskItemEditActive("")
    }
 
+   function notify(message) {
+      toast.success(message, {
+         position: "top-right",
+         autoClose: 3000,
+      })
+   }
+
    function handleApplyChanges() {
       setSharedTasks(tempList)
       handleSetModalDisabled()
+      notify("Alterações concluídas com sucesso!")
    }
 
    return (
@@ -138,25 +148,25 @@ const CreateTaskListModal = () => {
                      <div className="level-area__levels-wrapper">
 
                         <ListLevelButton
-                           level="básico"
+                           level="trivial"
                            setLevelSelected={setLevelSelected}
-                           actived={levelSelected === "básico"}
+                           actived={levelSelected === "trivial"}
                         >
                            Trivial
                         </ListLevelButton>
 
                         <ListLevelButton
-                           level="médio"
+                           level="importante"
                            setLevelSelected={setLevelSelected}
-                           actived={levelSelected === "médio"}
+                           actived={levelSelected === "importante"}
                         >
                            Importante
                         </ListLevelButton>
 
                         <ListLevelButton
-                           level="completo"
+                           level="essencial"
                            setLevelSelected={setLevelSelected}
-                           actived={levelSelected === "completo"}
+                           actived={levelSelected === "essencial"}
                         >
                            Essencial
                         </ListLevelButton>

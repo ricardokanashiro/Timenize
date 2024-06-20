@@ -13,34 +13,34 @@
   transition-duration: 250ms;
 }
 
-.list-level-button--complete:hover {
+.list-level-button--essencial:hover {
   border-color: #FF5558;
   color: #FF5558;
 }
 
-.list-level-button--complete-active {
+.list-level-button--essencial-active {
   color: white;
   border-color: #FF5558;
   background-color: #FF5558;
 }
 
-.list-level-button--middle:hover {
+.list-level-button--importante:hover {
   border-color: #FFC553;
   color: #FFC553;
 }
 
-.list-level-button--middle-active {
+.list-level-button--importante-active {
   color: white;
   border-color: #FFC553;
   background-color: #FFC553;
 }
 
-.list-level-button--basic:hover {
+.list-level-button--trivial:hover {
   border-color: #90EE90;
   color: #90EE90;
 }
 
-.list-level-button--basic-active {
+.list-level-button--trivial-active {
   color: white;
   border-color: #90EE90;
   background-color: #90EE90;

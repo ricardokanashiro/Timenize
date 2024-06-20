@@ -1,5 +1,3 @@
-import Head from 'next/head'
-
 import { DataProvider, ModalsProvider } from '@/components'
 
 import '@/css/main.css'

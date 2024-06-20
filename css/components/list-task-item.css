@@ -51,20 +51,48 @@
 
 .level-wrapper-mini-menu {
   background-color: white;
+  padding: 1rem;
+  border-radius: 0.6rem 0 0.6rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .level-wrapper-mini-menu button {
-  display: block;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.level-wrapper-mini-menu .level-wrapper-mini-menu__check-icon {
+  width: 1.4rem;
+}
+.level-wrapper-mini-menu .level-wrapper-mini-menu__check-icon--disabled {
+  opacity: 0;
+}
+.level-wrapper-mini-menu .level-wrapper-mini-menu__btn--green {
+  color: #90EE90;
+}
+.level-wrapper-mini-menu .level-wrapper-mini-menu__btn--yellow {
+  color: #FFC553;
+}
+.level-wrapper-mini-menu .level-wrapper-mini-menu__btn--red {
+  color: #FF5558;
 }
 
-.list-task-item__level-color--basic {
+.list-task-item__level-color--trivial {
   background-color: #90EE90 !important;
 }
 
-.list-task-item__level-color--middle {
+.list-task-item__level-color--importante {
   background-color: #FFC553 !important;
 }
 
-.list-task-item__level-color--complete {
+.list-task-item__level-color--essencial {
   background-color: #FF5558 !important;
 }
 

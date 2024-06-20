@@ -3,6 +3,8 @@
 import { useContext, useState } from "react"
 import Image from "next/image"
 
+import { ToastContainer } from "react-toastify"
+
 import "@/css/components/sidebar.css"
 
 import { Logo, IconHome, IconHomeWhite, IconSettings, IconSettingsWhite, IconTarget, IconTargetWhite, IconCalendar, IconCalendarWhite, IconClock, IconClockWhite, IconLogOut, UserImage } from "@/assets"
@@ -20,7 +22,11 @@ const Home = () => {
    const [selectedBtn, setSelectedBtn] = useState('dashboard')
 
    return (
+
       <section className="home">
+
+         <ToastContainer />
+
          <nav className="home__sidebar">
 
             <Image

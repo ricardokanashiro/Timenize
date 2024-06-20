@@ -4,7 +4,7 @@ import { useEffect, useState, useContext } from "react"
 
 import Image from "next/image"
 import { Draggable } from "@hello-pangea/dnd"
-import { useFloating, hide, autoUpdate } from "@floating-ui/react"
+import { useFloating, hide, autoUpdate, flip } from '@floating-ui/react';
 
 import { ModalsContext } from '@/components/ModalsContext'
 
@@ -13,30 +13,23 @@ import "@/css/components/list-task-item.css"
 import { IconTrash, IconMoreVertical, IconEdit, IconCheck, IconX } from "@/assets"
 
 const ListTaskItem = ({
-   children, level, index, id, tempList, setTempList, taskItemEditActive, setTaskItemEditActive, changeColorMenuSelected, setChangeColorMenuSelected
+   children, level, index, id, tempList, setTempList, taskItemEditActive, setTaskItemEditActive, changeColorMenuSelected, setChangeColorMenuSelected, containerRef
 }) => {
 
    const { taskListModalActive } = useContext(ModalsContext)
 
    const [editValue, setEditValue] = useState(children)
 
-   const {refs, floatingStyles, middlewareData} = useFloating({
-      placement: "left-start",
-      middleware: [hide()],
+   const { refs, floatingStyles, middlewareData } = useFloating({
+      placement: 'left-start',
+      middleware: [
+         flip({
+            boundary: containerRef.current,
+         }),
+         hide()
+      ],
       whileElementsMounted: autoUpdate
    });
-
-   function handleReturnLevelColor() {
-      if (level === "básico") {
-         return "list-task-item__level-color list-task-item__level-color--basic"
-      }
-
-      if (level === "médio") {
-         return "list-task-item__level-color list-task-item__level-color--middle"
-      }
-
-      return "list-task-item__level-color list-task-item__level-color--complete"
-   }
 
    function handleSetEditValue(value) {
       setEditValue(value)
@@ -67,7 +60,12 @@ const ListTaskItem = ({
       }
 
       setChangeColorMenuSelected(id)
-      // elRef.current.offsetTop
+   }
+
+   function changeLevel(level) {
+      setTempList(prev => prev.map(
+         task => task.id === id ? {...task, level: level} : task
+      ))
    }
 
    useEffect(() => {
@@ -106,16 +104,58 @@ const ListTaskItem = ({
 
                   <div className="list-task-item__level-wrapper">
 
-                     <button className={handleReturnLevelColor()} onClick={handleSetChangeColorMenuSelected} ref={refs.setReference}></button>
+                     <button 
+                        ref={refs.setReference}
+                        onClick={handleSetChangeColorMenuSelected} 
+                        className={
+                           "list-task-item__level-color list-task-item__level-color" + (
+                           level === "trivial" ? "--trivial" 
+                           : level === "importante" ? "--importante"
+                           : level === "essencial" && "--essencial")
+                        }
+                     ></button>
 
                      {
-                        changeColorMenuSelected === id &&
+                        changeColorMenuSelected === id && (
+                           <div className="level-wrapper-mini-menu" ref={refs.setFloating} style={{ ...floatingStyles, visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible' }}>
 
-                        <div className="level-wrapper-mini-menu" ref={refs.setFloating} style={{...floatingStyles, visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible'}}>
-                           <button>Opção 1</button>
-                           <button>Opção 2</button>
-                           <button>Opção 3</button>
-                        </div>
+                              <button className="level-wrapper-mini-menu__btn--green" onClick={() => changeLevel("trivial")}>
+                                 <p>Trivial</p>
+                                 <Image 
+                                    src={IconCheck} 
+                                    alt="icon check" 
+                                    className={
+                                       level === "trivial" ? "level-wrapper-mini-menu__check-icon"
+                                       : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
+                                    }
+                                 />
+                              </button>
+
+                              <button className="level-wrapper-mini-menu__btn--yellow" onClick={() => changeLevel("importante")}>
+                                 <p>Importante</p>
+                                 <Image 
+                                    src={IconCheck} 
+                                    alt="icon check" 
+                                    className={
+                                       level === "importante" ? "level-wrapper-mini-menu__check-icon"
+                                       : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
+                                    }
+                                 />
+                              </button>
+
+                              <button className="level-wrapper-mini-menu__btn--red" onClick={() => changeLevel("essencial")}>
+                                 <p>Essencial</p>
+                                 <Image 
+                                    src={IconCheck} 
+                                    alt="icon check" 
+                                    className={
+                                       level === "essencial" ? "level-wrapper-mini-menu__check-icon"
+                                       : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
+                                    }
+                                 />
+                              </button>
+                           </div>
+                        )
                      }
 
                   </div>

@@ -5,42 +5,42 @@ export let tasks = [
       id: "1",
       title: "Executar tarefa teste 1",
       checked: false,
-      level: "médio"
+      level: "importante"
    },
 
    {
       id: "2",
       title: "Te amo amorzinho <3",
       checked: true,
-      level: "médio"
+      level: "importante"
    },
 
    {
       id: "3",
       title: "Executar tarefa teste 3",
       checked: false,
-      level: "médio"
+      level: "importante"
    },
 
    {
       id: "4",
       title: "Executar tarefa teste 4",
       checked: false,
-      level: "completo"
+      level: "essencial"
    },
 
    {
       id: "5",
       title: "Executar tarefa teste 5",
       checked: false,
-      level: "básico"
+      level: "trivial"
    },
 
    {
       id: "6",
       title: "Executar tarefa teste 6",
       checked: false,
-      level: "básico"
+      level: "trivial"
    },
 ]
 

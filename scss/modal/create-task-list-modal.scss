@@ -253,3 +253,18 @@
       flex-shrink: 0;
    }
 }
+
+.Toastify__progress-bar--success {
+   background-color: $purplishBlue900 !important;
+}
+
+.Toastify__toast-icon > svg {
+   fill: $purplishBlue900;
+}
+
+.Toastify__toast-body {
+   font-weight: 700;
+   font-size: 1.2rem;
+   gap: 1rem;
+   font-family: $firaCode;
+}

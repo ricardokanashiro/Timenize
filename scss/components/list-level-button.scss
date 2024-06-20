@@ -13,34 +13,34 @@
    transition-duration: 250ms;
 }
 
-.list-level-button--complete:hover {
+.list-level-button--essencial:hover {
    border-color: $softRed;
    color: $softRed;
 }
 
-.list-level-button--complete-active {
+.list-level-button--essencial-active {
    color: white;
    border-color: $softRed;
    background-color: $softRed;
 }
 
-.list-level-button--middle:hover {
+.list-level-button--importante:hover {
    border-color: $softYellow;
    color: $softYellow;
 }
 
-.list-level-button--middle-active {
+.list-level-button--importante-active {
    color: white;
    border-color: $softYellow;
    background-color: $softYellow;
 }
 
-.list-level-button--basic:hover {
+.list-level-button--trivial:hover {
    border-color: $softGreen;
    color: $softGreen;
 }
 
-.list-level-button--basic-active {
+.list-level-button--trivial-active {
    color: white;
    border-color: $softGreen;
    background-color: $softGreen;
