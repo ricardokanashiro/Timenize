@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
-@font-face {
-  font-family: "Fira Code";
-  src: url("/fonts/FiraCode-VariableFont_wght.ttf");
-}
 .list-task-item {
   width: 100%;
   background-color: #F3F3FF;

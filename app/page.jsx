@@ -2,6 +2,7 @@
 
 import { useContext, useState } from "react"
 import Image from "next/image"
+import { Fira_Code } from "next/font/google"
 
 import { ToastContainer } from "react-toastify"
 
@@ -15,6 +16,11 @@ import { CreateTaskListModal } from "@/modals"
 
 import { ModalsContext } from "@/components/ModalsContext"
 
+const firaCode = Fira_Code({
+   subsets: ['latin'],
+   weight: ['300', '400', '500', '600', '700']
+})
+
 const Home = () => {
 
    const { modalWrapperActive, modalBlurActive } = useContext(ModalsContext)
@@ -23,7 +29,7 @@ const Home = () => {
 
    return (
 
-      <section className="home">
+      <section className={{...firaCode.className} + ' home'}>
 
          <ToastContainer />
 

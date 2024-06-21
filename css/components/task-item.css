@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
-@font-face {
-  font-family: "Fira Code";
-  src: url("/fonts/FiraCode-VariableFont_wght.ttf");
-}
 .task-item {
   border-right: 0.6rem solid #615EFF;
   border-radius: 0.6rem;
