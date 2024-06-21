@@ -30,7 +30,7 @@ const Home = () => {
 
    return (
 
-      <section className={{...firaCode.className} + ' home'}>
+      <section className={firaCode.className + ' home'}>
 
          <ToastContainer />
 
