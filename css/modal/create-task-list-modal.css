@@ -129,8 +129,9 @@
 
 .task-list-wrapper__task-list {
   width: 100%;
-  max-height: 20rem;
+  height: 20rem;
   overflow-y: scroll;
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;

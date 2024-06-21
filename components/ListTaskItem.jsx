@@ -64,7 +64,7 @@ const ListTaskItem = ({
 
    function changeLevel(level) {
       setTempList(prev => prev.map(
-         task => task.id === id ? {...task, level: level} : task
+         task => task.id === id ? { ...task, level: level } : task
       ))
    }
 
@@ -74,125 +74,133 @@ const ListTaskItem = ({
 
    return (
       <Draggable key={id} draggableId={id} index={index}>
-         {(provided) => (
-            <div className="list-task-item" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+         {(provided, snapshot) => {
 
-               <div className="list-task-item__content-area">
+            return (
+               <div
+                  className="list-task-item"
+                  ref={provided.innerRef}
+                  {...provided.draggableProps}
+                  {...provided.dragHandleProps}
+                  style={snapshot.isDragging ? { ...provided.draggableProps.style, top: provided.draggableProps.style.top - 82 } : { ...provided.draggableProps.style }}
+               >
 
-                  <button className="list-task-item__drag-button">
-                     <Image src={IconMoreVertical} alt="drag icon" className="drag-button__icon" />
-                  </button>
+                  <div className="list-task-item__content-area">
 
-                  {
-                     taskItemEditActive === id ?
-                        <input
-                           type="text"
-                           className="list-task-item__edit-input"
-                           onChange={(e) => handleSetEditValue(e.target.value)}
-                           onKeyDown={(e) => handleEditTaskTitleWithEnter(e)}
-                           value={editValue}
-                           autoFocus
-                        />
-
-                        : <p className="list-task-item__text">{children}</p>
-                  }
-
-               </div>
-
-
-               <div className="list-task-item__actions-area">
-
-                  <div className="list-task-item__level-wrapper">
-
-                     <button 
-                        ref={refs.setReference}
-                        onClick={handleSetChangeColorMenuSelected} 
-                        className={
-                           "list-task-item__level-color list-task-item__level-color" + (
-                           level === "trivial" ? "--trivial" 
-                           : level === "importante" ? "--importante"
-                           : level === "essencial" && "--essencial")
-                        }
-                     ></button>
+                     <button className="list-task-item__drag-button">
+                        <Image src={IconMoreVertical} alt="drag icon" className="drag-button__icon" />
+                     </button>
 
                      {
-                        changeColorMenuSelected === id && (
-                           <div className="level-wrapper-mini-menu" ref={refs.setFloating} style={{ ...floatingStyles, visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible' }}>
+                        taskItemEditActive === id ?
+                           <input
+                              type="text"
+                              className="list-task-item__edit-input"
+                              onChange={(e) => handleSetEditValue(e.target.value)}
+                              onKeyDown={(e) => handleEditTaskTitleWithEnter(e)}
+                              value={editValue}
+                              autoFocus
+                           />
 
-                              <button className="level-wrapper-mini-menu__btn--green" onClick={() => changeLevel("trivial")}>
-                                 <p>Trivial</p>
-                                 <Image 
-                                    src={IconCheck} 
-                                    alt="icon check" 
-                                    className={
-                                       level === "trivial" ? "level-wrapper-mini-menu__check-icon"
-                                       : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
-                                    }
-                                 />
-                              </button>
-
-                              <button className="level-wrapper-mini-menu__btn--yellow" onClick={() => changeLevel("importante")}>
-                                 <p>Importante</p>
-                                 <Image 
-                                    src={IconCheck} 
-                                    alt="icon check" 
-                                    className={
-                                       level === "importante" ? "level-wrapper-mini-menu__check-icon"
-                                       : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
-                                    }
-                                 />
-                              </button>
-
-                              <button className="level-wrapper-mini-menu__btn--red" onClick={() => changeLevel("essencial")}>
-                                 <p>Essencial</p>
-                                 <Image 
-                                    src={IconCheck} 
-                                    alt="icon check" 
-                                    className={
-                                       level === "essencial" ? "level-wrapper-mini-menu__check-icon"
-                                       : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
-                                    }
-                                 />
-                              </button>
-                           </div>
-                        )
+                           : <p className="list-task-item__text">{children}</p>
                      }
 
                   </div>
 
-                  <section className="list-task-item__actions-wrapper">
 
-                     {
-                        taskItemEditActive === id ? <>
-                           <button onClick={handleEditTaskTitle}>
-                              <Image src={IconCheck} alt="check icon" className="list-task-icon__actions-area__icon" />
-                           </button>
+                  <div className="list-task-item__actions-area">
 
-                           <button onClick={() => {
-                              setTaskItemEditActive("")
-                              setEditValue(children)
-                           }}>
-                              <Image src={IconX} alt="cancel icon" className="list-task-icon__actions-area__icon" />
-                           </button>
-                        </>
+                     <div className="list-task-item__level-wrapper">
 
-                           : <>
-                              <button onClick={() => setTaskItemEditActive(id)}>
-                                 <Image src={IconEdit} alt="edit icon" className="list-task-icon__actions-area__icon" />
+                        <button
+                           ref={refs.setReference}
+                           onClick={handleSetChangeColorMenuSelected}
+                           className={
+                              "list-task-item__level-color list-task-item__level-color" + (
+                                 level === "trivial" ? "--trivial"
+                                    : level === "importante" ? "--importante"
+                                       : level === "essencial" && "--essencial")
+                           }
+                        ></button>
+
+                        {
+                           changeColorMenuSelected === id && (
+                              <div className="level-wrapper-mini-menu" ref={refs.setFloating} style={{ ...floatingStyles, visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible' }}>
+
+                                 <button className="level-wrapper-mini-menu__btn--green" onClick={() => changeLevel("trivial")}>
+                                    <p>Trivial</p>
+                                    <Image
+                                       src={IconCheck}
+                                       alt="icon check"
+                                       className={
+                                          level === "trivial" ? "level-wrapper-mini-menu__check-icon"
+                                             : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
+                                       }
+                                    />
+                                 </button>
+
+                                 <button className="level-wrapper-mini-menu__btn--yellow" onClick={() => changeLevel("importante")}>
+                                    <p>Importante</p>
+                                    <Image
+                                       src={IconCheck}
+                                       alt="icon check"
+                                       className={
+                                          level === "importante" ? "level-wrapper-mini-menu__check-icon"
+                                             : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
+                                       }
+                                    />
+                                 </button>
+
+                                 <button className="level-wrapper-mini-menu__btn--red" onClick={() => changeLevel("essencial")}>
+                                    <p>Essencial</p>
+                                    <Image
+                                       src={IconCheck}
+                                       alt="icon check"
+                                       className={
+                                          level === "essencial" ? "level-wrapper-mini-menu__check-icon"
+                                             : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
+                                       }
+                                    />
+                                 </button>
+                              </div>
+                           )
+                        }
+
+                     </div>
+
+                     <section className="list-task-item__actions-wrapper">
+
+                        {
+                           taskItemEditActive === id ? <>
+                              <button onClick={handleEditTaskTitle}>
+                                 <Image src={IconCheck} alt="check icon" className="list-task-icon__actions-area__icon" />
                               </button>
 
-                              <button onClick={handleDeleteTempTask}>
-                                 <Image src={IconTrash} alt="trash icon" className="list-task-icon__actions-area__icon" />
+                              <button onClick={() => {
+                                 setTaskItemEditActive("")
+                                 setEditValue(children)
+                              }}>
+                                 <Image src={IconX} alt="cancel icon" className="list-task-icon__actions-area__icon" />
                               </button>
                            </>
-                     }
 
-                  </section>
+                              : <>
+                                 <button onClick={() => setTaskItemEditActive(id)}>
+                                    <Image src={IconEdit} alt="edit icon" className="list-task-icon__actions-area__icon" />
+                                 </button>
+
+                                 <button onClick={handleDeleteTempTask}>
+                                    <Image src={IconTrash} alt="trash icon" className="list-task-icon__actions-area__icon" />
+                                 </button>
+                              </>
+                        }
+
+                     </section>
 
 
-               </div>
-            </div>
-         )}
+                  </div>
+               </div>)
+         }}
       </Draggable>
    )
 }

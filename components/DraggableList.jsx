@@ -30,7 +30,7 @@ const DraggableList = ({ tempList, setTempList, taskItemEditActive, setTaskItemE
 
    return (
       <DragDropContext onDragEnd={handleOnDragEnd}>
-         <Droppable droppableId="tasks" type="list" direction="vertical">
+         <Droppable droppableId="tasks" type="list" direction="vertical" className="droppable-container" >
 
             {(provided) => (
                <section ref={containerRef}>

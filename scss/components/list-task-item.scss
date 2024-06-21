@@ -6,6 +6,7 @@
    border-radius: .6rem;
    border-right: .6rem solid $purplishBlue900;
    padding: 1.2rem;
+   left: auto !important;
 
    @include flex(center, center);
    gap: 2rem;

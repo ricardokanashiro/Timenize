@@ -6,6 +6,7 @@
   border-radius: 0.6rem;
   border-right: 0.6rem solid #615EFF;
   padding: 1.2rem;
+  left: auto !important;
   display: flex;
   justify-content: center;
   align-items: center;
