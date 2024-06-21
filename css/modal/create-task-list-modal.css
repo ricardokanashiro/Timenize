@@ -255,7 +255,7 @@
   font-weight: 700;
   font-size: 1.2rem;
   gap: 1rem;
-  font-family: "Fira Code", monospace;
+  font-family: __Fira_Code_dbf0a9, __Fira_Code_Fallback_dbf0a9;
 }
 
 /*# sourceMappingURL=create-task-list-modal.css.map */

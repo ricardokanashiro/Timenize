@@ -4,7 +4,7 @@
   margin: 0;
   border: none;
   box-sizing: border-box;
-  font-family: "Fira Code", monospace;
+  font-family: __Fira_Code_dbf0a9, __Fira_Code_Fallback_dbf0a9;
 }
 
 html, body {
