@@ -4,23 +4,26 @@ import { useEffect, useState, useContext } from "react"
 
 import Image from "next/image"
 import { Draggable } from "@hello-pangea/dnd"
-import { useFloating, hide, autoUpdate, flip } from '@floating-ui/react';
+import { useFloating, hide, autoUpdate, flip, useInteractions, useDismiss } from '@floating-ui/react';
 
 import { ModalsContext } from '@/components/ModalsContext'
+import { SelectedTaskItemIDContext } from "@/contexts/SelectedTaskIItemIDProvider";
 
 import "@/css/components/list-task-item.css"
 
 import { IconTrash, IconMoreVertical, IconEdit, IconCheck, IconX } from "@/assets"
 
 const ListTaskItem = ({
-   children, level, index, id, tempList, setTempList, taskItemEditActive, setTaskItemEditActive, changeColorMenuSelected, setChangeColorMenuSelected, containerRef
+   children, level, index, id, tempList, setTempList, taskItemEditActive, setTaskItemEditActive, containerRef
 }) => {
 
    const { taskListModalActive } = useContext(ModalsContext)
+   const { selectedTaskItemId, setSelectedTaskItemId } = useContext(SelectedTaskItemIDContext)
 
    const [editValue, setEditValue] = useState(children)
+   const [opened, setOpened] = useState(false)
 
-   const { refs, floatingStyles, middlewareData } = useFloating({
+   const { refs, floatingStyles, middlewareData, context } = useFloating({
       placement: 'left-start',
       middleware: [
          flip({
@@ -28,8 +31,31 @@ const ListTaskItem = ({
          }),
          hide()
       ],
-      whileElementsMounted: autoUpdate
+      whileElementsMounted: autoUpdate,
+      open: opened,
+      onOpenChange: (cond) => {
+         setOpened(cond)
+         setSelectedTaskItemId("")
+      },
    });
+
+   const dismiss = useDismiss(context, {
+      ancestorScroll: true,
+      outsidePress: (event) => {
+         event.stopPropagation()
+
+         const isMiniMenu = event.target.classList.contains('level-wrapper-mini-menu__btn') ? true 
+         : event.target.classList.contains('level-wrapper-mini-menu') ? true
+         : event.target.parentNode.classList.contains('level-wrapper-mini-menu__btn') ? true 
+         : event.target.parentNode.parentNode.classList.contains('level-wrapper-mini-menu__btn') && true
+
+         return !isMiniMenu
+      },
+   })
+
+   const { getReferenceProps, getFloatingProps } = useInteractions([
+      dismiss,
+   ])
 
    function handleSetEditValue(value) {
       setEditValue(value)
@@ -53,13 +79,14 @@ const ListTaskItem = ({
       }
    }
 
-   function handleSetChangeColorMenuSelected() {
-      if (changeColorMenuSelected !== "") {
-         setChangeColorMenuSelected("")
+   function handleSetselectedTaskItemId() {
+
+      if (selectedTaskItemId !== "") {
+         setSelectedTaskItemId("")
          return
       }
 
-      setChangeColorMenuSelected(id)
+      setSelectedTaskItemId(id)
    }
 
    function changeLevel(level) {
@@ -71,6 +98,10 @@ const ListTaskItem = ({
    useEffect(() => {
       !taskListModalActive && setEditValue(children)
    }, [taskListModalActive])
+
+   useEffect(() => {
+      selectedTaskItemId === "" ? setOpened(false) : setOpened(true)
+   }, [selectedTaskItemId])
 
    return (
       <Draggable key={id} draggableId={id} index={index}>
@@ -114,7 +145,8 @@ const ListTaskItem = ({
 
                         <button
                            ref={refs.setReference}
-                           onClick={handleSetChangeColorMenuSelected}
+                           onClick={handleSetselectedTaskItemId}
+                           {...getReferenceProps()}
                            className={
                               "list-task-item__level-color list-task-item__level-color" + (
                                  level === "trivial" ? "--trivial"
@@ -124,10 +156,13 @@ const ListTaskItem = ({
                         ></button>
 
                         {
-                           changeColorMenuSelected === id && (
-                              <div className="level-wrapper-mini-menu" ref={refs.setFloating} style={{ ...floatingStyles, visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible' }}>
+                           selectedTaskItemId === id && opened && (
 
-                                 <button className="level-wrapper-mini-menu__btn--green" onClick={() => changeLevel("trivial")}>
+                              <div className="level-wrapper-mini-menu" ref={refs.setFloating} style={{ ...floatingStyles, visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible' }} {...getFloatingProps()}>
+
+                                 <button
+                                    className="level-wrapper-mini-menu__btn--green level-wrapper-mini-menu__btn" onClick={() => changeLevel("trivial")}
+                                 >
                                     <p>Trivial</p>
                                     <Image
                                        src={IconCheck}
@@ -139,7 +174,7 @@ const ListTaskItem = ({
                                     />
                                  </button>
 
-                                 <button className="level-wrapper-mini-menu__btn--yellow" onClick={() => changeLevel("importante")}>
+                                 <button className="level-wrapper-mini-menu__btn--yellow level-wrapper-mini-menu__btn" onClick={() => changeLevel("importante")}>
                                     <p>Importante</p>
                                     <Image
                                        src={IconCheck}
@@ -151,7 +186,7 @@ const ListTaskItem = ({
                                     />
                                  </button>
 
-                                 <button className="level-wrapper-mini-menu__btn--red" onClick={() => changeLevel("essencial")}>
+                                 <button className="level-wrapper-mini-menu__btn--red level-wrapper-mini-menu__btn" onClick={() => changeLevel("essencial")}>
                                     <p>Essencial</p>
                                     <Image
                                        src={IconCheck}
@@ -163,6 +198,7 @@ const ListTaskItem = ({
                                     />
                                  </button>
                               </div>
+
                            )
                         }
 

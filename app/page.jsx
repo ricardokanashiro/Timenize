@@ -16,6 +16,8 @@ import { CreateTaskListModal } from "@/modals"
 
 import { ModalsContext } from "@/components/ModalsContext"
 
+import SelectedTaskItemIDProvider from "@/contexts/SelectedTaskIItemIDProvider"
+
 const firaCode = Fira_Code({
    subsets: ['latin'],
    weight: ['300', '400', '500', '600', '700'],
@@ -187,7 +189,9 @@ const Home = () => {
             {
                selectedBtn === "dashboard" &&
                <>
-                  <CreateTaskListModal />
+                  <SelectedTaskItemIDProvider>
+                     <CreateTaskListModal />
+                  </SelectedTaskItemIDProvider>
                </>
             }
          </div>

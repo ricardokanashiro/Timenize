@@ -8,7 +8,6 @@ import { ListTaskItem } from '@/components'
 
 const DraggableList = ({ tempList, setTempList, taskItemEditActive, setTaskItemEditActive }) => {
 
-   const [changeColorMenuSelected, setChangeColorMenuSelected] = useState("")
    const containerRef = useRef()
 
    function reorderList(list, startIndex, endIndex) {
@@ -30,7 +29,7 @@ const DraggableList = ({ tempList, setTempList, taskItemEditActive, setTaskItemE
 
    return (
       <DragDropContext onDragEnd={handleOnDragEnd}>
-         <Droppable droppableId="tasks" type="list" direction="vertical" className="droppable-container" >
+         <Droppable droppableId="tasks" type="list" direction="vertical" className="droppable-container">
 
             {(provided) => (
                <section ref={containerRef}>
@@ -47,8 +46,6 @@ const DraggableList = ({ tempList, setTempList, taskItemEditActive, setTaskItemE
                               setTempList={setTempList}
                               taskItemEditActive={taskItemEditActive}
                               setTaskItemEditActive={setTaskItemEditActive}
-                              changeColorMenuSelected={changeColorMenuSelected}
-                              setChangeColorMenuSelected={setChangeColorMenuSelected}
                               containerRef={containerRef}
                            >
                               {task.title}

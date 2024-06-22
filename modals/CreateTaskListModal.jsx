@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ListLevelButton, DraggableList } from '@/components'
 import { DataContext } from "@/components/DataContext"
 import { ModalsContext } from '@/components/ModalsContext'
+import { SelectedTaskItemIDContext } from '@/contexts/SelectedTaskIItemIDProvider';
 
 import '@/css/modal/create-task-list-modal.css'
 
@@ -21,6 +22,8 @@ const CreateTaskListModal = () => {
       taskListModalActive, setTaskListModalActive,
       setModalBlurActive, setModalWrapperActive
    } = useContext(ModalsContext)
+
+   const { setSelectedTaskItemId } = useContext(SelectedTaskItemIDContext)
 
    const [levelSelected, setLevelSelected] = useState("")
    const [taskTitle, setTaskTitle] = useState("")
@@ -90,6 +93,8 @@ const CreateTaskListModal = () => {
       setTaskTitle("")
       setLevelSelected("")
       setTaskItemEditActive("")
+
+      setSelectedTaskItemId("")
    }
 
    function notify(message) {
