@@ -1,6 +1,7 @@
 @use '../utils' as *;
 
 .create-task-list-modal {
+   max-height: 90dvh;
    background-color: white;
    position: absolute;
    padding: clamp(2rem, 1.5rem + 2.5vw , 4rem) clamp(3rem, 2rem + 3vw, 5rem);
@@ -9,13 +10,16 @@
    z-index: 1;
 
    width: min(90%, 55rem);
-   max-height: 80%;
 
    transition-property: opacity, transform;
    transition-duration: 280ms;
 
    opacity: 0;
    transform: translate3d(0, 100px, 0);
+
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
 
    h1 {
       font-size: clamp(1.8rem, 1.1rem + 1.1vw , 2.3rem);
@@ -29,6 +33,11 @@
 .create-task-list-modal__configurations {
    width: 100%;
    height: 100%;
+
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+   flex: 1;
 }
 
 .configurations__tasks-configs-area {
@@ -116,6 +125,11 @@
    margin-top: 2.5rem;
    max-height: 100%;
 
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+   flex: 1;
+
    h2 {
       color: $gray;
       font-weight: 400;
@@ -126,27 +140,30 @@
 
 .create-task-list-modal__draggable-list-wrapper {
    position: relative;
+
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+   overflow: auto;
+}
+
+.create-task-list-modal__draggable-list-wrapper::-webkit-scrollbar {
+   width: 16px;
+}
+
+.create-task-list-modal__draggable-list-wrapper::-webkit-scrollbar-thumb {
+   background-color: #e2e2e2;
+   border-radius: 50px;
+   border: 6px solid white;
 }
 
 .task-list-wrapper__task-list {
    width: 100%;
-   height: 20rem;
-   overflow-y: scroll;
    position: relative;
 
    @include flex(flex-start, flex-start);
    flex-flow: column nowrap;
    gap: 1.5rem;
-}
-
-.task-list-wrapper__task-list::-webkit-scrollbar {
-   width: 16px;
-}
-
-.task-list-wrapper__task-list::-webkit-scrollbar-thumb {
-   background-color: #e2e2e2;
-   border-radius: 50px;
-   border: 6px solid white;
 }
 
 .create-task-list-modal__action-area {

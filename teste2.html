@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      * {
+         padding: 0;
+         margin: 0;
+         border: none;
+         box-sizing: border-box;
+      }
+
+      html, body {
+         width: 100%;
+         height: 100%;
+      }
+
+      body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .modal {
+         width: 60%;
+         max-height: 80dvh;
+         background-color: red;
+
+         display: flex;
+         flex-direction: column;
+         overflow: hidden;
+      }
+
+      .section {
+         flex: 1;
+         display: flex;
+         flex-direction: column;
+         overflow: hidden;
+         background-color: blue;
+      }
+      
+      .items-wrapper {
+         flex: 1;
+         display: flex;
+         flex-direction: column;
+         overflow: hidden;
+         gap: 10px;
+         background-color: green;
+      }
+
+      .items-wrapper-wrapper {
+         flex: 1;
+         background-color: purple;
+         overflow-y: auto;
+         display: flex;
+         flex-direction: column;
+      }
+   </style>
+</head>
+<body>
+   <div class="modal">
+      <h1>Titulo da Modal</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, fugit eum? Modi, at consectetur. Nulla, quisquam quo consectetur nobis, temporibus assumenda aspernatur doloribus alias aliquid libero consequuntur quos? A, optio!</p>
+
+      <section class="section">
+
+         <h2>Subtitulo</h2>
+
+         <div class="items-wrapper">
+
+            <h2>Outro Subtitulo</h2>
+
+            <div class="items-wrapper-wrapper">
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+               <p>Eu sou um item</p>
+            </div>
+         </div>
+
+      </section>
+
+      <button>Aplicar</button>
+   </div>
+</body>
+</html>
