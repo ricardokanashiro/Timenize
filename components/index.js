@@ -1,4 +1,5 @@
-import SidebarItem from "./SidebarItem";
-import Sidebar from "./Sidebar";
+import SidebarItem from "./SidebarItem"
+import Sidebar from "./Sidebar"
+import ModalsWrapper from "./ModalsWrapper"
 
-export { SidebarItem, Sidebar };
+export { SidebarItem, Sidebar, ModalsWrapper };

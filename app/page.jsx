@@ -1,16 +1,12 @@
 'use client'
 
-import { useContext, useState } from "react"
+import { useState } from "react"
 import { Fira_Code } from "next/font/google"
 
 import { ToastContainer } from "react-toastify"
 
-import { Sidebar } from "@/components"
+import { ModalsWrapper, Sidebar } from "@/components"
 import { Dashboard, Settings, Habits, Plans, Pomodoro } from "@/screens"
-import { ManageTaskListModal } from "@/modals"
-
-import { ModalsContext } from "@/contexts"
-import { SelectedTaskItemIDProvider, TempListProvider, ItemEditActiveIDProvider } from "@/modals/ManageTaskListModal/contexts"
 
 const firaCode = Fira_Code({
    subsets: ['latin'],
@@ -19,8 +15,6 @@ const firaCode = Fira_Code({
 })
 
 const Home = () => {
-
-   const { modalWrapperActive } = useContext(ModalsContext)
 
    const [selectedScreen, setSelectedScreen] = useState('dashboard')
 
@@ -57,18 +51,9 @@ const Home = () => {
 
          </section>
 
-         <div className={modalWrapperActive ? "home__modals-wrapper" : "home__modals-wrapper home__modals-wrapper--disabled"}>
-            {
-               selectedScreen === "dashboard" &&
-               <SelectedTaskItemIDProvider>
-               <TempListProvider>
-               <ItemEditActiveIDProvider>
-                  <ManageTaskListModal />
-               </ItemEditActiveIDProvider>
-               </TempListProvider>
-               </SelectedTaskItemIDProvider>
-            }
-         </div>
+         <ModalsWrapper 
+            selectedScreen={selectedScreen}
+         />
          
       </section>
    )
