@@ -1,0 +1,4 @@
+-> refatorar scss para cada folder [x]
+-> refatorar componentes para modal [x]
+-> refatorar lógica de cada componente []
+-> abstrair componentes -> já conhecido: 'mini-menu' []

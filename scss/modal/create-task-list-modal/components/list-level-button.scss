@@ -1,0 +1,47 @@
+@use "../../../utils/" as *;
+
+.list-level-button {
+   border: 2px solid $purplishBlue300;
+   color: $purplishBlue300;
+   background-color: transparent;
+   padding: .5rem 1rem;
+   border-radius: .3rem;
+   cursor: pointer;
+   font-size: clamp(1rem, .65rem + .65vw , 1.3rem);
+   font-weight: 400;
+   transition-property: border-color, color, background-color;
+   transition-duration: 250ms;
+}
+
+.list-level-button--essencial:hover {
+   border-color: $softRed;
+   color: $softRed;
+}
+
+.list-level-button--essencial-active {
+   color: white;
+   border-color: $softRed;
+   background-color: $softRed;
+}
+
+.list-level-button--importante:hover {
+   border-color: $softYellow;
+   color: $softYellow;
+}
+
+.list-level-button--importante-active {
+   color: white;
+   border-color: $softYellow;
+   background-color: $softYellow;
+}
+
+.list-level-button--trivial:hover {
+   border-color: $softGreen;
+   color: $softGreen;
+}
+
+.list-level-button--trivial-active {
+   color: white;
+   border-color: $softGreen;
+   background-color: $softGreen;
+}

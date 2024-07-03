@@ -1,0 +1,69 @@
+@use '../../../utils/' as *;
+
+.task-item {
+   border-right: .6rem solid $purplishBlue900;
+   border-radius: .6rem;
+   background-color: $purplishBlue100;
+   padding: 1.2rem;
+   gap: 2.4rem;
+
+   @include flex(center, center);
+}
+
+.task-item__content-area {
+   @include flex(flex-start, center);
+   flex-grow: 1;
+   gap: 1.4rem;
+
+   p {
+      font-size: clamp(.9rem, .7rem + .7vw, 1.4rem);
+      font-weight: 600;
+      word-break: break-all;
+   }
+
+   button {
+      width: 2.4rem;
+      height: 2.4rem;
+      background-color: transparent;
+
+      .content-area__check-icon {
+         cursor: pointer;
+         width: clamp(2rem, 1.6rem + .4vw, 2.4rem);
+         height: clamp(2rem, 1.6rem + .4vw, 2.4rem);
+      }
+   }
+}
+
+.content-area__edit-input {
+   background-color: transparent;
+   outline: none;
+   width: 100%;
+}
+
+.task-item__actions-area {
+   display: flex;
+   align-items: center;
+   gap: 1.6rem;
+
+   button {
+      background-color: transparent;
+      aspect-ratio: 1 / 1;
+      width: 1.8rem;
+   }
+}
+
+.actions-area__icon {
+   cursor: pointer;
+   width: 100%;
+   height: 100%;
+}
+
+@include SmallScreensDown {
+   .task-item__actions-area {
+      gap: calc(.4rem + 1.2vw);
+
+      button {
+         width: clamp(1.4rem, .8rem + .4vw, 1.8rem);
+      }
+   }
+}

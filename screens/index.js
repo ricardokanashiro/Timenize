@@ -1,7 +1,7 @@
-import Dashboard from "./Dashboard";
-import Pomodoro from "./Pomodoro";
-import Habits from "./Habits";
-import Plans from "./Plans";
-import Settings from "./Settings";
+import Dashboard from "./Dashboard/Dashboard.jsx";
+import Pomodoro from "./Pomodoro/Pomodoro.jsx";
+import Habits from "./Habits/Habits.jsx";
+import Plans from "./Plans/Plans.jsx";
+import Settings from "./Settings/Settings.jsx";
 
 export { Dashboard, Pomodoro, Habits, Plans, Settings };

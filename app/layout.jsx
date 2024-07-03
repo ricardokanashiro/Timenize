@@ -1,4 +1,4 @@
-import { DataProvider, ModalsProvider } from '@/components'
+import { DataProvider, ModalsProvider } from '@/contexts'
 
 import '@/css/main.css'
 

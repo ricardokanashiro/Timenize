@@ -1,0 +1,288 @@
+@use '../../utils/' as *;
+
+.create-task-list-modal {
+   max-height: 90dvh;
+   background-color: white;
+   position: absolute;
+   padding: clamp(2rem, 1.5rem + 2.5vw , 4rem) clamp(3rem, 2rem + 3vw, 5rem);
+   border-radius: .6rem;
+   box-shadow: #f3f3ff60 0px 7px 29px 0px;
+   z-index: 1;
+
+   width: min(90%, 55rem);
+
+   transition-property: opacity, transform;
+   transition-duration: 280ms;
+
+   opacity: 0;
+   transform: translate3d(0, 100px, 0);
+
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+
+   h1 {
+      font-size: clamp(1.8rem, 1.1rem + 1.1vw , 2.3rem);
+   }
+}
+
+.create-task-list-modal--disabled {
+   display: none;
+}
+
+.create-task-list-modal__configurations {
+   width: 100%;
+   height: 100%;
+
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+   flex: 1;
+}
+
+.configurations__tasks-configs-area {
+   margin-top: 2.5rem;
+   width: 100%;
+
+   h2 {
+      color: $gray;
+      font-weight: 400;
+      font-size: clamp(1.3rem, .75rem + .75vw, 1.5rem);
+   }
+}
+
+.tasks-configs__tasks-configs {
+   width: 100%;
+}
+
+.tasks-configs__create-title-area {
+   margin: 2rem 0;
+
+   @include flex(space-between, center);
+   gap: 2rem;
+
+   input {
+      background-color: transparent;
+      height: 100%;
+      width: 0;
+      flex: 1;
+      outline: none;
+      font-size: clamp(1rem, .65rem + .65vw , 1.3rem);
+   }
+
+   input::placeholder {
+      color: $lightGray;
+   }
+
+   span {
+      font-size: clamp(1rem, .6rem + .6vw, 1.2rem);
+      font-weight: 500;
+      color: $gray;
+   }
+}
+
+.create-title-area__input-wrapper {
+   background-color: $purplishBlue100;
+   flex-grow: 1;
+   padding: 1rem 1.5rem;
+   border-radius: .6rem;
+
+   @include flex(center, center);
+   gap: 1.4rem;
+}
+
+.list-task-item__actions-area {
+   @include flex(center, center);
+   gap: 1.5rem;
+
+   button {
+      background-color: transparent;
+      cursor: pointer;
+   }
+}
+
+.list-task-item__actions-wrapper {
+   @include flex(center, center);
+   gap: 1rem;
+}
+
+.tasks-configs__level-area {
+   @include flex(flex-start, center);
+   gap: clamp(2rem, 1.25rem + 1.25vw, 2.5rem);
+
+   p {
+      font-size: clamp(1rem, .6rem + .6vw , 1.2rem);
+      color: $gray;
+   }
+}
+
+.level-area__levels-wrapper {
+   @include flex(flex-start, center);
+   gap: clamp(1rem, .75rem + .75vw, 1.5rem);
+}
+
+.configurations__task-list-wrapper {
+   margin-top: 2.5rem;
+   max-height: 100%;
+
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+   flex: 1;
+
+   h2 {
+      color: $gray;
+      font-weight: 400;
+      font-size: clamp(1.3rem, .75rem + .75vw, 1.5rem);
+      margin-bottom: 2rem;
+   }
+}
+
+.create-task-list-modal__draggable-list-wrapper {
+   position: relative;
+
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+   overflow: auto;
+}
+
+.create-task-list-modal__draggable-list-wrapper::-webkit-scrollbar {
+   width: 16px;
+}
+
+.create-task-list-modal__draggable-list-wrapper::-webkit-scrollbar-thumb {
+   background-color: #e2e2e2;
+   border-radius: 50px;
+   border: 6px solid white;
+}
+
+.task-list-wrapper__task-list {
+   width: 100%;
+   position: relative;
+
+   @include flex(flex-start, flex-start);
+   flex-flow: column nowrap;
+   gap: 1.5rem;
+}
+
+.create-task-list-modal__action-area {
+   width: 100%;
+   margin-top: 2.5rem;
+
+   @include flex(flex-end, center);
+   gap: 2rem;
+}
+
+.fade-up-left {
+   opacity: 1;
+   transform: translate3d(0, 0, 0);
+}
+
+.create-task-list-modal__apply-button {
+   background-color: $purplishBlue900;
+   color: white;
+   padding: .8rem 1.6rem;
+   cursor: pointer;
+   font-weight: 500;
+   border-radius: .3rem;
+   border: 2px solid transparent;
+
+   transition-duration: 250ms;
+   transition-property: color, border, background-color;
+}
+
+.create-task-list-modal__apply-button:hover {
+   border: 2px solid $purplishBlue900;
+   background-color: transparent;
+   color: $purplishBlue900;
+}
+
+.create-task-list-modal__back-button {
+   background-color: transparent;
+   color: $gray;
+   padding: .8rem 1.6rem;
+   cursor: pointer;
+   font-size: 1.4rem;
+   font-weight: 500;
+   border-radius: .3rem;
+}
+
+.create-task-list-modal__add-button {
+   background-color: $purplishBlue900;
+   color: white;
+   padding: .8rem 1.6rem;
+   cursor: pointer;
+   font-weight: 500;
+   border-radius: .3rem;
+   border: 2px solid transparent;
+
+   transition-duration: 250ms;
+   transition-property: color, border, background-color;
+}
+
+.create-task-list-modal__add-button:hover {
+   border: 2px solid $purplishBlue900;
+   background-color: transparent;
+   color: $purplishBlue900;
+}
+
+.modal-button__icon {
+   display: none;
+}
+
+.create-task-list-modal__back-button,
+.create-task-list-modal__apply-button,
+.create-task-list-modal__add-btn {
+   font-size: clamp(1rem, .7rem + .7vw, 1.4rem);
+}
+
+@include SmallScreensDown {
+   .tasks-configs__level-area {
+      p {
+         display: none;
+      }
+   }
+
+   .tasks-configs__create-title-area {
+      gap: 0;
+      align-items: stretch;
+   }
+
+   .tasks-configs__create-title-area {
+      input {
+         border-radius: .3rem 0 0 .3rem;
+      }
+   }
+
+   .create-task-list-modal__add-button {
+      border-radius: 0 .3rem .3rem 0;
+      display: flex;
+   }
+   
+   .modal-button__text {
+      display: none;
+   }
+
+   .modal-button__icon {
+      display: flex;
+      width: clamp(1.8rem, 1.25rem + 1.25vw , 2.5rem);
+      height: clamp(1.8rem, 1.25rem + 1.25vw , 2.5rem);
+      flex-shrink: 0;
+   }
+}
+
+.Toastify__progress-bar--success {
+   background-color: $purplishBlue900 !important;
+}
+
+.Toastify__toast-icon > svg {
+   fill: $purplishBlue900;
+}
+
+.Toastify__toast-body {
+   font-weight: 700;
+   font-size: 1.2rem;
+   gap: 1rem;
+   font-family: $firaCode;
+}
