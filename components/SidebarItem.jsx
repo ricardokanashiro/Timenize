@@ -2,7 +2,7 @@ import Image from "next/image"
 
 import '@/css/components/sidebar-item.css'
 
-const SidebarItem = ({ image, text, alt, actived, setSelectedBtn }) => {
+const SidebarItem = ({ image, text, alt, actived, setSelectedScreen }) => {
    return (
       <>
          {
@@ -19,7 +19,7 @@ const SidebarItem = ({ image, text, alt, actived, setSelectedBtn }) => {
                   <p>{text}</p>
                </button>
             ) : (
-               <button className="sidebar-item" onClick={() => setSelectedBtn(String(text).toLowerCase())}>
+               <button className="sidebar-item" onClick={() => setSelectedScreen(String(text).toLowerCase())}>
                   <Image
                      src={image}
                      alt={alt}

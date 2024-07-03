@@ -95,14 +95,6 @@ html {
    transition-property: transform, opacity;
 }
 
-.home__mobile-menu {
-   display: none;
-}
-
-.mobile-menu__user-image {
-   width: clamp(2.2rem, 2rem + 1vw, 3rem);
-}
-
 @include LargeScreensDown {
    body {
       height: auto;
@@ -134,17 +126,5 @@ html {
       .hamburger-menu__line3 {
          transform: rotate(-225deg);
       }
-   }
-
-   .home__mobile-menu {
-      position: fixed;
-      bottom: 0;
-      height: min-content;
-      width: 100%;
-      background-color: white;
-      padding: 1.2rem 0;
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-   
-      @include flex(space-around, center);
    }
 } 

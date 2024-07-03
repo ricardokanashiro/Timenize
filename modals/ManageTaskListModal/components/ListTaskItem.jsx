@@ -8,6 +8,8 @@ import { useFloating, hide, autoUpdate, flip, useInteractions, useDismiss } from
 import { ModalsContext } from '@/contexts'
 import { SelectedTaskItemIDContext, TempListContext, ItemEditActiveIDContext } from "../contexts";
 
+import { ChangeLevelMiniMenu } from "./"
+
 import { IconTrash, IconMoreVertical, IconEdit, IconCheck, IconX } from "@/assets"
 import "@/css/modal/create-task-list-modal/components/list-task-item.css"
 
@@ -45,10 +47,10 @@ const ListTaskItem = ({
       outsidePress: (event) => {
          event.stopPropagation()
 
-         const isMiniMenu = event.target.classList.contains('level-wrapper-mini-menu__btn') ? true 
-         : event.target.classList.contains('level-wrapper-mini-menu') ? true
-         : event.target.parentNode.classList.contains('level-wrapper-mini-menu__btn') ? true 
-         : event.target.parentNode.parentNode.classList.contains('level-wrapper-mini-menu__btn') && true
+         const isMiniMenu = event.target.classList.contains('level-wrapper-mini-menu__btn') ? true
+            : event.target.classList.contains('level-wrapper-mini-menu') ? true
+               : event.target.parentNode.classList.contains('level-wrapper-mini-menu__btn') ? true
+                  : event.target.parentNode.parentNode.classList.contains('level-wrapper-mini-menu__btn') && true
 
          return !isMiniMenu
       },
@@ -154,51 +156,19 @@ const ListTaskItem = ({
                                     : level === "importante" ? "--importante"
                                        : level === "essencial" && "--essencial")
                            }
-                        ></button>
+                        />
 
                         {
                            selectedTaskItemId === id && opened && (
 
-                              <div className="level-wrapper-mini-menu" ref={refs.setFloating} style={{ ...floatingStyles, visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible' }} {...getFloatingProps()}>
-
-                                 <button
-                                    className="level-wrapper-mini-menu__btn--green level-wrapper-mini-menu__btn" onClick={() => changeLevel("trivial")}
-                                 >
-                                    <p>Trivial</p>
-                                    <Image
-                                       src={IconCheck}
-                                       alt="icon check"
-                                       className={
-                                          level === "trivial" ? "level-wrapper-mini-menu__check-icon"
-                                             : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
-                                       }
-                                    />
-                                 </button>
-
-                                 <button className="level-wrapper-mini-menu__btn--yellow level-wrapper-mini-menu__btn" onClick={() => changeLevel("importante")}>
-                                    <p>Importante</p>
-                                    <Image
-                                       src={IconCheck}
-                                       alt="icon check"
-                                       className={
-                                          level === "importante" ? "level-wrapper-mini-menu__check-icon"
-                                             : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
-                                       }
-                                    />
-                                 </button>
-
-                                 <button className="level-wrapper-mini-menu__btn--red level-wrapper-mini-menu__btn" onClick={() => changeLevel("essencial")}>
-                                    <p>Essencial</p>
-                                    <Image
-                                       src={IconCheck}
-                                       alt="icon check"
-                                       className={
-                                          level === "essencial" ? "level-wrapper-mini-menu__check-icon"
-                                             : "level-wrapper-mini-menu__check-icon level-wrapper-mini-menu__check-icon--disabled"
-                                       }
-                                    />
-                                 </button>
-                              </div>
+                              <ChangeLevelMiniMenu
+                                 refs={refs}
+                                 floatingStyles={floatingStyles}
+                                 middlewareData={middlewareData}
+                                 getFloatingProps={getFloatingProps}
+                                 level={level}
+                                 id={id}
+                              />
 
                            )
                         }

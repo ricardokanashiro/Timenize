@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
-.home__sidebar {
+.sidebar {
   width: clamp(15rem, 15rem + 3vw, 21rem);
   height: 100dvh;
   padding: 2.4rem 1.8rem;
@@ -104,8 +104,16 @@
   height: auto;
 }
 
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu__user-image {
+  width: clamp(2.2rem, 2rem + 1vw, 3rem);
+}
+
 @media (max-width: 769px) {
-  .home__sidebar {
+  .sidebar {
     width: 8rem;
   }
   .sidebar__logo {
@@ -134,8 +142,21 @@
   }
 }
 @media (max-width: 550px) {
-  .home__sidebar {
+  .sidebar {
     display: none;
+  }
+  .mobile-menu {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    height: min-content;
+    width: 100%;
+    background-color: white;
+    padding: 1.2rem 0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 
