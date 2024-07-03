@@ -12,10 +12,10 @@ import { Logo, IconHome, IconHomeWhite, IconSettings, IconSettingsWhite, IconTar
 
 import { SidebarItem } from "@/components"
 import { Dashboard, Settings, Habits, Plans, Pomodoro } from "@/screens"
-import { CreateTaskListModal } from "@/modals"
+import { ManageTaskListModal } from "@/modals"
 
 import { ModalsContext } from "@/contexts"
-import { SelectedTaskItemIDProvider, TempListProvider, ItemEditActiveIDProvider } from "@/modals/CreateTaskListModal/contexts"
+import { SelectedTaskItemIDProvider, TempListProvider, ItemEditActiveIDProvider } from "@/modals/ManageTaskListModal/contexts"
 
 const firaCode = Fira_Code({
    subsets: ['latin'],
@@ -188,7 +188,7 @@ const Home = () => {
                <SelectedTaskItemIDProvider>
                <TempListProvider>
                <ItemEditActiveIDProvider>
-                  <CreateTaskListModal />
+                  <ManageTaskListModal />
                </ItemEditActiveIDProvider>
                </TempListProvider>
                </SelectedTaskItemIDProvider>

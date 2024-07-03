@@ -1,3 +1,3 @@
-import CreateTaskListModal from "./CreateTaskListModal/CreateTaskListModal.jsx";
+import ManageTaskListModal from "./ManageTaskListModal/ManageTaskListModal.jsx";
 
-export { CreateTaskListModal }
+export { ManageTaskListModal }

@@ -4,7 +4,7 @@ import { useContext, useRef } from 'react'
 
 import { DragDropContext, Droppable } from '@hello-pangea/dnd'
 
-import { ListTaskItem } from './'
+import { ListTaskItem } from '.'
 import { TempListContext } from '../contexts/TempListContext'
 
 const DraggableList = () => {
