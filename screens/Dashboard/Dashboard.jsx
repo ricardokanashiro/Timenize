@@ -4,8 +4,7 @@ import { useContext } from "react"
 import Image from "next/image"
 
 import { TaskItem, PlanItem } from "./components"
-import { DataContext } from "./contexts"
-import { ModalsContext } from "@/contexts"
+import { ModalsContext, DataContext } from "@/contexts"
 
 import "@/css/screens/dashboard/dashboard.css"
 
@@ -14,11 +13,10 @@ import { DashboardIllustration, ClipboardIconWhite, IconPlus, IconBookMark, Icon
 const Dashboard = () => {
 
    const {sharedTasks, sharedPlans} = useContext(DataContext)
-   const {setTaskListModalActive, setModalBlurActive, setModalWrapperActive} = useContext(ModalsContext)
+   const {setTaskListModalActive, setModalWrapperActive} = useContext(ModalsContext)
 
    function handleSetModalActive() {
       setTaskListModalActive(true)
-      setModalBlurActive(true)
       setModalWrapperActive(true)
    }
 

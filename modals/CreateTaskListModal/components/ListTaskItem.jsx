@@ -1,24 +1,24 @@
 "use client"
 
 import { useEffect, useState, useContext } from "react"
-
 import Image from "next/image"
 import { Draggable } from "@hello-pangea/dnd"
 import { useFloating, hide, autoUpdate, flip, useInteractions, useDismiss } from '@floating-ui/react';
 
 import { ModalsContext } from '@/contexts'
-import { SelectedTaskItemIDContext } from "@/screens/Dashboard/contexts";
-
-import "@/css/modal/create-task-list-modal/components/list-task-item.css"
+import { SelectedTaskItemIDContext, TempListContext, ItemEditActiveIDContext } from "../contexts";
 
 import { IconTrash, IconMoreVertical, IconEdit, IconCheck, IconX } from "@/assets"
+import "@/css/modal/create-task-list-modal/components/list-task-item.css"
 
 const ListTaskItem = ({
-   children, level, index, id, tempList, setTempList, taskItemEditActive, setTaskItemEditActive, containerRef
+   children, level, index, id, containerRef
 }) => {
 
+   const { tempList, setTempList } = useContext(TempListContext)
    const { taskListModalActive } = useContext(ModalsContext)
    const { selectedTaskItemId, setSelectedTaskItemId } = useContext(SelectedTaskItemIDContext)
+   const { itemEditActiveID, setItemEditActiveID } = useContext(ItemEditActiveIDContext)
 
    const [editValue, setEditValue] = useState(children)
    const [opened, setOpened] = useState(false)
@@ -71,7 +71,7 @@ const ListTaskItem = ({
       const editedList = tempList.map(task => task.id === id ? { ...task, title: editValue } : task)
 
       setTempList(editedList)
-      setTaskItemEditActive("")
+      setItemEditActiveIDActive("")
    }
 
    function handleEditTaskTitleWithEnter(e) {
@@ -124,7 +124,7 @@ const ListTaskItem = ({
                      </button>
 
                      {
-                        taskItemEditActive === id ?
+                        itemEditActiveID === id ?
                            <input
                               type="text"
                               className="list-task-item__edit-input"
@@ -208,13 +208,13 @@ const ListTaskItem = ({
                      <section className="list-task-item__actions-wrapper">
 
                         {
-                           taskItemEditActive === id ? <>
+                           itemEditActiveID === id ? <>
                               <button onClick={handleEditTaskTitle}>
                                  <Image src={IconCheck} alt="check icon" className="list-task-icon__actions-area__icon" />
                               </button>
 
                               <button onClick={() => {
-                                 setTaskItemEditActive("")
+                                 setItemEditActiveIDActive("")
                                  setEditValue(children)
                               }}>
                                  <Image src={IconX} alt="cancel icon" className="list-task-icon__actions-area__icon" />
@@ -222,7 +222,7 @@ const ListTaskItem = ({
                            </>
 
                               : <>
-                                 <button onClick={() => setTaskItemEditActive(id)}>
+                                 <button onClick={() => setItemEditActiveID(id)}>
                                     <Image src={IconEdit} alt="edit icon" className="list-task-icon__actions-area__icon" />
                                  </button>
 

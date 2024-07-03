@@ -1,12 +1,15 @@
 "use client"
 
-import { useRef } from 'react'
+import { useContext, useRef } from 'react'
 
 import { DragDropContext, Droppable } from '@hello-pangea/dnd'
 
 import { ListTaskItem } from './'
+import { TempListContext } from '../contexts/TempListContext'
 
-const DraggableList = ({ tempList, setTempList, taskItemEditActive, setTaskItemEditActive }) => {
+const DraggableList = () => {
+
+   const { tempList, setTempList } = useContext(TempListContext)
 
    const containerRef = useRef()
 
@@ -42,10 +45,6 @@ const DraggableList = ({ tempList, setTempList, taskItemEditActive, setTaskItemE
                               level={task.level}
                               index={index}
                               id={task.id.toString()}
-                              tempList={tempList}
-                              setTempList={setTempList}
-                              taskItemEditActive={taskItemEditActive}
-                              setTaskItemEditActive={setTaskItemEditActive}
                               containerRef={containerRef}
                            >
                               {task.title}

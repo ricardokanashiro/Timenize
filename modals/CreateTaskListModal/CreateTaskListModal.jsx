@@ -6,8 +6,8 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 import { ListLevelButton, DraggableList } from './components'
-import { DataContext, SelectedTaskItemIDContext } from "@/screens/Dashboard/contexts"
-import { ModalsContext } from '@/contexts'
+import { ModalsContext, DataContext } from '@/contexts'
+import { TempListContext, SelectedTaskItemIDContext, ItemEditActiveIDContext } from './contexts'
 
 import '@/css/modal/create-task-list-modal/create-task-list-modal.css'
 
@@ -16,20 +16,18 @@ import { IconPlusWhite } from '@/assets'
 const CreateTaskListModal = () => {
 
    const { sharedTasks, setSharedTasks } = useContext(DataContext)
+   const { tempList, setTempList } = useContext(TempListContext)
+   const { setSelectedTaskItemId } = useContext(SelectedTaskItemIDContext)
+   const { setItemEditActiveID } = useContext(ItemEditActiveIDContext)
 
    const {
-      taskListModalActive, setTaskListModalActive,
-      setModalBlurActive, setModalWrapperActive
+      taskListModalActive, setTaskListModalActive, setModalWrapperActive
    } = useContext(ModalsContext)
 
-   const { setSelectedTaskItemId } = useContext(SelectedTaskItemIDContext)
 
    const [levelSelected, setLevelSelected] = useState("")
    const [taskTitle, setTaskTitle] = useState("")
-   const [tempList, setTempList] = useState([])
    const [animateClass, setAnimateClass] = useState("")
-
-   const [taskItemEditActive, setTaskItemEditActive] = useState("")
 
    useEffect(() => {
       setTempList([...sharedTasks])
@@ -84,14 +82,13 @@ const CreateTaskListModal = () => {
    function handleSetModalDisabled() {
       setTaskListModalActive(false)
       setModalWrapperActive(false)
-      setModalBlurActive(false)
       setAnimateClass("")
 
       setTempList(sharedTasks)
 
       setTaskTitle("")
       setLevelSelected("")
-      setTaskItemEditActive("")
+      setItemEditActiveID("")
 
       setSelectedTaskItemId("")
    }
@@ -110,6 +107,7 @@ const CreateTaskListModal = () => {
    }
 
    return (
+      
       <div className={taskListModalActive ? "create-task-list-modal " + animateClass : "create-task-list-modal create-task-list-modal--disabled"} tabIndex={1} onKeyDown={(e) => handleCreateTempTaskWithEnter(e)}>
 
          <h1>Gerenciar Lista</h1>
@@ -189,12 +187,7 @@ const CreateTaskListModal = () => {
 
                <section className="create-task-list-modal__draggable-list-wrapper">
 
-                  <DraggableList
-                     tempList={tempList}
-                     setTempList={setTempList}
-                     taskItemEditActive={taskItemEditActive}
-                     setTaskItemEditActive={setTaskItemEditActive}
-                  />
+                  <DraggableList />
 
                </section>
 

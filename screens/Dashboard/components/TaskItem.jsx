@@ -7,7 +7,7 @@ import "@/css/screens/dashboard/components/task-item.css"
 
 import { IconTrash, IconClock, IconEdit, UncheckedIcon, CheckedIcon, IconX, IconCheck } from "@/assets"
 
-import { DataContext } from "../contexts"
+import { DataContext } from "@/contexts"
 
 const TaskItem = ({ task, id }) => {
 

@@ -7,7 +7,7 @@ import "@/css/screens/dashboard/components/goal.css"
 
 import { SquareUncheckedIcon, SquareCheckedIcon, IconTrash, IconEdit, IconX, IconCheck } from "@/assets"
 
-import { DataContext } from "../contexts";
+import { DataContext } from "@/contexts";
 
 const Goal = ({ goal, onDashboard, setCounter, id, planId }) => {
 

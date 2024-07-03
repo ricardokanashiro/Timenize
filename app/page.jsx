@@ -13,9 +13,9 @@ import { Logo, IconHome, IconHomeWhite, IconSettings, IconSettingsWhite, IconTar
 import { SidebarItem } from "@/components"
 import { Dashboard, Settings, Habits, Plans, Pomodoro } from "@/screens"
 import { CreateTaskListModal } from "@/modals"
-import { ModalsContext } from "@/contexts"
 
-import { SelectedTaskItemIDProvider } from "@/screens/Dashboard/contexts"
+import { ModalsContext } from "@/contexts"
+import { SelectedTaskItemIDProvider, TempListProvider, ItemEditActiveIDProvider } from "@/modals/CreateTaskListModal/contexts"
 
 const firaCode = Fira_Code({
    subsets: ['latin'],
@@ -25,7 +25,7 @@ const firaCode = Fira_Code({
 
 const Home = () => {
 
-   const { modalWrapperActive, modalBlurActive } = useContext(ModalsContext)
+   const { modalWrapperActive } = useContext(ModalsContext)
 
    const [selectedBtn, setSelectedBtn] = useState('dashboard')
 
@@ -182,16 +182,16 @@ const Home = () => {
 
          </section>
 
-         <div className={modalBlurActive ? "home__modal-blur" : "home__modal-blur home__modal-blur--disabled"}></div>
-
          <div className={modalWrapperActive ? "home__modals-wrapper" : "home__modals-wrapper home__modals-wrapper--disabled"}>
             {
                selectedBtn === "dashboard" &&
-               <>
-                  <SelectedTaskItemIDProvider>
-                     <CreateTaskListModal />
-                  </SelectedTaskItemIDProvider>
-               </>
+               <SelectedTaskItemIDProvider>
+               <TempListProvider>
+               <ItemEditActiveIDProvider>
+                  <CreateTaskListModal />
+               </ItemEditActiveIDProvider>
+               </TempListProvider>
+               </SelectedTaskItemIDProvider>
             }
          </div>
          
