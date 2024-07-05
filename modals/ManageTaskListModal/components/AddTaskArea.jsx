@@ -44,7 +44,7 @@ const AddTaskArea = () => {
    }
 
    return (
-         <section className="configurations__tasks-configs-area">
+         <section className="configurations__tasks-configs-area" onKeyDown={(e) => handleCreateTempTaskWithEnter(e)}>
 
             <h2>Adicionar Task</h2>
 

@@ -103,6 +103,10 @@ const ListTaskItem = ({
       changeLevelTaskSelectedID === "" ? setOpened(false) : setOpened(true)
    }, [changeLevelTaskSelectedID])
 
+   useEffect(() => {
+      setEditValue(children)
+   }, [children])
+
    return (
       <Draggable key={id} draggableId={id} index={index}>
          {(provided, snapshot) => {
@@ -113,7 +117,7 @@ const ListTaskItem = ({
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-                  style={snapshot.isDragging ? { ...provided.draggableProps.style, top: provided.draggableProps.style.top - 82 } : { ...provided.draggableProps.style }}
+                  style={snapshot.isDragging ? { ...provided.draggableProps.style, top: provided.draggableProps.style.top - 27 } : { ...provided.draggableProps.style }}
                >
 
                   <div className="list-task-item__content-area">
@@ -203,7 +207,8 @@ const ListTaskItem = ({
 
 
                   </div>
-               </div>)
+               </div>
+            )
          }}
       </Draggable>
    )

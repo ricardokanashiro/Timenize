@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect, useRef } from "react"
 
 import "@/css/modal/create-task-list-modal/components/list-level-button.css"
 import { EditAreasContext } from "../contexts"
@@ -6,6 +6,7 @@ import { EditAreasContext } from "../contexts"
 const ListLevelButton = ({ children, level }) => {
 
    const { setAddTaskLevelSelected, addTaskLevelSelected } = useContext(EditAreasContext)
+   const buttonRef = useRef()
 
    function returnClasses() {
 
@@ -19,10 +20,15 @@ const ListLevelButton = ({ children, level }) => {
       
    }
 
+   useEffect(() => {
+      addTaskLevelSelected === "" && buttonRef.current.blur()
+   }, [addTaskLevelSelected])
+
    return (
       <button 
          className={returnClasses()}
-         onClick={() => setAddTaskLevelSelected(level)}
+         onClick={() => {setAddTaskLevelSelected(level)}}
+         ref={buttonRef}
       >
          {children}
       </button>
