@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.create-task-list-modal {
+  max-height: 90dvh;
+  background-color: white;
+  position: absolute;
+  padding: clamp(2rem, 1.5rem + 2.5vw, 4rem) clamp(3rem, 2rem + 3vw, 5rem);
+  border-radius: 0.6rem;
+  box-shadow: rgba(243, 243, 255, 0.3764705882) 0px 7px 29px 0px;
+  z-index: 1;
+  width: min(90%, 55rem);
+  transition-property: opacity, transform;
+  transition-duration: 280ms;
+  opacity: 0;
+  transform: translate3d(0, 100px, 0);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.create-task-list-modal h1 {
+  font-size: clamp(1.8rem, 1.1rem + 1.1vw, 2.3rem);
+}
+
+.create-task-list-modal--disabled {
+  display: none;
+}
+
+.create-task-list-modal__configurations {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 1;
+}
+
+.configurations__tasks-configs-area {
+  margin-top: 2.5rem;
+  width: 100%;
+}
+.configurations__tasks-configs-area h2 {
+  color: #838393;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 0.75rem + 0.75vw, 1.5rem);
+}
+
+.tasks-configs__tasks-configs {
+  width: 100%;
+}
+
+.tasks-configs__create-title-area {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.tasks-configs__create-title-area input {
+  background-color: transparent;
+  height: 100%;
+  width: 0;
+  flex: 1;
+  outline: none;
+  font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
+}
+.tasks-configs__create-title-area input::placeholder {
+  color: #C3C3C3;
+}
+.tasks-configs__create-title-area span {
+  font-size: clamp(1rem, 0.6rem + 0.6vw, 1.2rem);
+  font-weight: 500;
+  color: #838393;
+}
+
+.create-title-area__input-wrapper {
+  background-color: #F3F3FF;
+  flex-grow: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.list-task-item__actions-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.list-task-item__actions-area button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.list-task-item__actions-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tasks-configs__level-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(2rem, 1.25rem + 1.25vw, 2.5rem);
+}
+.tasks-configs__level-area p {
+  font-size: clamp(1rem, 0.6rem + 0.6vw, 1.2rem);
+  color: #838393;
+}
+
+.level-area__levels-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(1rem, 0.75rem + 0.75vw, 1.5rem);
+}
+
+.configurations__task-list-wrapper {
+  margin-top: 2.5rem;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 1;
+}
+.configurations__task-list-wrapper h2 {
+  color: #838393;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 0.75rem + 0.75vw, 1.5rem);
+  margin-bottom: 2rem;
+}
+
+.create-task-list-modal__draggable-list-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+}
+
+.create-task-list-modal__draggable-list-wrapper::-webkit-scrollbar {
+  width: 16px;
+}
+
+.create-task-list-modal__draggable-list-wrapper::-webkit-scrollbar-thumb {
+  background-color: #e2e2e2;
+  border-radius: 50px;
+  border: 6px solid white;
+}
+
+.task-list-wrapper__task-list {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+}
+
+.create-task-list-modal__action-area {
+  width: 100%;
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+.fade-up-left {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.create-task-list-modal__apply-button {
+  background-color: #615EFF;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  border: 2px solid transparent;
+  transition-duration: 250ms;
+  transition-property: color, border, background-color;
+}
+
+.create-task-list-modal__apply-button:hover {
+  border: 2px solid #615EFF;
+  background-color: transparent;
+  color: #615EFF;
+}
+
+.create-task-list-modal__back-button {
+  background-color: transparent;
+  color: #838393;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 0.3rem;
+}
+
+.create-task-list-modal__add-button {
+  background-color: #615EFF;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  border: 2px solid transparent;
+  transition-duration: 250ms;
+  transition-property: color, border, background-color;
+}
+
+.create-task-list-modal__add-button:hover {
+  border: 2px solid #615EFF;
+  background-color: transparent;
+  color: #615EFF;
+}
+
+.modal-button__icon {
+  display: none;
+}
+
+.create-task-list-modal__back-button,
+.create-task-list-modal__apply-button,
+.create-task-list-modal__add-btn {
+  font-size: clamp(1rem, 0.7rem + 0.7vw, 1.4rem);
+}
+
+@media (max-width: 550px) {
+  .tasks-configs__level-area p {
+    display: none;
+  }
+  .tasks-configs__create-title-area {
+    gap: 0;
+    align-items: stretch;
+  }
+  .tasks-configs__create-title-area input {
+    border-radius: 0.3rem 0 0 0.3rem;
+  }
+  .create-task-list-modal__add-button {
+    border-radius: 0 0.3rem 0.3rem 0;
+    display: flex;
+  }
+  .modal-button__text {
+    display: none;
+  }
+  .modal-button__icon {
+    display: flex;
+    width: clamp(1.8rem, 1.25rem + 1.25vw, 2.5rem);
+    height: clamp(1.8rem, 1.25rem + 1.25vw, 2.5rem);
+    flex-shrink: 0;
+  }
+}
+.Toastify__progress-bar--success {
+  background-color: #615EFF !important;
+}
+
+.Toastify__toast-icon > svg {
+  fill: #615EFF;
+}
+
+.Toastify__toast-body {
+  font-weight: 700;
+  font-size: 1.2rem;
+  gap: 1rem;
+  font-family: __Fira_Code_dbf0a9, __Fira_Code_Fallback_dbf0a9;
+}
+
+/*# sourceMappingURL=manage-task-list-modal.css.map */

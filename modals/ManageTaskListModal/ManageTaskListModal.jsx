@@ -1,32 +1,28 @@
 import { useContext, useEffect, useState } from 'react'
 
-import Image from 'next/image'
-import { v4 as uuidV4 } from 'uuid'
-import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-import { ListLevelButton, DraggableList } from './components'
+import { TaskListWrapper, ActionsArea, AddTaskArea } from './components'
 import { ModalsContext, DataContext } from '@/contexts'
-import { TempListContext, SelectedTaskItemIDContext, ItemEditActiveIDContext } from './contexts'
+import { EditAreasContext, TempListContext } from './contexts'
 
-import '@/css/modal/create-task-list-modal/create-task-list-modal.css'
+import '@/css/modal/manage-task-list-modal/manage-task-list-modal.css'
 
-import { IconPlusWhite } from '@/assets'
+const ManageTaskListModal = () => {
 
-const CreateTaskListModal = () => {
-
-   const { sharedTasks, setSharedTasks } = useContext(DataContext)
-   const { tempList, setTempList } = useContext(TempListContext)
-   const { setSelectedTaskItemId } = useContext(SelectedTaskItemIDContext)
-   const { setItemEditActiveID } = useContext(ItemEditActiveIDContext)
+   const { sharedTasks } = useContext(DataContext)
+   const { setTempList } = useContext(TempListContext)
+   const {
+      setTaskEditActiveID,
+      setChangeLevelTaskSelectedID,
+      setAddTaskTaskTitle,
+      setAddTaskLevelSelected
+   } = useContext(EditAreasContext)
 
    const {
       taskListModalActive, setTaskListModalActive, setModalWrapperActive
    } = useContext(ModalsContext)
 
-
-   const [levelSelected, setLevelSelected] = useState("")
-   const [taskTitle, setTaskTitle] = useState("")
    const [animateClass, setAnimateClass] = useState("")
 
    useEffect(() => {
@@ -37,44 +33,6 @@ const CreateTaskListModal = () => {
       handleLoadAnimation()
    }, [taskListModalActive])
 
-   function handleSetTaskTitle(e) {
-      if (taskTitle.length === 50 && e.target.value > taskTitle) {
-         return
-      }
-
-      setTaskTitle(e.target.value)
-   }
-
-   function handleCreateTempTask() {
-
-      if (!taskTitle) {
-         alert("Insira um valor válido")
-         return
-      }
-
-      if (!levelSelected) {
-         alert("Insira um nível válido")
-         return
-      }
-
-      const newTask = {
-         id: uuidV4(),
-         title: taskTitle,
-         checked: false,
-         level: levelSelected
-      }
-
-      setTempList(prev => [newTask, ...prev])
-      setTaskTitle("")
-      setLevelSelected("")
-   }
-
-   function handleCreateTempTaskWithEnter(e) {
-      if (e.key === "Enter") {
-         handleCreateTempTask()
-      }
-   }
-
    function handleLoadAnimation() {
       taskListModalActive && setTimeout(() => setAnimateClass("fade-up-left"), 100)
    }
@@ -83,136 +41,35 @@ const CreateTaskListModal = () => {
       setTaskListModalActive(false)
       setModalWrapperActive(false)
       setAnimateClass("")
+      
+      setTaskEditActiveID("")
+      setChangeLevelTaskSelectedID("")
+      setAddTaskTaskTitle("")
+      setAddTaskLevelSelected("")
 
       setTempList(sharedTasks)
-
-      setTaskTitle("")
-      setLevelSelected("")
-      setItemEditActiveID("")
-
-      setSelectedTaskItemId("")
-   }
-
-   function notify(message) {
-      toast.success(message, {
-         position: "top-right",
-         autoClose: 3000,
-      })
-   }
-
-   function handleApplyChanges() {
-      setSharedTasks(tempList)
-      handleSetModalDisabled()
-      notify("Alterações concluídas com sucesso!")
    }
 
    return (
-      
-      <div className={taskListModalActive ? "create-task-list-modal " + animateClass : "create-task-list-modal create-task-list-modal--disabled"} tabIndex={1} onKeyDown={(e) => handleCreateTempTaskWithEnter(e)}>
+
+      <div className={taskListModalActive ? "create-task-list-modal " + animateClass : "create-task-list-modal create-task-list-modal--disabled"} tabIndex={1}>
 
          <h1>Gerenciar Lista</h1>
 
          <section className="create-task-list-modal__configurations">
 
-            <section className="configurations__tasks-configs-area">
+            <AddTaskArea />
 
-               <h2>Configurações de Task</h2>
-
-               <section className="tasks-configs__tasks-configs">
-
-                  <div className="tasks-configs__create-title-area">
-
-                     <div className="create-title-area__input-wrapper">
-                        <input
-                           type="text"
-                           placeholder="Nome da nova task..."
-                           onChange={(e) => handleSetTaskTitle(e)}
-                           value={taskTitle}
-                        />
-
-                        {
-                           taskTitle && <span>{taskTitle.length}/50</span>
-                        }
-                     </div>
-
-
-                     <button onClick={handleCreateTempTask} className="create-task-list-modal__add-button">
-                        <p className="modal-button__text">Criar</p>
-                        <Image src={IconPlusWhite} alt="" className="modal-button__icon" />
-                     </button>
-
-                  </div>
-
-                  <div className="tasks-configs__level-area">
-
-                     <p>Importância</p>
-
-                     <div className="level-area__levels-wrapper">
-
-                        <ListLevelButton
-                           level="trivial"
-                           setLevelSelected={setLevelSelected}
-                           actived={levelSelected === "trivial"}
-                        >
-                           Trivial
-                        </ListLevelButton>
-
-                        <ListLevelButton
-                           level="importante"
-                           setLevelSelected={setLevelSelected}
-                           actived={levelSelected === "importante"}
-                        >
-                           Importante
-                        </ListLevelButton>
-
-                        <ListLevelButton
-                           level="essencial"
-                           setLevelSelected={setLevelSelected}
-                           actived={levelSelected === "essencial"}
-                        >
-                           Essencial
-                        </ListLevelButton>
-
-                     </div>
-
-                  </div>
-
-               </section>
-
-            </section>
-
-            <section className="configurations__task-list-wrapper">
-
-               <h2>Lista de Tasks</h2>
-
-               <section className="create-task-list-modal__draggable-list-wrapper">
-
-                  <DraggableList />
-
-               </section>
-
-
-            </section>
+            <TaskListWrapper />
 
          </section>
 
-         <section className="create-task-list-modal__action-area">
-
-            <button onClick={handleSetModalDisabled} className="create-task-list-modal__back-button">Cancelar</button>
-
-            <button
-               className="create-task-list-modal__apply-button"
-               onClick={() => {
-                  handleApplyChanges()
-                  handleSetModalDisabled()
-               }}>
-               Aplicar
-            </button>
-
-         </section>
+         <ActionsArea
+            handleSetModalDisabled={handleSetModalDisabled}
+         />
 
       </div>
    )
 }
 
-export default CreateTaskListModal
+export default ManageTaskListModal

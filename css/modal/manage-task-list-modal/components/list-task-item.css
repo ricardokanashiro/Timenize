@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.list-task-item {
+  width: 100%;
+  background-color: #F3F3FF;
+  border-radius: 0.6rem;
+  border-right: 0.6rem solid #615EFF;
+  padding: 1.2rem;
+  left: auto !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.list-task-item__content-area {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.list-task-item__drag-button {
+  background-color: transparent;
+  cursor: pointer;
+}
+.list-task-item__drag-button .drag-button__icon {
+  height: 1.6rem;
+  margin-bottom: -0.3rem;
+}
+
+.list-task-item__text {
+  flex-grow: 1;
+  font-size: clamp(1rem, 0.6125rem + 0.6125vw, 1.25rem);
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.list-task-item__actions-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.list-task-item__level-color {
+  width: clamp(1.1rem, 0.7rem + 0.7vw, 1.4rem);
+  height: clamp(1.1rem, 0.7rem + 0.7vw, 1.4rem);
+  border-radius: 50%;
+}
+
+.level-wrapper-mini-menu {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.6rem 0 0.6rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.level-wrapper-mini-menu button {
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.level-wrapper-mini-menu .level-wrapper-mini-menu__check-icon {
+  width: 1.4rem;
+}
+.level-wrapper-mini-menu .level-wrapper-mini-menu__check-icon--disabled {
+  opacity: 0;
+}
+.level-wrapper-mini-menu .level-wrapper-mini-menu__btn--green {
+  color: #90EE90;
+}
+.level-wrapper-mini-menu .level-wrapper-mini-menu__btn--yellow {
+  color: #FFC553;
+}
+.level-wrapper-mini-menu .level-wrapper-mini-menu__btn--red {
+  color: #FF5558;
+}
+
+.list-task-item__level-color--trivial {
+  background-color: #90EE90 !important;
+}
+
+.list-task-item__level-color--importante {
+  background-color: #FFC553 !important;
+}
+
+.list-task-item__level-color--essencial {
+  background-color: #FF5558 !important;
+}
+
+.list-task-icon__actions-area__icon {
+  height: clamp(1.4rem, 0.85rem + 0.85vw, 1.7rem);
+  width: clamp(1.4rem, 0.85rem + 0.85vw, 1.7rem);
+  margin-bottom: -0.25rem;
+}
+
+.list-task-item__edit-input {
+  width: 0;
+  flex-grow: 1;
+  outline: none;
+  background-color: transparent;
+}
+
+/*# sourceMappingURL=list-task-item.css.map */

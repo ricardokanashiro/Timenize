@@ -1,6 +1,11 @@
-import "@/css/modal/create-task-list-modal/components/list-level-button.css"
+import { useContext } from "react"
 
-const ListLevelButton = ({ children, level, setLevelSelected, actived }) => {
+import "@/css/modal/create-task-list-modal/components/list-level-button.css"
+import { EditAreasContext } from "../contexts"
+
+const ListLevelButton = ({ children, level }) => {
+
+   const { setAddTaskLevelSelected, addTaskLevelSelected } = useContext(EditAreasContext)
 
    function returnClasses() {
 
@@ -9,7 +14,7 @@ const ListLevelButton = ({ children, level, setLevelSelected, actived }) => {
          : level === "importante" ? "--importante"
          : level === "essencial" && "--essencial"
       ) + (
-         actived && "-active"
+         addTaskLevelSelected === level && "-active"
       )
       
    }
@@ -17,7 +22,7 @@ const ListLevelButton = ({ children, level, setLevelSelected, actived }) => {
    return (
       <button 
          className={returnClasses()}
-         onClick={() => setLevelSelected(level)}
+         onClick={() => setAddTaskLevelSelected(level)}
       >
          {children}
       </button>

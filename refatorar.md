@@ -1,5 +1,0 @@
--> refatorar scss para cada folder [x]
--> refatorar componentes para modal [x]
--> refatorar código de draggableList and ManageTaskListModal [x]
--> abstrair componentes -> já conhecido: 'mini-menu' [x]
--> refatorar lógica de cada componente []

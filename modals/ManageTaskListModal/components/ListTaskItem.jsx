@@ -6,7 +6,7 @@ import { Draggable } from "@hello-pangea/dnd"
 import { useFloating, hide, autoUpdate, flip, useInteractions, useDismiss } from '@floating-ui/react';
 
 import { ModalsContext } from '@/contexts'
-import { SelectedTaskItemIDContext, TempListContext, ItemEditActiveIDContext } from "../contexts";
+import { TempListContext, EditAreasContext } from "../contexts";
 
 import { ChangeLevelMiniMenu } from "./"
 
@@ -19,8 +19,11 @@ const ListTaskItem = ({
 
    const { tempList, setTempList } = useContext(TempListContext)
    const { taskListModalActive } = useContext(ModalsContext)
-   const { selectedTaskItemId, setSelectedTaskItemId } = useContext(SelectedTaskItemIDContext)
-   const { itemEditActiveID, setItemEditActiveID } = useContext(ItemEditActiveIDContext)
+
+   const { 
+      changeLevelTaskSelectedID, setChangeLevelTaskSelectedID, 
+      taskEditActiveID, setTaskEditActiveID 
+   } = useContext(EditAreasContext)
 
    const [editValue, setEditValue] = useState(children)
    const [opened, setOpened] = useState(false)
@@ -38,7 +41,7 @@ const ListTaskItem = ({
       open: opened,
       onOpenChange: (cond) => {
          setOpened(cond)
-         setSelectedTaskItemId("")
+         setChangeLevelTaskSelectedID("")
       },
    });
 
@@ -73,7 +76,7 @@ const ListTaskItem = ({
       const editedList = tempList.map(task => task.id === id ? { ...task, title: editValue } : task)
 
       setTempList(editedList)
-      setItemEditActiveIDActive("")
+      setTaskEditActiveID("")
    }
 
    function handleEditTaskTitleWithEnter(e) {
@@ -82,20 +85,14 @@ const ListTaskItem = ({
       }
    }
 
-   function handleSetselectedTaskItemId() {
+   function handleSetchangeLevelTaskSelectedID() {
 
-      if (selectedTaskItemId !== "") {
-         setSelectedTaskItemId("")
+      if (changeLevelTaskSelectedID !== "") {
+         setChangeLevelTaskSelectedID("")
          return
       }
 
-      setSelectedTaskItemId(id)
-   }
-
-   function changeLevel(level) {
-      setTempList(prev => prev.map(
-         task => task.id === id ? { ...task, level: level } : task
-      ))
+      setChangeLevelTaskSelectedID(id)
    }
 
    useEffect(() => {
@@ -103,8 +100,8 @@ const ListTaskItem = ({
    }, [taskListModalActive])
 
    useEffect(() => {
-      selectedTaskItemId === "" ? setOpened(false) : setOpened(true)
-   }, [selectedTaskItemId])
+      changeLevelTaskSelectedID === "" ? setOpened(false) : setOpened(true)
+   }, [changeLevelTaskSelectedID])
 
    return (
       <Draggable key={id} draggableId={id} index={index}>
@@ -126,7 +123,7 @@ const ListTaskItem = ({
                      </button>
 
                      {
-                        itemEditActiveID === id ?
+                        taskEditActiveID === id ?
                            <input
                               type="text"
                               className="list-task-item__edit-input"
@@ -148,7 +145,7 @@ const ListTaskItem = ({
 
                         <button
                            ref={refs.setReference}
-                           onClick={handleSetselectedTaskItemId}
+                           onClick={handleSetchangeLevelTaskSelectedID}
                            {...getReferenceProps()}
                            className={
                               "list-task-item__level-color list-task-item__level-color" + (
@@ -159,7 +156,7 @@ const ListTaskItem = ({
                         />
 
                         {
-                           selectedTaskItemId === id && opened && (
+                           changeLevelTaskSelectedID === id && opened && (
 
                               <ChangeLevelMiniMenu
                                  refs={refs}
@@ -178,13 +175,13 @@ const ListTaskItem = ({
                      <section className="list-task-item__actions-wrapper">
 
                         {
-                           itemEditActiveID === id ? <>
+                           taskEditActiveID === id ? <>
                               <button onClick={handleEditTaskTitle}>
                                  <Image src={IconCheck} alt="check icon" className="list-task-icon__actions-area__icon" />
                               </button>
 
                               <button onClick={() => {
-                                 setItemEditActiveIDActive("")
+                                 setTaskEditActiveID("")
                                  setEditValue(children)
                               }}>
                                  <Image src={IconX} alt="cancel icon" className="list-task-icon__actions-area__icon" />
@@ -192,7 +189,7 @@ const ListTaskItem = ({
                            </>
 
                               : <>
-                                 <button onClick={() => setItemEditActiveID(id)}>
+                                 <button onClick={() => setTaskEditActiveID(id)}>
                                     <Image src={IconEdit} alt="edit icon" className="list-task-icon__actions-area__icon" />
                                  </button>
 

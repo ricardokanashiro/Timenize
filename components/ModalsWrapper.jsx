@@ -1,7 +1,7 @@
 import { useContext } from "react"
 
 import { ModalsContext } from "@/contexts"
-import { SelectedTaskItemIDProvider, TempListProvider, ItemEditActiveIDProvider } from "@/modals/ManageTaskListModal/contexts"
+import { TempListProvider, EditAreasProvider } from "@/modals/ManageTaskListModal/contexts"
 
 import { ManageTaskListModal } from "@/modals"
 
@@ -13,13 +13,11 @@ const ModalsWrapper = ({ selectedScreen }) => {
       <div className={modalWrapperActive ? "home__modals-wrapper" : "home__modals-wrapper home__modals-wrapper--disabled"}>
             {
                selectedScreen === "dashboard" &&
-               <SelectedTaskItemIDProvider>
                <TempListProvider>
-               <ItemEditActiveIDProvider>
+               <EditAreasProvider>
                   <ManageTaskListModal />
-               </ItemEditActiveIDProvider>
+               </EditAreasProvider>
                </TempListProvider>
-               </SelectedTaskItemIDProvider>
             }
          </div>
    )

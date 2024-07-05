@@ -1,5 +1,4 @@
 import TempListProvider, { TempListContext } from "./TempListContext"
-import ItemEditActiveIDProvider, { ItemEditActiveIDContext } from "./ItemEditActiveIDContext"
-import SelectedTaskItemIDProvider, { SelectedTaskItemIDContext } from "./SelectedTaskItemIDContext"
+import EditAreasProvider, { EditAreasContext } from "./EditAreasContext"
 
-export { TempListProvider, TempListContext, ItemEditActiveIDProvider, ItemEditActiveIDContext, SelectedTaskItemIDProvider, SelectedTaskItemIDContext }
+export { TempListProvider, TempListContext, EditAreasProvider, EditAreasContext }
