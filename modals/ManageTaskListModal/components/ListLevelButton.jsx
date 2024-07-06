@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from "react"
 
-import "@/css/modal/create-task-list-modal/components/list-level-button.css"
+import "@/css/modal/manage-task-list-modal/components/list-level-button.css"
 import { EditAreasContext } from "../contexts"
 
 const ListLevelButton = ({ children, level }) => {

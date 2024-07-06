@@ -83,7 +83,7 @@ const Goal = ({ goal, onDashboard, setCounter, id, planId }) => {
             {
                editActive ?
 
-                  <input type="text" value={editValue} onChange={((e) => handleEditingGoal(e.target.value))} autoFocus onKeyDown={(e) => handleEditWithEnter(e)} className="content-area__edit-input" />
+                  <input type="text" value={editValue} onChange={((e) => handleEditingGoal(e.target.value))} autoFocus onKeyDown={(e) => handleEditWithEnter(e)} className="goal__content-area__edit-input" />
 
                   :
 

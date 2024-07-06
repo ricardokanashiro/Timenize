@@ -11,7 +11,7 @@ import { TempListContext, EditAreasContext } from "../contexts";
 import { ChangeLevelMiniMenu } from "./"
 
 import { IconTrash, IconMoreVertical, IconEdit, IconCheck, IconX } from "@/assets"
-import "@/css/modal/create-task-list-modal/components/list-task-item.css"
+import "@/css/modal/manage-task-list-modal/components/list-task-item.css"
 
 const ListTaskItem = ({
    children, level, index, id, containerRef
@@ -117,7 +117,7 @@ const ListTaskItem = ({
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-                  style={snapshot.isDragging ? { ...provided.draggableProps.style, top: provided.draggableProps.style.top - 27 } : { ...provided.draggableProps.style }}
+                  style={snapshot.isDragging ? { ...provided.draggableProps.style, top: provided.draggableProps.style.top - 45} : { ...provided.draggableProps.style }}
                >
 
                   <div className="list-task-item__content-area">

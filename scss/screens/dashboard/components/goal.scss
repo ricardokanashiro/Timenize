@@ -38,10 +38,11 @@
    }
 }
 
-.content-area__edit-input {
+.goal__content-area__edit-input {
    background-color: transparent;
    outline: none;
    width: 100%;
+   font-size: clamp(.9rem, .62rem + .62vw , 1.25rem);
 }
 
 .goal__actions-area {

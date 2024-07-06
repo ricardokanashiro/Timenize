@@ -1,7 +1,7 @@
 @use '../../utils/' as *;
 
 .create-task-list-modal {
-   max-height: 90dvh;
+   max-height: 85dvh;
    background-color: white;
    position: absolute;
    padding: clamp(2rem, 1.5rem + 2.5vw , 4rem) clamp(3rem, 2rem + 3vw, 5rem);
@@ -119,6 +119,7 @@
 .level-area__levels-wrapper {
    @include flex(flex-start, center);
    gap: clamp(1rem, .75rem + .75vw, 1.5rem);
+   flex-wrap: wrap;
 }
 
 .configurations__task-list-wrapper {
