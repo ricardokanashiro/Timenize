@@ -117,9 +117,4 @@
    flex-grow: 1;
    outline: none;
    background-color: transparent;
-   font-size: clamp(1rem, .6125rem + .6125vw , 1.25rem);
-}
-
-@include TabletsDown {
-
 }
