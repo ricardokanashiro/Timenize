@@ -52,11 +52,11 @@ const ManageTaskListModal = () => {
 
    return (
 
-      <div className={taskListModalActive ? "create-task-list-modal " + animateClass : "create-task-list-modal create-task-list-modal--disabled"} tabIndex={1}>
+      <div className={taskListModalActive ? "manage-task-list-modal " + animateClass : "manage-task-list-modal manage-task-list-modal--disabled"} tabIndex={1}>
 
          <h1>Gerenciar Lista</h1>
 
-         <section className="create-task-list-modal__configurations">
+         <section className="manage-task-list-modal__configurations">
 
             <AddTaskArea />
 

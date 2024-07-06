@@ -39,6 +39,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1.5rem;
+}
+.list-task-item__actions-area button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.list-task-item__actions-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -106,6 +117,7 @@
   flex-grow: 1;
   outline: none;
   background-color: transparent;
+  font-size: clamp(1rem, 0.6125rem + 0.6125vw, 1.25rem);
 }
 
 /*# sourceMappingURL=list-task-item.css.map */

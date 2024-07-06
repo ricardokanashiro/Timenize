@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.create-title-area__input-wrapper {
+  background-color: #F3F3FF;
+  flex-grow: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+}
+.create-title-area__input-wrapper input {
+  background-color: transparent;
+  height: 100%;
+  width: 0;
+  flex: 1;
+  outline: none;
+  font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
+}
+.create-title-area__input-wrapper input::placeholder {
+  color: #C3C3C3;
+}
+
+/*# sourceMappingURL=add-task-title-input.css.map */

@@ -1,0 +1,24 @@
+@use "../../../utils/" as *;
+
+.create-title-area__input-wrapper {
+   background-color: $purplishBlue100;
+   flex-grow: 1;
+   padding: 1rem 1.5rem;
+   border-radius: .6rem;
+
+   input {
+      background-color: transparent;
+      height: 100%;
+      width: 0;
+      flex: 1;
+      outline: none;
+      font-size: clamp(1rem, .65rem + .65vw , 1.3rem);
+   }
+
+   input::placeholder {
+      color: $lightGray;
+   }
+
+   @include flex(center, center);
+   gap: 1.4rem;
+}

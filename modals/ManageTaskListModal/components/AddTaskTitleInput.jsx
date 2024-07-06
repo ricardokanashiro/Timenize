@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { EditAreasContext } from "../contexts"
 
+import "@/css/modal/manage-task-list-modal/components/add-task-title-input.css"
+
 const AddTaskTitleInput = ({ handleCreateTempTaskWithEnter }) => {
 
    const {

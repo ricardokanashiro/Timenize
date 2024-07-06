@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.manage-task-list-modal__action-area {
+  width: 100%;
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+.manage-task-list-modal__apply-btn {
+  background-color: #615EFF;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  border: 2px solid transparent;
+  transition-duration: 250ms;
+  transition-property: color, border, background-color;
+}
+
+.manage-task-list-modal__apply-btn:hover {
+  border: 2px solid #615EFF;
+  background-color: transparent;
+  color: #615EFF;
+}
+
+.manage-task-list-modal__back-btn {
+  background-color: transparent;
+  color: #838393;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 0.3rem;
+}
+
+.manage-task-list-modal__back-btn,
+.manage-task-list-modal__apply-btn {
+  font-size: clamp(1rem, 0.7rem + 0.7vw, 1.4rem);
+}
+
+/*# sourceMappingURL=actions-area.css.map */

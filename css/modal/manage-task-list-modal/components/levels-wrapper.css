@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.level-area__levels-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(1rem, 0.75rem + 0.75vw, 1.5rem);
+  flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=levels-wrapper.css.map */

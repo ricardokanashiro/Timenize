@@ -70,38 +70,40 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.4rem;
 }
 .user-area__user-wrapper p {
-  font-size: clamp(1rem, 1.05rem + 0.3vw, 1.8rem);
+  font-size: clamp(1rem, 1rem + 0.3vw, 1.4rem);
   font-weight: 500;
   color: #838393;
+}
+
+.user-wrapper__user-img {
+  width: 3rem;
+  height: auto;
 }
 
 .user-area__logout-button {
   width: 100%;
   border: 1.5px solid #838393;
-  padding: 0.6rem 1.2rem;
+  padding: 0.5rem 1rem;
   background-color: white;
   cursor: pointer;
   border-radius: 0.6rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1rem;
 }
 .user-area__logout-button p {
   color: #838393;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: clamp(0.9rem, 0.55rem + 0.55vw, 1.1rem);
 }
 .user-area__logout-button .logout-button__icon {
-  width: 1.8rem;
-}
-
-.user-wrapper__user-img {
-  width: clamp(2.8rem, 2.3rem + 0.5vw, 3.2rem);
-  height: auto;
+  width: clamp(1.2rem, 0.75rem + 0.75vw, 1.5rem);
+  margin-left: -1rem;
+  flex-shrink: 0;
 }
 
 .mobile-menu {
@@ -132,13 +134,16 @@
     display: none;
   }
   .user-area__user-wrapper .user-wrapper__user-img {
-    width: 4.2rem;
+    width: 4rem;
   }
   .user-area__logout-button {
     justify-content: center;
   }
   .user-area__logout-button p {
     display: none;
+  }
+  .user-area__logout-button .logout-button__icon {
+    margin-left: 0;
   }
 }
 @media (max-width: 550px) {

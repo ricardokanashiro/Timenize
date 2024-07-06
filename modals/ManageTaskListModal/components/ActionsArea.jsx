@@ -5,6 +5,8 @@ import { toast } from 'react-toastify'
 import { DataContext } from "@/contexts"
 import { TempListContext } from "../contexts"
 
+import "@/css/modal/manage-task-list-modal/components/actions-area.css"
+
 const ActionsArea = ({ handleSetModalDisabled }) => {
 
    const { setSharedTasks } = useContext(DataContext)
@@ -24,12 +26,12 @@ const ActionsArea = ({ handleSetModalDisabled }) => {
    }
 
    return (
-      <section className="create-task-list-modal__action-area">
+      <section className="manage-task-list-modal__action-area">
 
-         <button onClick={handleSetModalDisabled} className="create-task-list-modal__back-button">Cancelar</button>
+         <button onClick={handleSetModalDisabled} className="manage-task-list-modal__back-btn">Cancelar</button>
 
          <button
-            className="create-task-list-modal__apply-button"
+            className="manage-task-list-modal__apply-btn"
             onClick={() => {
                handleApplyChanges()
                handleSetModalDisabled()

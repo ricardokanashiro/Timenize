@@ -67,40 +67,42 @@
    cursor: pointer;
 
    @include flex(flex-start, center);
-   gap: 1.6rem;
+   gap: 1.4rem;
 
    p {
-      font-size: clamp(1rem, 1.05rem + .3vw, 1.8rem);
+      font-size: clamp(1rem, 1rem + .3vw, 1.4rem);
       font-weight: 500;
       color: $gray;
    }
 }
 
+.user-wrapper__user-img {
+   width: 3rem;
+   height: auto;     
+}
+
 .user-area__logout-button {
    width: 100%;
    border: 1.5px solid $gray;
-   padding: .6rem 1.2rem;
+   padding: .5rem 1rem;
    background-color: white;
    cursor: pointer;
    border-radius: .6rem;
 
-   @include flex(flex-start, center);
-   gap: 1.6rem;
+   @include flex(center, center);
+   gap: 1rem;
 
    p {
       color: $gray;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: clamp(.9rem, .55rem + .55vw, 1.1rem);
    }
 
    .logout-button__icon {
-      width: 1.8rem;
+      width: clamp(1.2rem, .75rem + .75vw, 1.5rem);
+      margin-left: -1rem;
+      flex-shrink: 0;
    }
-}
-
-.user-wrapper__user-img {
-   width: clamp(2.8rem, 2.3rem + .5vw, 3.2rem);
-   height: auto;     
 }
 
 .mobile-menu {
@@ -133,7 +135,7 @@
       }
 
       .user-wrapper__user-img {
-         width: 4.2rem;
+         width: 4rem;
       }
    }
 
@@ -142,6 +144,10 @@
 
       p {
          display: none;
+      }
+
+      .logout-button__icon {
+         margin-left: 0;
       }
    }
 }

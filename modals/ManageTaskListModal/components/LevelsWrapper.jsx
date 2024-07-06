@@ -1,5 +1,7 @@
 import { ListLevelButton } from "."
 
+import "@/css/modal/manage-task-list-modal/components/levels-wrapper.css"
+
 const LevelsWrapper = () => {
    return (
       <div className="level-area__levels-wrapper">
