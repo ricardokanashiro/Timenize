@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.create-task-modal__tasks-configs {
+  width: 100%;
+  margin: 2.5rem 0 2rem 0;
+}
+.create-task-modal__tasks-configs h2 {
+  color: #838393;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 0.75rem + 0.75vw, 1.5rem);
+}
+
+.create-task-modal__input-wrapper {
+  background-color: #F3F3FF;
+  flex-grow: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 0.6rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+}
+.create-task-modal__input-wrapper input {
+  background-color: transparent;
+  height: 100%;
+  width: 0;
+  flex: 1;
+  outline: none;
+  font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
+}
+.create-task-modal__input-wrapper input::placeholder {
+  color: #C3C3C3;
+}
+
+/*# sourceMappingURL=task-configs.css.map */

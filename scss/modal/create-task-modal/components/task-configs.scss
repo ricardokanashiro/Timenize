@@ -1,0 +1,36 @@
+@use "../../../utils/" as *;
+
+.create-task-modal__tasks-configs {
+   width: 100%;
+   margin: 2.5rem 0 2rem 0;
+
+   h2 {
+      color: $gray;
+      font-weight: 400;
+      font-size: clamp(1.3rem, .75rem + .75vw, 1.5rem);
+   }
+}
+
+.create-task-modal__input-wrapper {
+   background-color: $purplishBlue100;
+   flex-grow: 1;
+   padding: 1rem 1.5rem;
+   border-radius: .6rem;
+   margin-top: 2rem;
+
+   input {
+      background-color: transparent;
+      height: 100%;
+      width: 0;
+      flex: 1;
+      outline: none;
+      font-size: clamp(1rem, .65rem + .65vw , 1.3rem);
+   }
+
+   input::placeholder {
+      color: $lightGray;
+   }
+
+   @include flex(center, center);
+   gap: 1.4rem;
+}

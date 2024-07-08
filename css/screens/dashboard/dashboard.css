@@ -61,7 +61,6 @@
   flex-grow: 1;
   display: flex;
   flex-flow: column nowrap;
-  gap: clamp(2rem, 2rem + 1vw, 3.5rem);
 }
 
 .task-list-card__header {
@@ -97,6 +96,7 @@
   flex-grow: 1;
   gap: 1.8rem;
   overflow-y: scroll;
+  margin-top: clamp(2rem, 2rem + 1vw, 3.5rem);
 }
 
 .task-list-card__task-list::-webkit-scrollbar {
@@ -114,6 +114,7 @@
   width: 100%;
   padding: 1.2rem;
   border-radius: 0.6rem;
+  margin-top: 1.4rem;
   cursor: pointer;
   display: flex;
   justify-content: center;

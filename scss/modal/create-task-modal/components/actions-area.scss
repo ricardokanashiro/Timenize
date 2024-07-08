@@ -1,0 +1,39 @@
+@use "../../../utils" as *;
+
+.actions-area {
+   width: 100%;
+   margin-top: 2.5rem;
+
+   @include flex(flex-end, center);
+   gap: 2rem;
+
+   .actions-area__cancel-btn {
+      background-color: transparent;
+      color: #838393;
+      padding: 0.8rem 1.6rem;
+      cursor: pointer;
+      font-size: 1.4rem;
+      font-weight: 500;
+      border-radius: 0.3rem;
+      font-size: clamp(1rem, 0.7rem + 0.7vw, 1.4rem);
+   }
+
+   .actions-area__add-btn {
+      background-color: #615EFF;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      cursor: pointer;
+      font-weight: 500;
+      border-radius: 0.3rem;
+      border: 2px solid transparent;
+      transition-duration: 250ms;
+      transition-property: color, border, background-color;
+      font-size: clamp(1rem, 0.7rem + 0.7vw, 1.4rem);
+   }
+
+   .actions-area__add-btn:hover {
+      background-color: transparent;
+      color: #615EFF;
+      border-color: #615EFF;
+   }
+}

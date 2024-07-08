@@ -12,13 +12,8 @@ import { DashboardIllustration, ClipboardIconWhite, IconPlus, IconBookMark, Icon
 
 const Dashboard = () => {
 
-   const {sharedTasks, sharedPlans} = useContext(DataContext)
-   const {setTaskListModalActive, setModalWrapperActive} = useContext(ModalsContext)
-
-   function handleSetModalActive() {
-      setTaskListModalActive(true)
-      setModalWrapperActive(true)
-   }
+   const { sharedTasks, sharedPlans } = useContext(DataContext)
+   const { handleToggleManageTaskListModal, handleToggleCreateTaskModal } = useContext(ModalsContext)
 
    return (
       <section className="dashboard">
@@ -47,7 +42,7 @@ const Dashboard = () => {
                <header className="task-list-card__header">
                   <h3>ToDo-List</h3>
 
-                  <button onClick={handleSetModalActive}>
+                  <button onClick={handleToggleManageTaskListModal}>
                      <p>Manage List</p>
                      <Image src={ClipboardIconWhite} alt="clipboard icon" className="header__clipboard-icon" />
                   </button>
@@ -65,11 +60,11 @@ const Dashboard = () => {
                      ))
                   }
 
-                  <button className="task-list__add-task-alt-btn">
-                     <Image src={IconPlus} alt="plus icon" className="add-task-alt-btn__plus-icon" />
-                  </button>
-
                </section>
+
+               <button className="task-list__add-task-alt-btn" onClick={handleToggleCreateTaskModal}>
+                  <Image src={IconPlus} alt="plus icon" className="add-task-alt-btn__plus-icon" />
+               </button>
 
             </div>
 

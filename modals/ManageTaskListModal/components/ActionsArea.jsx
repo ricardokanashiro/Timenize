@@ -14,7 +14,6 @@ const ActionsArea = ({ handleSetModalDisabled }) => {
 
    function handleApplyChanges() {
       setSharedTasks(tempList)
-      handleSetModalDisabled()
       notify("Alterações concluídas com sucesso!")
    }
 

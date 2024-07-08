@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.create-task-modal__change-level-area {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(2rem, 1.25rem + 1.25vw, 2.5rem);
+}
+.create-task-modal__change-level-area span {
+  font-size: clamp(1rem, 0.6rem + 0.6vw, 1.2rem);
+  color: #838393;
+}
+.create-task-modal__change-level-area .create-task-modal__levels-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 0.75rem + 0.75vw, 1.5rem);
+}
+.create-task-modal__change-level-area .create-task-modal__levels-wrapper button {
+  border: 2px solid #BDB8FF;
+  color: #BDB8FF;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
+  font-weight: 400;
+  transition-property: border-color, color, background-color;
+  transition-duration: 250ms;
+}
+.create-task-modal__change-level-area .create-task-modal__levels-wrapper .level-button--essencial:hover {
+  border-color: #FF5558;
+  color: #FF5558;
+}
+.create-task-modal__change-level-area .create-task-modal__levels-wrapper .level-button--essencial-active {
+  color: white;
+  border-color: #FF5558;
+  background-color: #FF5558;
+}
+.create-task-modal__change-level-area .create-task-modal__levels-wrapper .level-button--importante:hover {
+  border-color: #FFC553;
+  color: #FFC553;
+}
+.create-task-modal__change-level-area .create-task-modal__levels-wrapper .level-button--importante-active {
+  color: white;
+  border-color: #FFC553;
+  background-color: #FFC553;
+}
+.create-task-modal__change-level-area .create-task-modal__levels-wrapper .level-button--trivial:hover {
+  border-color: #90EE90;
+  color: #90EE90;
+}
+.create-task-modal__change-level-area .create-task-modal__levels-wrapper .level-button--trivial-active {
+  color: white;
+  border-color: #90EE90;
+  background-color: #90EE90;
+}
+
+/*# sourceMappingURL=change-level-area.css.map */

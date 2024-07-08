@@ -7,13 +7,25 @@ export const ModalsContext = createContext()
 const ModalsProvider = ({ children }) => {
 
    const [modalWrapperActive, setModalWrapperActive] = useState(false)
-   const [taskListModalActive, setTaskListModalActive] = useState(false)
+   const [manageTaskListModalActive, setManageTaskListModalActive] = useState(false)
+   const [createTaskModalActive, setCreateTaskModalActive] = useState(false)
+
+   function handleToggleManageTaskListModal() {
+      setModalWrapperActive(prev => !prev)
+      setManageTaskListModalActive(prev => !prev)
+   }
+
+   function handleToggleCreateTaskModal() {
+      setModalWrapperActive(prev => !prev)
+      setCreateTaskModalActive(prev => !prev)
+   }
 
    return (
       <ModalsContext.Provider value={
          {
-            modalWrapperActive, setModalWrapperActive,
-            taskListModalActive, setTaskListModalActive
+            modalWrapperActive,
+            manageTaskListModalActive, handleToggleManageTaskListModal,
+            createTaskModalActive, handleToggleCreateTaskModal
          }
       }>
          {children}

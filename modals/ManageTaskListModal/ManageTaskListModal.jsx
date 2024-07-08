@@ -20,7 +20,7 @@ const ManageTaskListModal = () => {
    } = useContext(EditAreasContext)
 
    const {
-      taskListModalActive, setTaskListModalActive, setModalWrapperActive
+      manageTaskListModalActive, handleToggleManageTaskListModal
    } = useContext(ModalsContext)
 
    const [animateClass, setAnimateClass] = useState("")
@@ -31,15 +31,14 @@ const ManageTaskListModal = () => {
 
    useEffect(() => {
       handleLoadAnimation()
-   }, [taskListModalActive])
+   }, [manageTaskListModalActive])
 
    function handleLoadAnimation() {
-      taskListModalActive && setTimeout(() => setAnimateClass("fade-up-left"), 100)
+      manageTaskListModalActive && setTimeout(() => setAnimateClass("fade-up-left"), 100)
    }
 
    function handleSetModalDisabled() {
-      setTaskListModalActive(false)
-      setModalWrapperActive(false)
+      handleToggleManageTaskListModal()
       setAnimateClass("")
       
       setTaskEditActiveID("")
@@ -52,7 +51,7 @@ const ManageTaskListModal = () => {
 
    return (
 
-      <div className={taskListModalActive ? "manage-task-list-modal " + animateClass : "manage-task-list-modal manage-task-list-modal--disabled"} tabIndex={1}>
+      <div className={manageTaskListModalActive ? "manage-task-list-modal " + animateClass : "manage-task-list-modal manage-task-list-modal--disabled"} tabIndex={1}>
 
          <h1>Gerenciar Lista</h1>
 

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.create-task-modal {
+  background-color: white;
+  width: min(90%, 50rem);
+  padding: clamp(2rem, 1.5rem + 2.5vw, 4rem) clamp(3rem, 2rem + 3vw, 5rem);
+  border-radius: 0.6rem;
+  transition-property: opacity, transform;
+  transition-duration: 280ms;
+  opacity: 0;
+  transform: translate3d(0, 100px, 0);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+}
+.create-task-modal h1 {
+  font-size: clamp(1.8rem, 1.1rem + 1.1vw, 2.3rem);
+}
+
+.create-task-modal--disabled {
+  display: none;
+}
+
+.fade-up-left {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.create-task-modal__create-task-area {
+  width: 100%;
+}
+
+/*# sourceMappingURL=create-task-modal.css.map */
