@@ -19,6 +19,36 @@ html, body {
 
 body {
    overflow-x: hidden;
+
+   --section_bg: #F3F3FF;
+   --sidebar_bg: #FFFFFF;
+   --header_bg: #FAFAFF;
+   --cards_bg: #FFFFFF;
+   --warning_card_bg: linear-gradient(to right, #615EFF, #988FFF);
+
+   --font_color: #000000;
+   --alt_title: #5B5B68;
+   --details_color_one: #838393;
+   --details_color_two: #615EFF;
+   --buttons_bg: #615EFF;
+   --items_bg: #F3F3FF;
+   --shadow_color: #f3f3ff60;
+}
+
+[data-theme="dark"] {
+   --section_bg: #343344;
+   --sidebar_bg: #38374B;
+   --header_bg: #38374B;
+   --cards_bg: #38374B;
+   --warning_card_bg: #38374B;
+
+   --font_color: #FFFFFF;
+   --alt_title: #FFFFFF;
+   --details_color_one: #B8B8C9;
+   --details_color_two: #D0CCFF;
+   --buttons_bg: #D0CCFF;
+   --items_bg: #3C3B56;
+   --shadow_color: #38374B;
 }
 
 .home {
@@ -26,7 +56,7 @@ body {
    height: auto;
    width: 100%;
    height: 100%;
-   background-color: $purplishBlue100;
+   background-color: var(--section_bg);
 
    position: relative;
 }
@@ -65,7 +95,7 @@ body {
 .sections-area__header {
    width: 100%;
    height: 8rem;
-   background-color: $veryLightGrayishBlue;
+   background-color: var(--header_bg);
    padding: 2.4rem 3.5rem;
    flex-shrink: 0;
 
@@ -79,6 +109,7 @@ body {
    h1 {
       font-size: 2.5rem;
       font-weight: 700;
+      color: var(--font_color);
    }
 }
 

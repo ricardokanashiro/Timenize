@@ -4,16 +4,17 @@ import { useContext } from "react"
 import Image from "next/image"
 
 import { TaskItem, PlanItem } from "./components"
-import { ModalsContext, DataContext } from "@/contexts"
+import { ModalsContext, DataContext, ThemeContext } from "@/contexts"
 
 import "@/css/screens/dashboard/dashboard.css"
 
-import { DashboardIllustration, ClipboardIconWhite, IconPlus, IconBookMark, IconCrosshair } from "@/assets"
+import { DashboardIllustration, ClipboardIconWhite, ClipboardIconDark, IconPlus, IconBookMark, IconCrosshair, DashboardIllustrationWhite } from "@/assets"
 
 const Dashboard = () => {
 
    const { sharedTasks, sharedPlans } = useContext(DataContext)
    const { handleToggleManageTaskListModal, handleToggleCreateTaskModal } = useContext(ModalsContext)
+   const { darkThemeActive } = useContext(ThemeContext)
 
    return (
       <section className="dashboard">
@@ -33,7 +34,10 @@ const Dashboard = () => {
                   </h3>
                </div>
 
-               <Image src={DashboardIllustration} alt="warnings area illustration" className="warnings-area__illustration" />
+               <Image 
+                  src={darkThemeActive ? DashboardIllustrationWhite : DashboardIllustration } 
+                  alt="warnings area illustration" className="warnings-area__illustration" 
+               />
 
             </div>
 
@@ -44,7 +48,11 @@ const Dashboard = () => {
 
                   <button onClick={handleToggleManageTaskListModal}>
                      <p>Manage List</p>
-                     <Image src={ClipboardIconWhite} alt="clipboard icon" className="header__clipboard-icon" />
+                     <Image 
+                        src={darkThemeActive ? ClipboardIconDark : ClipboardIconWhite} 
+                        alt="clipboard icon" 
+                        className="header__clipboard-icon" 
+                     />
                   </button>
                </header>
 

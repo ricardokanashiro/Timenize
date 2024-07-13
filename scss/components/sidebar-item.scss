@@ -25,15 +25,15 @@
 
    .icon {
       width: clamp(1.5rem, 1.4rem + .5vw, 2rem);
-      height: auto;
+      height: clamp(1.5rem, 1.4rem + .5vw, 2rem);
    }
 }
 
 .sidebar-item-active {
-   background-color: $purplishBlue900;
+   background-color: var(--buttons_bg);
 
    p {
-      color: white;
+      color: var(--sidebar_bg);
    }
 }
 

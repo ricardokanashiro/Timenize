@@ -1,7 +1,7 @@
 @use "../../../utils/" as *;
 
 .create-title-area__input-wrapper {
-   background-color: $purplishBlue100;
+   background-color: var(--items_bg);
    flex-grow: 1;
    padding: 1rem 1.5rem;
    border-radius: .6rem;

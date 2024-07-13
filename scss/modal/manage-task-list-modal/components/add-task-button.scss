@@ -1,8 +1,8 @@
 @use '../../../utils/' as *;
 
 .manage-task-list-modal__add-btn {
-   background-color: $purplishBlue900;
-   color: white;
+   background-color: var(--buttons_bg);
+   color: var(--cards_bg);
    padding: .8rem 1.6rem;
    cursor: pointer;
    font-weight: 500;
@@ -14,9 +14,9 @@
 }
 
 .manage-task-list-modal__add-btn:hover {
-   border: 2px solid $purplishBlue900;
+   border: 2px solid var(--buttons_bg);
    background-color: transparent;
-   color: $purplishBlue900;
+   color: var(--buttons_bg);
 }
 
 .manage-task-list-modal__btn-icon {

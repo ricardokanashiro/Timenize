@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 .task-item {
-  border-right: 0.6rem solid #615EFF;
+  border-right: 0.6rem solid var(--details_color_two);
   border-radius: 0.6rem;
-  background-color: #F3F3FF;
+  background-color: var(--items_bg);
   padding: 1.2rem;
   gap: 2.4rem;
   display: flex;
@@ -21,6 +21,7 @@
   font-size: clamp(0.9rem, 0.65rem + 0.65vw, 1.3rem);
   font-weight: 600;
   word-break: break-all;
+  color: var(--font_color);
 }
 .task-item__content-area button {
   width: 2.4rem;
@@ -39,6 +40,7 @@
   outline: none;
   width: 100%;
   font-size: clamp(0.9rem, 0.65rem + 0.65vw, 1.3rem);
+  color: var(--font_color);
 }
 
 .task-item__actions-area {

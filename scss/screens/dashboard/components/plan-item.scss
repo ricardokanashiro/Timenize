@@ -1,10 +1,10 @@
 @use '../../../utils/' as *;
 
 .plan-item {
-   background-color: $purplishBlue100;
+   background-color: var(--items_bg);
    padding: 1.4rem;
    border-radius: .6rem;
-   border-right: .6rem solid $purplishBlue900;
+   border-right: .6rem solid var(--details_color_two);
    cursor: pointer;
 
    @include flex(center, center);
@@ -25,7 +25,7 @@
    .content-area__title {
       font-weight: 600;
       font-size: clamp(1.2rem, .8rem + .8vw , 1.6rem);
-      color: $darkGray;
+      color: var(--alt_title);
    }
 }
 
@@ -34,8 +34,8 @@
    gap: 1.4rem;
 
    .warnings-area__goals-amount {
-      background-color: $purplishBlue900;
-      color: white;
+      background-color: var(--details_color_two);
+      color: var(--cards_bg);
       width: min-content;
       font-weight: 600;
       font-size: clamp(.9rem, .6rem + .6vw , 1.2rem);

@@ -2,11 +2,11 @@
 
 .manage-task-list-modal {
    max-height: 85dvh;
-   background-color: white;
+   background-color: var(--cards_bg);
    position: absolute;
    padding: clamp(2rem, 1.5rem + 2.5vw , 4rem) clamp(3rem, 2rem + 3vw, 5rem);
    border-radius: .6rem;
-   box-shadow: #f3f3ff60 0px 7px 29px 0px;
+   box-shadow: var(--shadow_color) 0px 7px 29px 0px;
    z-index: 1;
 
    width: min(90%, 55rem);
@@ -23,6 +23,7 @@
 
    h1 {
       font-size: clamp(1.8rem, 1.1rem + 1.1vw , 2.3rem);
+      color: var(--font_color);
    }
 }
 

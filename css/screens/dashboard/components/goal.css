@@ -24,7 +24,7 @@
 .goal__content-area p {
   font-size: clamp(0.9rem, 0.62rem + 0.62vw, 1.25rem);
   font-weight: 600;
-  color: #5B5B68;
+  color: var(--alt_title);
 }
 .goal__content-area button {
   cursor: pointer;

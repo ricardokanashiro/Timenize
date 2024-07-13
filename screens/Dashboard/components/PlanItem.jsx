@@ -1,18 +1,23 @@
 "use client"
 
+import Image from "next/image"
+import { useContext, useEffect, useState } from "react"
+
 import moment from "moment";
 import 'moment/locale/pt-br'
 
-import { useEffect, useState } from "react"
-import Image from "next/image"
+
+import { ThemeContext } from "@/contexts";
+
+import { Goal } from "./"
+import { IconArrowDownBlue, IconArrowDownDark } from "@/assets"
 
 import "@/css/screens/dashboard/components/plan-item.css"
 
-import { Goal } from "./"
-
-import { IconArrowDownBlue } from "@/assets"
-
 const PlanItem = ({ plan, id }) => {
+
+   const { darkThemeActive } = useContext(ThemeContext)
+
    const [actived, setActived] = useState(false)
    const [counter, setCounter] = useState(0)
 
@@ -47,13 +52,14 @@ const PlanItem = ({ plan, id }) => {
 
             </div>
 
-            {
-               actived ? (
-                  <Image src={IconArrowDownBlue} alt="arrow down icon" className="information-area__arrow-down-icon information-area__arrow-down-icon--actived" />
-               ) : (
-                  <Image src={IconArrowDownBlue} alt="arrow down icon" className="information-area__arrow-down-icon" />
-               )
-            }
+            <Image 
+               src={darkThemeActive ? IconArrowDownDark : IconArrowDownBlue} 
+               alt="arrow down icon" 
+               className={
+                  actived ? "information-area__arrow-down-icon information-area__arrow-down-icon--actived"
+                  : "information-area__arrow-down-icon"
+               } 
+            />
 
          </div>
 

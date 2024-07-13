@@ -1,10 +1,10 @@
-import { DataProvider, ModalsProvider } from '@/contexts'
+import { DataProvider, ModalsProvider, ThemeProvider } from '@/contexts'
 
 import '@/css/main.css'
 
 export const metadata = {
-   title: 'RiK Tasks',
-   description: 'Um webapp de to-dos focado em produtividade e organização',
+   title: 'Timenize',
+   description: 'Um webapp focado em produtividade e organização',
    icons: {
       icon: ['/favicon.ico'],
    },
@@ -12,6 +12,7 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
    return (
+      <ThemeProvider>
       <DataProvider>
       <ModalsProvider>
          <html lang='pt-br'>
@@ -21,6 +22,7 @@ const RootLayout = ({ children }) => {
          </html>
       </ModalsProvider>
       </DataProvider>
+      </ThemeProvider>
    )
 }
 

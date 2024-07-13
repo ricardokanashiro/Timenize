@@ -5,13 +5,15 @@ import Image from "next/image"
 
 import "@/css/screens/dashboard/components/goal.css"
 
-import { SquareUncheckedIcon, SquareCheckedIcon, IconTrash, IconEdit, IconX, IconCheck } from "@/assets"
+import { SquareUncheckedIcon, SquareCheckedIcon, IconTrash, IconEdit, IconX, IconCheck, SquareCheckedIconDark } from "@/assets"
 
-import { DataContext } from "@/contexts";
+import { DataContext, ThemeContext } from "@/contexts";
 
 const Goal = ({ goal, onDashboard, setCounter, id, planId }) => {
 
-   const {sharedPlans, setSharedPlans} = useContext(DataContext)
+   const { darkThemeActive } = useContext(ThemeContext)
+
+   const { sharedPlans, setSharedPlans } = useContext(DataContext)
    const [editActive, setEditActive] = useState(false)
    const [editValue, setEditValue] = useState(goal.title)
 
@@ -34,12 +36,12 @@ const Goal = ({ goal, onDashboard, setCounter, id, planId }) => {
          newDashboardPlans.filter(plan => plan.id === planId)[0].goals.filter(goal => goal.id !== id)
 
       setSharedPlans(newDashboardPlans)
-      
+
       goal.checked && setCounter((prev) => prev - 1)
    }
 
    function handleSetEditActive() {
-      if(!editActive) {
+      if (!editActive) {
          setEditValue(goal.title)
       }
 
@@ -71,14 +73,19 @@ const Goal = ({ goal, onDashboard, setCounter, id, planId }) => {
          <div className="goal__content-area">
 
             <button onClick={handleCheckGoal}>
-               {
-                  goal.checked ? (
-                     <Image src={SquareCheckedIcon} alt="checked icon" />
-                  ) : (
-                     <Image src={SquareUncheckedIcon} alt="unchecked icon" />
-                  )
-               }
+
+               <Image
+                  alt={goal.checked ? "checked icon" : "unchecked icon"}
+                  src={
+                     goal.checked ?
+                        darkThemeActive ?
+                           SquareCheckedIconDark
+                           : SquareCheckedIcon
+                        : SquareUncheckedIcon
+                  }
+               />
             </button>
+
 
             {
                editActive ?

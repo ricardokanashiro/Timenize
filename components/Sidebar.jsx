@@ -8,10 +8,17 @@ import {
    Logo, IconHome, IconHomeWhite, IconSettings, 
    IconSettingsWhite, IconTarget, IconTargetWhite, 
    IconCalendar, IconCalendarWhite, IconClock, 
-   IconClockWhite, IconLogOut, UserImage 
+   IconClockWhite, IconLogOut, UserImage,
+   LogoWhite, IconHomeDark, IconSettingsDark,
+   IconTargetDark, IconCalendarDark, IconClockDark
 } from "@/assets"
+import { useContext } from "react"
+import { ThemeContext } from "@/contexts"
 
 const Sidebar = ({ selectedScreen, setSelectedScreen }) => {
+
+   const { darkThemeActive } = useContext(ThemeContext)
+
    return (
       <>
          <section className="mobile-menu">
@@ -62,7 +69,7 @@ const Sidebar = ({ selectedScreen, setSelectedScreen }) => {
          <nav className="sidebar">
 
             <Image
-               src={Logo}
+               src={darkThemeActive ? LogoWhite : Logo}
                alt="logo"
                className="sidebar__logo"
             />
@@ -72,7 +79,13 @@ const Sidebar = ({ selectedScreen, setSelectedScreen }) => {
                <div className="sidebar__items-wrapper__main-items">
 
                   <SidebarItem
-                     image={selectedScreen === 'dashboard' ? IconHomeWhite : IconHome}
+                     image={
+                        selectedScreen === 'dashboard' ?
+                        darkThemeActive ? 
+                           IconHomeDark 
+                           : IconHomeWhite 
+                        : IconHome
+                     }
                      text="Dashboard"
                      alt="dashboard icon"
                      actived={selectedScreen === 'dashboard' ? true : false}
@@ -80,7 +93,13 @@ const Sidebar = ({ selectedScreen, setSelectedScreen }) => {
                   />
 
                   <SidebarItem
-                     image={selectedScreen === 'settings' ? IconSettingsWhite : IconSettings}
+                     image={
+                        selectedScreen === 'settings' ?
+                        darkThemeActive ? 
+                           IconSettingsDark 
+                           : IconSettingsWhite 
+                        : IconSettings
+                     }
                      text="Settings"
                      alt="settigns icon"
                      actived={selectedScreen === 'settings' ? true : false}
@@ -94,7 +113,13 @@ const Sidebar = ({ selectedScreen, setSelectedScreen }) => {
 
                   <div className="sidebar__items-wrapper__plans-items">
                      <SidebarItem
-                        image={selectedScreen === 'hábitos' ? IconTargetWhite : IconTarget}
+                        image={
+                           selectedScreen === 'hábitos' ?
+                           darkThemeActive ?
+                              IconTargetDark
+                              : IconTargetWhite 
+                           : IconTarget
+                        }
                         text="Hábitos"
                         alt="hábitos icon"
                         actived={selectedScreen === 'hábitos' ? true : false}
@@ -102,7 +127,13 @@ const Sidebar = ({ selectedScreen, setSelectedScreen }) => {
                      />
 
                      <SidebarItem
-                        image={selectedScreen === 'planos' ? IconCalendarWhite : IconCalendar}
+                        image={
+                           selectedScreen === 'planos' ?
+                           darkThemeActive ?
+                              IconCalendarDark
+                              : IconCalendarWhite 
+                           : IconCalendar
+                        }
                         text="Planos"
                         alt="planos icon"
                         actived={selectedScreen === 'planos' ? true : false}
@@ -116,7 +147,13 @@ const Sidebar = ({ selectedScreen, setSelectedScreen }) => {
 
                   <div className="sidebar__items-wrapper__apps-items">
                      <SidebarItem
-                        image={selectedScreen === 'pomodoro' ? IconClockWhite : IconClock}
+                        image={
+                           selectedScreen === 'pomodoro' ?
+                           darkThemeActive ?
+                              IconClockDark
+                              : IconClockWhite 
+                           : IconClock
+                        }
                         text="Pomodoro"
                         alt="pomodoro icon"
                         actived={selectedScreen === 'pomodoro' ? true : false}

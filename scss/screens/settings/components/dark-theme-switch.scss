@@ -1,0 +1,44 @@
+@use "../../../utils" as *;
+
+.dark-theme-switch {
+
+   margin: 2rem 0;
+   @include flex(center, center);
+   gap: 2rem;
+
+   span {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--font_color);
+   }
+}
+
+.dark-theme-switch__switch {
+   background-color: $purplishBlue200;
+   width: 5rem;
+   height: 2.5rem;
+   border-radius: 2.5rem;
+   cursor: pointer;
+   position: relative;
+   transition: all 200ms ease-in;
+   
+   .dark-theme-switch__circle {
+      background-color: white;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      position: absolute;
+      left: .25rem;
+      top: .25rem;
+      transition: all 200ms ease-in;
+   }
+}
+
+.dark-theme-switch__switch--active {
+
+   background-color: #B8B8C9;
+
+   .dark-theme-switch__circle {
+      transform: translateX(3rem - 0.5rem);
+   }
+}

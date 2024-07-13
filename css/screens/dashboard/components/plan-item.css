@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 .plan-item {
-  background-color: #F3F3FF;
+  background-color: var(--items_bg);
   padding: 1.4rem;
   border-radius: 0.6rem;
-  border-right: 0.6rem solid #615EFF;
+  border-right: 0.6rem solid var(--details_color_two);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -28,7 +28,7 @@
 .plan-item__content-area .content-area__title {
   font-weight: 600;
   font-size: clamp(1.2rem, 0.8rem + 0.8vw, 1.6rem);
-  color: #5B5B68;
+  color: var(--alt_title);
 }
 
 .content-area__warnings-area {
@@ -38,8 +38,8 @@
   gap: 1.4rem;
 }
 .content-area__warnings-area .warnings-area__goals-amount {
-  background-color: #615EFF;
-  color: white;
+  background-color: var(--details_color_two);
+  color: var(--cards_bg);
   width: min-content;
   font-weight: 600;
   font-size: clamp(0.9rem, 0.6rem + 0.6vw, 1.2rem);

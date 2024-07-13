@@ -41,7 +41,7 @@ const Home = () => {
 
                {
                   selectedScreen === 'dashboard' ? (<Dashboard />)
-                  : selectedScreen === 'settigns' ? (<Settings />)
+                  : selectedScreen === 'settings' ? (<Settings />)
                   : selectedScreen === 'hábitos' ? (<Habits />)
                   : selectedScreen === 'planos' ? (<Plans />)
                   : selectedScreen === 'pomodoro' && (<Pomodoro />)

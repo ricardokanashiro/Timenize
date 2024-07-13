@@ -21,14 +21,14 @@
 }
 .sidebar-item .icon {
   width: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
-  height: auto;
+  height: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
 }
 
 .sidebar-item-active {
-  background-color: #615EFF;
+  background-color: var(--buttons_bg);
 }
 .sidebar-item-active p {
-  color: white;
+  color: var(--sidebar_bg);
 }
 
 @media (max-width: 769px) {

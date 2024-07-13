@@ -1,9 +1,9 @@
 @use '../../../utils/' as *;
 
 .task-item {
-   border-right: .6rem solid $purplishBlue900;
+   border-right: .6rem solid var(--details_color_two);
    border-radius: .6rem;
-   background-color: $purplishBlue100;
+   background-color: var(--items_bg);
    padding: 1.2rem;
    gap: 2.4rem;
 
@@ -19,6 +19,7 @@
       font-size: clamp(.9rem, .65rem + .65vw, 1.3rem);
       font-weight: 600;
       word-break: break-all;
+      color: var(--font_color);
    }
 
    button {
@@ -40,6 +41,7 @@
    outline: none;
    width: 100%;
    font-size: clamp(.9rem, .65rem + .65vw, 1.3rem);
+   color: var(--font_color);
 }
 
 .task-item__actions-area {

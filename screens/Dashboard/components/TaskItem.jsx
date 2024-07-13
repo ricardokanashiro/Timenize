@@ -5,11 +5,13 @@ import Image from "next/image"
 
 import "@/css/screens/dashboard/components/task-item.css"
 
-import { IconTrash, IconClock, IconEdit, UncheckedIcon, CheckedIcon, IconX, IconCheck } from "@/assets"
+import { IconTrash, IconClock, IconEdit, UncheckedIcon, CheckedIcon, IconX, IconCheck, CheckedIconDark } from "@/assets"
 
-import { DataContext } from "@/contexts"
+import { DataContext, ThemeContext } from "@/contexts"
 
 const TaskItem = ({ task, id }) => {
+
+   const { darkThemeActive } = useContext(ThemeContext)
 
    const {sharedTasks, setSharedTasks} = useContext(DataContext)
    const [editActive, setEditActive] = useState(false)
@@ -50,13 +52,19 @@ const TaskItem = ({ task, id }) => {
          <div className="task-item__content-area">
 
             <button onClick={handleCheckTask}>
-               {
-                  task.checked ? (
-                     <Image src={CheckedIcon} alt="checked icon" className="content-area__check-icon" />
-                  ) : (
-                     <Image src={UncheckedIcon} alt="unchecked icon" className="content-area__check-icon" />
-                  )
-               }
+
+               <Image 
+                  src={
+                     task.checked ? 
+                        darkThemeActive ?
+                           CheckedIconDark :
+                           CheckedIcon 
+                        : UncheckedIcon
+                  } 
+                  alt="checked icon" 
+                  className="content-area__check-icon" 
+               />
+
             </button>
 
             {

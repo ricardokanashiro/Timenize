@@ -3,7 +3,7 @@
   width: clamp(15rem, 15rem + 3vw, 21rem);
   height: 100dvh;
   padding: 2.4rem 1.8rem;
-  background-color: white;
+  background-color: var(--sidebar_bg);
   flex-shrink: 0;
   position: sticky;
   top: 0;
@@ -14,7 +14,9 @@
 }
 
 .sidebar__logo {
-  width: 75%;
+  width: 90%;
+  height: min-content;
+  margin: 1.5rem;
 }
 
 .sidebar__items-wrapper {
@@ -87,7 +89,7 @@
   width: 100%;
   border: 1.5px solid #838393;
   padding: 0.5rem 1rem;
-  background-color: white;
+  background-color: transparent;
   cursor: pointer;
   border-radius: 0.6rem;
   display: flex;
