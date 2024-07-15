@@ -9,8 +9,8 @@
 }
 
 .manage-task-list-modal__apply-btn {
-  background-color: #615EFF;
-  color: white;
+  background-color: var(--buttons_bg);
+  color: var(--cards_bg);
   padding: 0.8rem 1.6rem;
   cursor: pointer;
   font-weight: 500;
@@ -21,9 +21,9 @@
 }
 
 .manage-task-list-modal__apply-btn:hover {
-  border: 2px solid #615EFF;
+  border: 2px solid var(--buttons_bg);
   background-color: transparent;
-  color: #615EFF;
+  color: var(--buttons_bg);
 }
 
 .manage-task-list-modal__back-btn {
