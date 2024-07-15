@@ -13,6 +13,7 @@
       flex: 1;
       outline: none;
       font-size: clamp(1rem, .65rem + .65vw , 1.3rem);
+      color: var(--font_color);
    }
 
    input::placeholder {

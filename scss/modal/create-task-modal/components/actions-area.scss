@@ -19,8 +19,8 @@
    }
 
    .actions-area__add-btn {
-      background-color: #615EFF;
-      color: white;
+      background-color: var(--buttons_bg);
+      color: var(--cards_bg);
       padding: 0.8rem 1.6rem;
       cursor: pointer;
       font-weight: 500;
@@ -33,7 +33,7 @@
 
    .actions-area__add-btn:hover {
       background-color: transparent;
-      color: #615EFF;
-      border-color: #615EFF;
+      color: var(--buttons_bg);
+      border-color: var(--buttons_bg);
    }
 }

@@ -16,6 +16,7 @@
   flex: 1;
   outline: none;
   font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
+  color: var(--font_color);
 }
 .create-title-area__input-wrapper input::placeholder {
   color: #C3C3C3;
