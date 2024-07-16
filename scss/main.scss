@@ -139,10 +139,14 @@ body {
 
    .home {
       height: auto;
+      min-height: 100dvh;
    }
 }
 
 @include SmallScreensDown {
+
+
+
    .expandable-menu-area__hamburger-menu {
       @include flex(center, center);
    }

@@ -132,6 +132,7 @@ body {
   }
   .home {
     height: auto;
+    min-height: 100dvh;
   }
 }
 @media (max-width: 550px) {
