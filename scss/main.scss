@@ -53,9 +53,8 @@ body {
 
 .home {
    display: flex;
-   height: auto;
+   height: 100dvh;
    width: 100%;
-   min-height: 100dvh;
    background-color: var(--section_bg);
 
    position: relative;
@@ -136,6 +135,10 @@ body {
    body {
       height: auto;
       max-height: max-content;
+   }
+
+   .home {
+      height: auto;
    }
 }
 

@@ -106,7 +106,7 @@
 .task-list-card__task-list::-webkit-scrollbar-thumb {
   background-color: #e2e2e2;
   border-radius: 50px;
-  border: 6px solid white;
+  border: 6px solid var(--cards_bg);
 }
 
 .task-list__add-task-alt-btn {
@@ -165,7 +165,7 @@
 .plans-card__plans-wrapper::-webkit-scrollbar-thumb {
   background-color: #e2e2e2;
   border-radius: 50px;
-  border: 7.5px solid white;
+  border: 7.5px solid var(--cards_bg);
 }
 
 .plans-wrapper__pinned-area,
