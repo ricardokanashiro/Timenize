@@ -1,13 +1,15 @@
+import { useContext, useState } from "react"
 import Image from "next/image"
 
-import { IconX, IconSearchWhite, IconPlusWhite } from "@/assets"
+import { IconX, IconSearchWhite, IconPlusWhite, IconSearchDark, IconPlusDark } from "@/assets"
+import { ThemeContext } from "@/contexts"
 
 import "@/css/screens/habitos/components/actions-area.css"
-import { useState } from "react"
 
 const ActionsArea = () => {
 
    const [searchValue, setSearchValue] = useState("")
+   const { darkThemeActive } = useContext(ThemeContext)
 
    return (
       <section className="habitos__actions-area">
@@ -25,7 +27,7 @@ const ActionsArea = () => {
 
                {
                   searchValue !== "" && (
-                     <button>
+                     <button onClick={() => setSearchValue("")}>
                         <Image src={IconX} alt="ícone de apagar" />
                      </button>
                   )
@@ -35,14 +37,14 @@ const ActionsArea = () => {
             </div>
 
             <button className="actions-area__search-button">
-               <Image src={IconSearchWhite} alt="ícone de busca" />
+               <Image src={darkThemeActive ? IconSearchDark : IconSearchWhite} alt="ícone de busca" />
             </button>
 
          </div>
 
          <button className="habitos__add-habito">
             <span>Adicionar Hábito</span>
-            <Image src={IconPlusWhite} alt="ícone de adicionar" />
+            <Image src={darkThemeActive ? IconPlusDark : IconPlusWhite} alt="ícone de adicionar" />
          </button>
 
       </section>
