@@ -1,9 +1,9 @@
-import React from 'react'
+import { ActionsArea } from "./components"
 
 const Habits = () => {
-  return (
-    <div>Habits</div>
-  )
+   return (
+      <ActionsArea />
+   )
 }
 
 export default Habits

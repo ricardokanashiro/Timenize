@@ -1,0 +1,68 @@
+@use "../../../utils/" as *;
+
+.habitos__actions-area {
+   width: 100%;
+
+   @include flex(space-between, stretch);
+}
+
+.habitos__search-area {
+   @include flex(center, center);
+
+   .actions-area__search-button {
+      background-color: var(--buttons_bg);
+      font-size: 0;
+      height: 100%;
+      aspect-ratio: 1.5 / 1;
+      border-radius: 0 .6rem .6rem 0;
+      cursor: pointer;
+   }
+}
+
+.habitos__input-wrapper {
+   padding: 1rem;
+   background-color: var(--cards_bg);
+   border-radius: .6rem 0 0 .6rem;
+   width: 30rem;
+
+   @include flex(center, center);
+   gap: 1rem;
+
+   input {
+      background-color: transparent;
+      outline: none;
+      width: 100%;
+   }
+
+   button {
+      background-color: transparent;
+      height: min-content;
+      font-size: 0;
+      cursor: pointer;
+
+      img {
+         height: 1.5rem;
+         width: 1.5rem;
+      }
+   }
+}
+
+.habitos__add-habito {
+   background-color: var(--buttons_bg);
+   border-radius: .6rem;
+   padding: 1rem 1.6rem;
+   cursor: pointer;
+   
+   @include flex(center, center);
+   gap: 1rem;
+
+   span {
+      color: white;
+      font-weight: 500;
+   }
+
+   img {
+      width: clamp(1.6rem, 1.2rem + 0.6vw, 2rem);
+      height: clamp(1.6rem, 1.2rem + 0.6vw, 2rem);
+   }
+}
