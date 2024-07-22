@@ -1,0 +1,13 @@
+@use "../../../utils/" as *;
+
+.habitos__title-area {
+
+   @include flex(flex-start, center);
+   gap: 1rem;
+
+   h2 {
+      margin: 2rem 0;
+      color: $gray;
+      font-weight: 500;
+   }
+}

@@ -1,0 +1,16 @@
+@use "../../../utils/" as *;
+
+.habitos__stats-card {
+   background-color: var(--buttons_bg);
+   color: var(--section_bg);
+   padding: .8rem;
+   border-radius: .6rem;
+
+   @include flex(center, center);
+   gap: 1rem;
+
+   span {
+      font-size: 1.05rem;
+      font-weight: 600;
+   }
+}

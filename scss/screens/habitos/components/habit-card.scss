@@ -1,0 +1,31 @@
+@use "../../../utils/" as *;
+
+.habitos__habit-card {
+   background-color: var(--cards_bg);
+   width: 36rem;
+   padding: 3rem;
+   border-radius: .6rem;
+   box-shadow: var(--shadow_color) 0px 8px 24px;
+}
+
+.habit-card__title-area {
+   @include flex(space-between, flex-start);
+   gap: 1.5rem;
+
+   h4 {
+      color: var(--alt_title_two);
+      font-size: 2.6rem;
+   }
+
+   button {
+      background-color: transparent;
+      cursor: pointer;
+   }
+}
+
+.habit-card__week-days-area {
+   margin-top: 2rem;
+
+   @include flex(flex-start, center);
+   gap: 1rem;
+}

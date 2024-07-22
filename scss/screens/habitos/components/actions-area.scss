@@ -20,10 +20,10 @@
 }
 
 .habitos__input-wrapper {
-   padding: 1rem;
+   padding: 1.3rem;
    background-color: var(--cards_bg);
    border-radius: .6rem 0 0 .6rem;
-   width: 30rem;
+   width: 34rem;
 
    @include flex(center, center);
    gap: 1rem;

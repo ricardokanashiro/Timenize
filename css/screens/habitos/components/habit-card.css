@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.habitos__habit-card {
+  background-color: var(--cards_bg);
+  width: 36rem;
+  padding: 3rem;
+  border-radius: 0.6rem;
+  box-shadow: var(--shadow_color) 0px 8px 24px;
+}
+
+.habit-card__title-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.habit-card__title-area h4 {
+  color: var(--alt_title_two);
+  font-size: 2.6rem;
+}
+.habit-card__title-area button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.habit-card__week-days-area {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+/*# sourceMappingURL=habit-card.css.map */

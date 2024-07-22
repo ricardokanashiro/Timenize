@@ -1,0 +1,24 @@
+@use "../../utils/" as *;
+
+.habitos {
+   width: 100%;
+   height: auto;
+
+   padding-bottom: 4rem;
+}
+
+.habitos__habits-section {
+   margin-top: 2rem;
+}
+
+.habits-section__habit-list {
+   @include flex(flex-start, center);
+   gap: 4rem;
+}
+
+.habit-card__stats-area {
+   margin-top: 4rem;
+
+   @include flex(flex-start, center);
+   gap: 1rem;
+}
