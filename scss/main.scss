@@ -32,7 +32,7 @@ body {
    --details_color_one: #838393;
    --details_color_two: #615EFF;
    --details_color_three: #D0CCFF;
-   --details_color_four: #FFFFFF;
+   --details_color_four: #FFF;
    --details_color_five: #F3F3FF;
    --buttons_bg: #615EFF;
    --items_bg: #F3F3FF;
@@ -66,6 +66,7 @@ body {
    width: 100%;
    background-color: var(--section_bg);
    overflow-y: auto;
+   overflow-x: hidden;
 
    position: relative;
 }
