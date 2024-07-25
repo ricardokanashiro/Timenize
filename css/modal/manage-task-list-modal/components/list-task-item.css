@@ -118,6 +118,8 @@
   flex-grow: 1;
   outline: none;
   background-color: transparent;
+  color: var(--alt_title);
+  font-size: clamp(1rem, 0.6125rem + 0.6125vw, 1.25rem);
 }
 
 /*# sourceMappingURL=list-task-item.css.map */

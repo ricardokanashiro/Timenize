@@ -32,14 +32,4 @@
   overflow: auto;
 }
 
-.manage-task-list-modal__draggable-list-wrapper::-webkit-scrollbar {
-  width: 16px;
-}
-
-.manage-task-list-modal__draggable-list-wrapper::-webkit-scrollbar-thumb {
-  background-color: #e2e2e2;
-  border-radius: 50px;
-  border: 6px solid white;
-}
-
 /*# sourceMappingURL=task-list-wrapper.css.map */

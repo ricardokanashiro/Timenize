@@ -12,6 +12,7 @@ const ManageTaskListModal = () => {
 
    const { sharedTasks } = useContext(DataContext)
    const { setTempList } = useContext(TempListContext)
+
    const {
       setTaskEditActiveID,
       setChangeLevelTaskSelectedID,
@@ -34,7 +35,7 @@ const ManageTaskListModal = () => {
    }, [manageTaskListModalActive])
 
    function handleLoadAnimation() {
-      manageTaskListModalActive && setTimeout(() => setAnimateClass("fade-up-left"), 100)
+      manageTaskListModalActive && setAnimateClass("fade-up-left")
    }
 
    function handleSetModalDisabled() {
