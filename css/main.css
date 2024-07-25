@@ -43,7 +43,7 @@ body {
   --buttons_bg: #615EFF;
   --items_bg: #F3F3FF;
   --shadow_color: #f3f3ff60;
-  --scrollbar_color: #e2e2e2;
+  --scrollbar_color: #C3C3C3;
 }
 
 [data-theme=dark] {
