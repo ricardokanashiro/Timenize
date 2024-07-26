@@ -15,8 +15,21 @@
 }
 
 .habits-section__habit-list {
+   max-width: 100%;
+   overflow-x: hidden;
+
    @include flex(flex-start, center);
    gap: 4rem;
+}
+
+.habits-section__habit-list::-webkit-scrollbar {
+   height: 40px;
+}
+
+.habits-section__habit-list::-webkit-scrollbar-thumb {
+   box-shadow: inset 0 0 10px 10px var(--scrollbar_color);
+   border-radius: 50px;
+   border: 16px solid transparent;
 }
 
 .habit-card__stats-area {

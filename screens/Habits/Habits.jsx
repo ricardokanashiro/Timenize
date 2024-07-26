@@ -16,8 +16,8 @@ const Habits = () => {
             <TitleArea title="Favoritos" icon={IconHeart} alt="ícone de coração" />
 
             <section className="habits-section__habit-list">
-               <HabitCard title="Habito" />
-               <HabitCard title="Habito" />
+               <HabitCard title="Estudar Inglês" />
+               <HabitCard title="Caminhar" />
             </section>
 
 
@@ -26,14 +26,22 @@ const Habits = () => {
          <section className="habitos__habits-section">
 
             <TitleArea title="Todos" icon={IconList} alt="ícone de coração" />
-            <HabitCard title="Habito" />
+            
+            <section className="habits-section__habit-list">
+               <HabitCard title="Comer Fruta" />
+               <HabitCard title="Programar" />
+            </section>
 
          </section>
 
          <section className="habitos__habits-section">
 
             <TitleArea title="Inativos" icon={IconEyeOff} alt="ícone de coração" />
-            <HabitCard title="Habito" />
+            
+            <section className="habits-section__habit-list">
+               <HabitCard title="Habito" />
+               <HabitCard title="Habito" />
+            </section>
 
          </section>
 
