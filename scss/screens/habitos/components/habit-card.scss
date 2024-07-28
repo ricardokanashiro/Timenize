@@ -8,6 +8,7 @@
    box-shadow: var(--shadow_color) 0px 8px 24px;
 
    @include flex(space-between, center);
+   flex-flow: column nowrap;
 
    * {
       cursor: default;
@@ -21,19 +22,30 @@
 
 .habit-card__title-area {
 
-   width: 20rem;
+   width: clamp(16rem, 10rem + 10vw, 20rem);
 
    @include flex(space-between, flex-start);
    gap: 1.5rem;
 
    h4 {
       color: var(--alt_title_two);
-      font-size: 2.1rem;
+      font-size: clamp(1.8rem, .9rem + .8vw, 2.1rem);
       font-weight: 600;
    }
 }
 
 .habit-card__week-days-area {
+   @include flex(flex-start, center);
+   gap: 1rem;
+   flex-flow: row nowrap;
+}
+
+.habit-card__content {
+   width: 100%;
+   @include flex(space-between, center);
+}
+
+.habit-card__stats-area {
 
    @include flex(flex-start, center);
    gap: 1rem;
@@ -44,9 +56,9 @@
    button {
       background-color: var(--buttons_bg);
       color: var(--cards_bg);
-      padding: 1rem 1.5rem;
+      padding: clamp(.5rem, .4rem + .4vw, 1rem) clamp(.75rem, .6rem + .6vw, 1.5rem);
       border-radius: .4rem;
-      font-size: 1.4rem;
+      font-size: clamp(1rem, .6rem + .6vw , 1.4rem);
       font-weight: 500;
       cursor: pointer;
 
@@ -58,10 +70,58 @@
       }
 
       img {
-         height: 1.8rem;
+         height: clamp(1.5rem, .8rem + .8vw, 1.8rem);
          width: auto;
       }
    }
+}
 
-   
+.habit-card__content-mobile {
+   width: 100%;
+
+   display: none;
+   flex-flow: row nowrap;
+}
+
+.habit-card__content-mobile__stats-area {
+   @include flex(center, center);
+}
+
+@include LargeScreensDown {
+
+   .habit-card__week-days-area {
+      display: none;
+   }
+}
+
+@media (max-width: 910px) {
+   .habit-card__actions-area button span {
+      display: none;
+   }
+}
+
+@include MediumScreensDown {
+
+   .habitos__habit-card {
+      gap: 1rem;
+   }
+
+   .habit-card__content {
+      width: 100%;
+      @include flex(space-between, flex-start);
+      gap: 2rem;
+   }
+
+   .habit-card__stats-area {
+      display: none !important;
+   }
+
+   .habit-card__title-area {
+      width: auto;
+   }
+
+   .habit-card__content-mobile {
+      @include flex(space-between, center);
+   }
+
 }

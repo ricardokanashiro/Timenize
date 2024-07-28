@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-flow: column nowrap;
 }
 .habitos__habit-card * {
   cursor: default;
@@ -19,7 +20,7 @@
 }
 
 .habit-card__title-area {
-  width: 20rem;
+  width: clamp(16rem, 10rem + 10vw, 20rem);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -27,11 +28,26 @@
 }
 .habit-card__title-area h4 {
   color: var(--alt_title_two);
-  font-size: 2.1rem;
+  font-size: clamp(1.8rem, 0.9rem + 0.8vw, 2.1rem);
   font-weight: 600;
 }
 
 .habit-card__week-days-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  flex-flow: row nowrap;
+}
+
+.habit-card__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.habit-card__stats-area {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -41,9 +57,9 @@
 .habit-card__actions-area button {
   background-color: var(--buttons_bg);
   color: var(--cards_bg);
-  padding: 1rem 1.5rem;
+  padding: clamp(0.5rem, 0.4rem + 0.4vw, 1rem) clamp(0.75rem, 0.6rem + 0.6vw, 1.5rem);
   border-radius: 0.4rem;
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 0.6rem + 0.6vw, 1.4rem);
   font-weight: 500;
   cursor: pointer;
   display: flex;
@@ -55,8 +71,54 @@
   cursor: pointer !important;
 }
 .habit-card__actions-area button img {
-  height: 1.8rem;
+  height: clamp(1.5rem, 0.8rem + 0.8vw, 1.8rem);
   width: auto;
+}
+
+.habit-card__content-mobile {
+  width: 100%;
+  display: none;
+  flex-flow: row nowrap;
+}
+
+.habit-card__content-mobile__stats-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1150px) {
+  .habit-card__week-days-area {
+    display: none;
+  }
+}
+@media (max-width: 910px) {
+  .habit-card__actions-area button span {
+    display: none;
+  }
+}
+@media (max-width: 650px) {
+  .habitos__habit-card {
+    gap: 1rem;
+  }
+  .habit-card__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .habit-card__stats-area {
+    display: none !important;
+  }
+  .habit-card__title-area {
+    width: auto;
+  }
+  .habit-card__content-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=habit-card.css.map */

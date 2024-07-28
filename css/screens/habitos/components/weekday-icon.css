@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 .habit-card__weekday-icon {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: clamp(1.8rem, 1rem + 1vw, 2.2rem);
+  height: clamp(1.8rem, 1rem + 1vw, 2.2rem);
   background-color: var(--buttons_bg);
   color: var(--section_bg);
   border-radius: 0.4rem;
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 0.6rem + 0.6vw, 1.4rem);
   font-weight: 600;
   display: flex;
   justify-content: center;

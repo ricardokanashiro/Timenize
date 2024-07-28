@@ -31,11 +31,15 @@
   border: 16px solid transparent;
 }
 
-.habit-card__stats-area {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1rem;
+@media (max-width: 650px) {
+  .habits-section__habit-list {
+    gap: 2rem;
+  }
+}
+@media (max-width: 550px) {
+  .habitos {
+    margin-bottom: 4rem;
+  }
 }
 
 /*# sourceMappingURL=habitos.css.map */

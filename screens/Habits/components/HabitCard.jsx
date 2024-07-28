@@ -14,34 +14,51 @@ const HabitCard = ({ title }) => {
    return (
       <div className="habitos__habit-card">
 
-         <div className="habit-card__title-area">
-            <h4>{title}</h4>
+         <section className="habit-card__content">
+
+            <div className="habit-card__title-area">
+               <h4>{title}</h4>
+            </div>
+
+            <section className="habit-card__stats-area">
+               <StatsCard icon={FireIcon} amount={32} />
+               <StatsCard icon={IconCheckBlue} amount={32} />
+               <StatsCard icon={IconXBlue} amount={32} />
+            </section>
+
+            <section className="habit-card__week-days-area">
+
+               <WeekDayIcon weekDay="D" active={true} />
+               <WeekDayIcon weekDay="S" active={false} />
+               <WeekDayIcon weekDay="T" active={false} />
+               <WeekDayIcon weekDay="Q" active={false} />
+               <WeekDayIcon weekDay="Q" active={false} />
+               <WeekDayIcon weekDay="S" active={false} />
+               <WeekDayIcon weekDay="S" active={false} />
+
+            </section>
+
+            <section className="habit-card__actions-area">
+
+               <button>
+                  <span>Editar</span>
+                  <Image src={darkThemeActive ? IconEditDark : IconEditWhite} alt="edit icon" />
+               </button>
+
+            </section>
+
+         </section>
+
+         <div className="habit-card__content-mobile">
+
+            <section className="habit-card__content-mobile__stats-area">
+               <StatsCard icon={FireIcon} amount={32} />
+               <StatsCard icon={IconCheckBlue} amount={32} />
+               <StatsCard icon={IconXBlue} amount={32} />
+            </section>
+
          </div>
-         
-         <section className="habit-card__stats-area">
-            <StatsCard icon={FireIcon} amount={32} />
-            <StatsCard icon={IconCheckBlue} amount={32} />
-            <StatsCard icon={IconXBlue} amount={32} />
-         </section>
 
-         <section className="habit-card__week-days-area">
-            <WeekDayIcon weekDay="D" active={true} />
-            <WeekDayIcon weekDay="S" active={false} />
-            <WeekDayIcon weekDay="T" active={false} />
-            <WeekDayIcon weekDay="Q" active={false} />
-            <WeekDayIcon weekDay="Q" active={false} />
-            <WeekDayIcon weekDay="S" active={false} />
-            <WeekDayIcon weekDay="S" active={false} />
-         </section>
-
-         <section className="habit-card__actions-area">
-
-            <button>
-               <span>Editar</span>
-               <Image src={darkThemeActive ? IconEditDark : IconEditWhite} alt="edit icon" />
-            </button>
-
-         </section>
       </div>
    )
 }

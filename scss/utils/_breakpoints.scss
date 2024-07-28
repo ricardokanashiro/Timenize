@@ -4,6 +4,12 @@
    }
 }
 
+@mixin MediumScreensDown {
+   @media (max-width: 650px) {
+      @content;
+   }
+}
+
 @mixin TabletsDown {
    @media(max-width: 769px) {
       @content;

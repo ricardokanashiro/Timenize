@@ -1,21 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 .habitos__stats-card {
   background-color: transparent;
-  padding: 0.8rem;
+  margin: 1rem 0 1rem 0;
   border-radius: 0.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: clamp(0.5rem, 0.2rem + 0.6vw, 1rem);
 }
 .habitos__stats-card span {
-  font-size: 1.6rem;
+  font-size: clamp(1.3rem, 0.7rem + 0.7vw, 1.6rem);
   font-weight: 600;
   color: var(--alt_title_two);
 }
 .habitos__stats-card img {
-  height: 2.6rem;
+  height: clamp(2.2rem, 1.1rem + 1.1vw, 2.6rem);
   width: auto;
+}
+
+.habitos__stats-card + .habitos__stats-card {
+  margin-left: 1rem;
 }
 
 /*# sourceMappingURL=stats-card.css.map */

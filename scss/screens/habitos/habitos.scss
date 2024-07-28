@@ -32,8 +32,16 @@
    border: 16px solid transparent;
 }
 
-.habit-card__stats-area {
+@include MediumScreensDown {
 
-   @include flex(flex-start, center);
-   gap: 1rem;
+   .habits-section__habit-list {
+      gap: 2rem;
+   }
+}
+
+@include SmallScreensDown {
+
+   .habitos {
+      margin-bottom: 4rem;
+   }
 }
