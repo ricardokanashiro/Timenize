@@ -19,7 +19,7 @@
    overflow-x: hidden;
 
    @include flex(flex-start, center);
-   gap: 4rem;
+   flex-flow: column nowrap;
 }
 
 .habits-section__habit-list::-webkit-scrollbar {
@@ -33,7 +33,6 @@
 }
 
 .habit-card__stats-area {
-   margin-top: 4rem;
 
    @include flex(flex-start, center);
    gap: 1rem;

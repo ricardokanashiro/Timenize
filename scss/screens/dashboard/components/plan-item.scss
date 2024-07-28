@@ -9,6 +9,10 @@
 
    @include flex(center, center);
    flex-flow: column nowrap;
+
+   * {
+      cursor: pointer;
+   }
 }
 
 .plan-item__information-area {

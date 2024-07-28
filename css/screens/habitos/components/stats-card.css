@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 .habitos__stats-card {
-  background-color: var(--buttons_bg);
-  color: var(--section_bg);
+  background-color: transparent;
   padding: 0.8rem;
   border-radius: 0.6rem;
   display: flex;
@@ -10,8 +9,13 @@
   gap: 1rem;
 }
 .habitos__stats-card span {
-  font-size: 1.05rem;
+  font-size: 1.6rem;
   font-weight: 600;
+  color: var(--alt_title_two);
+}
+.habitos__stats-card img {
+  height: 2.6rem;
+  width: auto;
 }
 
 /*# sourceMappingURL=stats-card.css.map */

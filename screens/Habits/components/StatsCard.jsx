@@ -1,9 +1,11 @@
+import Image from "next/image"
+
 import "@/css/screens/habitos/components/stats-card.css"
 
-const StatsCard = ({ label, amount }) => {
+const StatsCard = ({ icon, amount }) => {
    return (
       <div className="habitos__stats-card">
-         <span>{label}</span>
+         <Image src={icon} alt="" />
          <span>{amount}</span>
       </div>
    )

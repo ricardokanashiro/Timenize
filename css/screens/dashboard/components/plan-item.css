@@ -10,6 +10,9 @@
   align-items: center;
   flex-flow: column nowrap;
 }
+.plan-item * {
+  cursor: pointer;
+}
 
 .plan-item__information-area {
   width: 100%;

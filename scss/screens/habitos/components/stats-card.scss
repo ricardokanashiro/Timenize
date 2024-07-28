@@ -1,8 +1,7 @@
 @use "../../../utils/" as *;
 
 .habitos__stats-card {
-   background-color: var(--buttons_bg);
-   color: var(--section_bg);
+   background-color: transparent;
    padding: .8rem;
    border-radius: .6rem;
 
@@ -10,7 +9,13 @@
    gap: 1rem;
 
    span {
-      font-size: 1.05rem;
+      font-size: 1.6rem;
       font-weight: 600;
+      color: var(--alt_title_two);
+   }
+
+   img {
+      height: 2.6rem;
+      width: auto;
    }
 }

@@ -17,7 +17,7 @@ const Habits = () => {
 
             <section className="habits-section__habit-list">
                <HabitCard title="Estudar Inglês" />
-               <HabitCard title="Caminhar" />
+               <HabitCard title="Fazer exercício físico" />
             </section>
 
 

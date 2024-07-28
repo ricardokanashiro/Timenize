@@ -60,5 +60,12 @@ import Wave2 from './wave2.svg';
 import Wave3 from './wave3.svg';
 import IconPlusDark from './icon-plus-dark.svg';
 import IconSearchDark from './icon-search-dark.svg';
+import FireIcon from './fire-icon.svg';
+import IconCheckBlue from './icon-check-blue.svg';
+import IconXBlue from './icon-x-blue.svg';
+import IconEditWhite from './icon-edit-white.svg';
+import IconEditDark from './icon-edit-dark.svg';
 
-export { CheckEmoji,CheckedIcon, ClipboardIconWhite, DashboardIllustration, FireEmoji, GoogleLogo, IconArrowDownBlue, IconArrowDown, IconBookMark, IconCalendarWhite, IconCalendar, IconCheck, IconClockBlue, IconClockWhite, IconClock, IconCrosshair, IconEdit, IconEyeOff, IconHeart, IconHomeWhite, IconHome, IconList, IconMinusWhite, IconMoreVertical, IconPlusWhite, IconPlus, IconSearchWhite, IconSettingsWhite, IconSettings, IconTargetWhite, IconTarget, IconTrash, IconX, LoginIllustration, Logo, Mountain1, Mountain2, Mountain3, SkullEmoji, SquareCheckedIcon, SquareUncheckedIcon, UncheckedIcon, UserImage, Wave1, Wave2, Wave3, IconLogIn, IconLogOut, IconMenu, LogoWhite, IconHomeDark, IconSettingsDark, IconTargetDark, IconCalendarDark, IconClockDark, ClipboardIconDark, IconArrowDownDark, CheckedIconDark, SquareCheckedIconDark, DashboardIllustrationWhite, IconPlusDark, IconSearchDark };
+export { 
+   CheckEmoji,CheckedIcon, ClipboardIconWhite, DashboardIllustration, FireEmoji, GoogleLogo, IconArrowDownBlue, IconArrowDown, IconBookMark, IconCalendarWhite, IconCalendar, IconCheck, IconClockBlue, IconClockWhite, IconClock, IconCrosshair, IconEdit, IconEyeOff, IconHeart, IconHomeWhite, IconHome, IconList, IconMinusWhite, IconMoreVertical, IconPlusWhite, IconPlus, IconSearchWhite, IconSettingsWhite, IconSettings, IconTargetWhite, IconTarget, IconTrash, IconX, LoginIllustration, Logo, Mountain1, Mountain2, Mountain3, SkullEmoji, SquareCheckedIcon, SquareUncheckedIcon, UncheckedIcon, UserImage, Wave1, Wave2, Wave3, IconLogIn, IconLogOut, IconMenu, LogoWhite, IconHomeDark, IconSettingsDark, IconTargetDark, IconCalendarDark, IconClockDark, ClipboardIconDark, IconArrowDownDark, CheckedIconDark, SquareCheckedIconDark, DashboardIllustrationWhite, IconPlusDark, IconSearchDark, FireIcon, IconCheckBlue, IconXBlue, IconEditWhite, IconEditDark
+};

@@ -6,3 +6,9 @@
 ## OBS
 
 -> Criar estratégia sólida para criação de componentes
+
+# Ideias para TIMENIZE:
+
+-> Adicionar bubble cards sobre componentes com legendas
+-> Colocar cursor customizado para certas áreas
+-> Remover cursor auto da página - deixar o que não for pointer como default

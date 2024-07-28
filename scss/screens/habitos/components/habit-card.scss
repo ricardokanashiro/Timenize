@@ -2,30 +2,66 @@
 
 .habitos__habit-card {
    background-color: var(--cards_bg);
-   width: 36rem;
-   padding: 3rem;
-   border-radius: .6rem;
+   width: 100%;
+   padding: 2.5rem 3rem;
+   border-radius: .6rem .6rem 0 0;
    box-shadow: var(--shadow_color) 0px 8px 24px;
+
+   @include flex(space-between, center);
+
+   * {
+      cursor: default;
+   }
+}
+
+.habitos__habit-card + .habitos__habit-card {
+   border-radius: 0 0 .6rem .6rem;
+   border-top: 1px solid #e9e9e9;
 }
 
 .habit-card__title-area {
+
+   width: 20rem;
+
    @include flex(space-between, flex-start);
    gap: 1.5rem;
 
    h4 {
       color: var(--alt_title_two);
-      font-size: 2.6rem;
-   }
-
-   button {
-      background-color: transparent;
-      cursor: pointer;
+      font-size: 2.1rem;
+      font-weight: 600;
    }
 }
 
 .habit-card__week-days-area {
-   margin-top: 2rem;
 
    @include flex(flex-start, center);
    gap: 1rem;
+}
+
+.habit-card__actions-area {
+
+   button {
+      background-color: var(--buttons_bg);
+      color: var(--cards_bg);
+      padding: 1rem 1.5rem;
+      border-radius: .4rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+      cursor: pointer;
+
+      @include flex(center, center);
+      gap: 1rem;
+
+      * {
+         cursor: pointer !important;
+      }
+
+      img {
+         height: 1.8rem;
+         width: auto;
+      }
+   }
+
+   
 }
