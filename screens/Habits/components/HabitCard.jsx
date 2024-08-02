@@ -7,12 +7,12 @@ import "@/css/screens/habitos/components/habit-card.css"
 import { useContext } from "react"
 import { ThemeContext } from "@/contexts"
 
-const HabitCard = ({ title }) => {
+const HabitCard = ({ title, disabled }) => {
 
    const { darkThemeActive } = useContext(ThemeContext)
 
    return (
-      <div className="habitos__habit-card">
+      <div className={disabled ? "habitos__habit-card habitos__habit-card--disabled" : "habitos__habit-card"}>
 
          <section className="habit-card__content">
 

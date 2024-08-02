@@ -15,6 +15,10 @@
    }
 }
 
+.habitos__habit-card--disabled {
+   opacity: 0.5;
+}
+
 .habitos__habit-card + .habitos__habit-card {
    border-radius: 0 0 .6rem .6rem;
    border-top: 1px solid var(--details_color_six);

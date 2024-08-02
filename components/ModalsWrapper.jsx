@@ -23,6 +23,13 @@ const ModalsWrapper = ({ selectedScreen }) => {
                   <CreateTaskModal />
                </>
             }
+
+            {
+               selectedScreen === "habits" && 
+               <>
+                  
+               </>
+            }
          </div>
    )
 }
