@@ -45,10 +45,17 @@ const CreateTaskModal = () => {
       disableModal()
    }
 
+   function createTaskWithEnter(e) {
+      if(e.key === "Enter") {
+         e.preventDefault()
+         createTask()
+      } 
+   }
+
    return (
       <div 
          class={createTaskModalActive ? "create-task-modal " + inAnimationClass : "create-task-modal create-task-modal--disabled"}
-         onKeyDown={(e) => e.key === "Enter" && createTask()}
+         onKeyDown={(e) => createTaskWithEnter(e)}
       >
          <h1>Criar Task</h1>
 

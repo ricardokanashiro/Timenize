@@ -1,6 +1,7 @@
 import "@/css/modal/create-task-modal/components/task-configs.css"
 
 const TaskConfigs = ({ taskTitle, setTaskTitle }) => {
+
    return (
       <section className="create-task-modal__tasks-configs">
          <h2>Configurações de Task</h2>
@@ -11,7 +12,7 @@ const TaskConfigs = ({ taskTitle, setTaskTitle }) => {
                type="text" placeholder="Nome da Task..."
                onChange={(e) => setTaskTitle(e.target.value)}
                value={taskTitle}
-             />
+            />
 
          </div>
 
