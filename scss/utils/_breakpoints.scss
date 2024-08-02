@@ -16,6 +16,12 @@
    }
 }
 
+@mixin SemiLargeScreensDown {
+   @media(max-width: 950px) {
+      @content;
+   }
+}
+
 @mixin LargeScreensDown {
    @media(max-width: 1150px) {
       @content;

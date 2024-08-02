@@ -66,4 +66,24 @@
   height: clamp(1.6rem, 1.2rem + 0.6vw, 2rem);
 }
 
+@media (max-width: 950px) {
+  .habitos__add-habito span {
+    display: none;
+  }
+}
+@media (max-width: 650px) {
+  .habitos__actions-area {
+    gap: 3rem;
+  }
+  .habitos__search-area {
+    flex: 1;
+  }
+  .habitos__input-wrapper {
+    width: 100%;
+  }
+  .habitos__search-area .actions-area__search-button {
+    aspect-ratio: 1.25/1;
+  }
+}
+
 /*# sourceMappingURL=actions-area.css.map */
