@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+.create-habit-modal {
+  background-color: var(--cards_bg);
+  padding: clamp(2rem, 1.5rem + 2.5vw, 4rem) clamp(3rem, 2rem + 3vw, 5rem);
+  border-radius: 0.6rem;
+  width: min(90%, 55rem);
+}
+.create-habit-modal h1 {
+  font-size: clamp(1.8rem, 1.1rem + 1.1vw, 2.3rem);
+  color: var(--font_color);
+}
+
+.create-habit-modal__config-area {
+  width: 100%;
+  margin-top: 2.5rem;
+}
+.create-habit-modal__config-area h2 {
+  color: #838393;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 0.75rem + 0.75vw, 1.5rem);
+}
+
+.create-habit-modal-configs {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
+  flex-flow: column nowrap;
+}
+.create-habit-modal-configs .create-habit-modal__input-wrapper {
+  width: 100%;
+  background-color: var(--items_bg);
+  flex-grow: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+}
+.create-habit-modal-configs .create-habit-modal__input-wrapper input {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  width: 0;
+  flex: 1 1;
+  outline: none;
+  font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
+  color: var(--font_color);
+}
+
+.create-habit-modal__actions-area {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+.create-habit-modal__actions-area .create-habit-modal__cancel-btn {
+  font-size: clamp(1rem, 0.7rem + 0.7vw, 1.4rem);
+  background-color: transparent;
+  color: #838393;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 0.3rem;
+}
+.create-habit-modal__actions-area .create-habit-modal__add-btn {
+  font-size: clamp(1rem, 0.7rem + 0.7vw, 1.4rem);
+  background-color: var(--buttons_bg);
+  color: var(--cards_bg);
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  border: 2px solid transparent;
+  transition-duration: 250ms;
+  transition-property: color, border, background-color;
+}
+.create-habit-modal__actions-area .create-habit-modal__add-btn:hover {
+  border-color: var(--buttons_bg);
+  color: var(--buttons_bg);
+  background-color: transparent;
+}
+
+/*# sourceMappingURL=create-habit-modal.css.map */

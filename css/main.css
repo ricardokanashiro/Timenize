@@ -12,6 +12,10 @@ button * {
   cursor: pointer;
 }
 
+input {
+  cursor: text;
+}
+
 ::-webkit-scrollbar {
   width: 18px;
 }

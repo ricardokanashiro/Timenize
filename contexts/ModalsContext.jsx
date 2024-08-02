@@ -10,6 +10,8 @@ const ModalsProvider = ({ children }) => {
    const [manageTaskListModalActive, setManageTaskListModalActive] = useState(false)
    const [createTaskModalActive, setCreateTaskModalActive] = useState(false)
 
+   const [createHabitModalActive, setCreateHabitModalActive] = useState(false)
+
    function handleToggleManageTaskListModal() {
       setModalWrapperActive(prev => !prev)
       setManageTaskListModalActive(prev => !prev)
@@ -20,12 +22,18 @@ const ModalsProvider = ({ children }) => {
       setCreateTaskModalActive(prev => !prev)
    }
 
+   function handleToggleCreateHabitModal() {
+      setModalWrapperActive(prev => !prev)
+      setCreateHabitModalActive(prev => !prev)
+   }
+
    return (
       <ModalsContext.Provider value={
          {
             modalWrapperActive,
             manageTaskListModalActive, handleToggleManageTaskListModal,
-            createTaskModalActive, handleToggleCreateTaskModal
+            createTaskModalActive, handleToggleCreateTaskModal,
+            createHabitModalActive, handleToggleCreateHabitModal
          }
       }>
          {children}

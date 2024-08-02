@@ -1,0 +1,9 @@
+@use "../../../utils/" as *;
+
+.week-day-area {
+   
+   width: 100%;
+
+   @include flex(flex-start, center);
+   gap: 1rem;
+}

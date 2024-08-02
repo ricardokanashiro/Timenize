@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { ModalsContext } from "@/contexts"
 import { TempListProvider, EditAreasProvider } from "@/modals/ManageTaskListModal/contexts"
 
-import { ManageTaskListModal, CreateTaskModal } from "@/modals"
+import { ManageTaskListModal, CreateTaskModal, CreateHabitModal } from "@/modals"
 
 const ModalsWrapper = ({ selectedScreen }) => {
 
@@ -25,9 +25,9 @@ const ModalsWrapper = ({ selectedScreen }) => {
             }
 
             {
-               selectedScreen === "habits" && 
+               selectedScreen === "hábitos" && 
                <>
-                  
+                  <CreateHabitModal />
                </>
             }
          </div>

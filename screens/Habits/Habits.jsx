@@ -41,8 +41,7 @@ const Habits = () => {
             <section className="habits-section__habit-list">
                <HabitCard title="Habito" disabled={true} />
                <HabitCard title="Habito" disabled={true} />
-            </section
-            >
+            </section>
 
          </section>
 

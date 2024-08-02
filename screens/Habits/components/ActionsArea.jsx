@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import Image from "next/image"
 
 import { IconX, IconSearchWhite, IconPlusWhite, IconSearchDark, IconPlusDark } from "@/assets"
-import { ThemeContext } from "@/contexts"
+import { ModalsContext, ThemeContext } from "@/contexts"
 
 import "@/css/screens/habitos/components/actions-area.css"
 
@@ -10,6 +10,7 @@ const ActionsArea = () => {
 
    const [searchValue, setSearchValue] = useState("")
    const { darkThemeActive } = useContext(ThemeContext)
+   const { handleToggleCreateHabitModal } = useContext(ModalsContext)
 
    return (
       <section className="habitos__actions-area">
@@ -42,7 +43,7 @@ const ActionsArea = () => {
 
          </div>
 
-         <button className="habitos__add-habito">
+         <button className="habitos__add-habito" onClick={handleToggleCreateHabitModal}>
             <span>Adicionar Hábito</span>
             <Image src={darkThemeActive ? IconPlusDark : IconPlusWhite} alt="ícone de adicionar" />
          </button>

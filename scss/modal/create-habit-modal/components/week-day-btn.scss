@@ -1,0 +1,18 @@
+@use "../../../utils/" as *;
+
+.week-day-btn {
+   color: var(--cards_bg);
+   background-color: var(--details_color_three);
+   width: 2.4rem;
+   height: 2.4rem;
+   font-size: 1.5rem;
+   font-weight: 600;
+   border-radius: .4rem;
+   cursor: pointer;
+   
+   @include flex(center, center);
+}
+
+.week-day-btn--active {
+   background-color: var(--details_color_two);
+}
