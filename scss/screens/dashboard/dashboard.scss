@@ -95,7 +95,6 @@
 .task-list-card__task-list {
    display: flex;
    flex-flow: column nowrap;
-   flex-grow: 1;
    gap: 1.8rem;
    overflow-y: auto;
    margin-top: clamp(2rem, 2rem + 1vw, 3.5rem);
