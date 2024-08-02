@@ -63,7 +63,7 @@
   color: var(--cards_bg);
   padding: clamp(0.5rem, 0.4rem + 0.4vw, 1rem) clamp(0.75rem, 0.6rem + 0.6vw, 1.5rem);
   border-radius: 0.4rem;
-  font-size: clamp(1rem, 0.6rem + 0.6vw, 1.4rem);
+  font-size: clamp(0.8rem, 0.5rem + 0.45vw, 1.3rem);
   font-weight: 500;
   cursor: pointer;
   display: flex;
@@ -75,7 +75,7 @@
   cursor: pointer !important;
 }
 .habit-card__actions-area button img {
-  height: clamp(1.5rem, 0.8rem + 0.8vw, 1.8rem);
+  height: clamp(1.2rem, 0.7rem + 0.7vw, 1.6rem);
   width: auto;
 }
 
