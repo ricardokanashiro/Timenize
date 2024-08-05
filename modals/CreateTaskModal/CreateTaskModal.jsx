@@ -54,7 +54,7 @@ const CreateTaskModal = () => {
 
    return (
       <div 
-         class={createTaskModalActive ? "create-task-modal " + inAnimationClass : "create-task-modal create-task-modal--disabled"}
+         className={createTaskModalActive ? "create-task-modal " + inAnimationClass : "create-task-modal create-task-modal--disabled"}
          onKeyDown={(e) => createTaskWithEnter(e)}
       >
          <h1>Criar Task</h1>

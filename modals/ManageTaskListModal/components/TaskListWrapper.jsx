@@ -2,7 +2,7 @@ import { DraggableList } from "."
 
 import "@/css/modal/manage-task-list-modal/components/task-list-wrapper.css"
 
-const TaskListWrapper = () => {
+const TaskListWrapper = ({ modalRef }) => {
    return (
       <section className="configurations__task-list-wrapper">
 
@@ -10,7 +10,7 @@ const TaskListWrapper = () => {
 
          <section className="manage-task-list-modal__draggable-list-wrapper">
 
-            <DraggableList />
+            <DraggableList modalRef={modalRef} />
 
          </section>
 

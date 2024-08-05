@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useContext } from "react"
+import { useEffect, useState, useContext, useRef } from "react"
 import Image from "next/image"
 import { Draggable } from "@hello-pangea/dnd"
 import { useFloating, hide, autoUpdate, flip, useInteractions, useDismiss } from '@floating-ui/react';
@@ -14,7 +14,7 @@ import { IconTrash, IconMoreVertical, IconEdit, IconCheck, IconX } from "@/asset
 import "@/css/modal/manage-task-list-modal/components/list-task-item.css"
 
 const ListTaskItem = ({
-   children, level, index, id, containerRef
+   children, level, index, id, containerRef, modalRef
 }) => {
 
    const { tempList, setTempList } = useContext(TempListContext)
@@ -107,12 +107,13 @@ const ListTaskItem = ({
       setEditValue(children)
    }, [children])
 
+   useState(() => {
+      console.log(modalRef.current.getBoundingClientRect().top)
+   })
+
    return (
       <Draggable key={id} draggableId={id} index={index}>
          {(provided, snapshot) => {
-
-            console.log(provided)
-            console.log(snapshot)
 
             return (
                <div
@@ -120,7 +121,7 @@ const ListTaskItem = ({
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-                  style={snapshot.isDragging ? { ...provided.draggableProps.style, top: 444.6499938964844} : { ...provided.draggableProps.style }}
+                  style={snapshot.isDragging ? { ...provided.draggableProps.style, top: provided.draggableProps.style.top - modalRef.current.getBoundingClientRect().top} : { ...provided.draggableProps.style }}
                >
 
                   <div className="list-task-item__content-area">

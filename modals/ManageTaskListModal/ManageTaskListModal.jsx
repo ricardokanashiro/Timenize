@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,6 +12,8 @@ const ManageTaskListModal = () => {
 
    const { sharedTasks } = useContext(DataContext)
    const { setTempList } = useContext(TempListContext)
+
+   const modalRef = useRef(null)
 
    const {
       setTaskEditActiveID,
@@ -52,7 +54,7 @@ const ManageTaskListModal = () => {
 
    return (
 
-      <div className={manageTaskListModalActive ? "manage-task-list-modal " + animateClass : "manage-task-list-modal manage-task-list-modal--disabled"} tabIndex={1}>
+      <div className={manageTaskListModalActive ? "manage-task-list-modal " + animateClass : "manage-task-list-modal manage-task-list-modal--disabled"} tabIndex={1} ref={modalRef}>
 
          <h1>Gerenciar Lista</h1>
 
@@ -60,7 +62,7 @@ const ManageTaskListModal = () => {
 
             <AddTaskArea />
 
-            <TaskListWrapper />
+            <TaskListWrapper modalRef={modalRef} />
 
          </section>
 

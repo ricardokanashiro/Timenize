@@ -7,7 +7,7 @@ import { DragDropContext, Droppable } from '@hello-pangea/dnd'
 import { ListTaskItem } from '.'
 import { TempListContext } from '../contexts/TempListContext'
 
-const DraggableList = () => {
+const DraggableList = ({ modalRef }) => {
 
    const { tempList, setTempList } = useContext(TempListContext)
 
@@ -46,6 +46,7 @@ const DraggableList = () => {
                               index={index}
                               id={task.id.toString()}
                               containerRef={containerRef}
+                              modalRef={modalRef}
                            >
                               {task.title}
                            </ListTaskItem>
