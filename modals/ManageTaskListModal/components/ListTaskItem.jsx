@@ -111,13 +111,16 @@ const ListTaskItem = ({
       <Draggable key={id} draggableId={id} index={index}>
          {(provided, snapshot) => {
 
+            console.log(provided)
+            console.log(snapshot)
+
             return (
                <div
                   className="list-task-item"
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-                  style={snapshot.isDragging ? { ...provided.draggableProps.style, top: provided.draggableProps.style.top - 45} : { ...provided.draggableProps.style }}
+                  style={snapshot.isDragging ? { ...provided.draggableProps.style, top: 444.6499938964844} : { ...provided.draggableProps.style }}
                >
 
                   <div className="list-task-item__content-area">

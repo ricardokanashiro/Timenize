@@ -15,16 +15,19 @@ const ModalsProvider = ({ children }) => {
    function handleToggleManageTaskListModal() {
       setModalWrapperActive(prev => !prev)
       setManageTaskListModalActive(prev => !prev)
+      document.body.classList.toggle('block-scroll')
    }
 
    function handleToggleCreateTaskModal() {
       setModalWrapperActive(prev => !prev)
       setCreateTaskModalActive(prev => !prev)
+      document.body.classList.toggle('block-scroll')
    }
 
    function handleToggleCreateHabitModal() {
       setModalWrapperActive(prev => !prev)
       setCreateHabitModalActive(prev => !prev)
+      document.body.classList.toggle('block-scroll')
    }
 
    return (

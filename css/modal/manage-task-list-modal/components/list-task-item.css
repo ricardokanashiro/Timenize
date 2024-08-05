@@ -6,6 +6,7 @@
   border-right: 0.6rem solid var(--details_color_two);
   padding: 1.2rem;
   left: auto !important;
+  cursor: grab;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,6 +35,7 @@
   font-size: clamp(1rem, 0.6125rem + 0.6125vw, 1.25rem);
   font-weight: 500;
   color: var(--font_color);
+  cursor: grab;
 }
 
 .list-task-item__actions-area {
