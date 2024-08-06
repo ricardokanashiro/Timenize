@@ -7,34 +7,36 @@ import "@/css/screens/habitos/components/habit-card.css"
 import { useContext } from "react"
 import { ThemeContext } from "@/contexts"
 
-const HabitCard = ({ title, disabled }) => {
+const HabitCard = ({ habit }) => {
 
    const { darkThemeActive } = useContext(ThemeContext)
 
    return (
-      <div className={disabled ? "habitos__habit-card habitos__habit-card--disabled" : "habitos__habit-card"}>
+      <div className={habit.inactive ? "habitos__habit-card habitos__habit-card--disabled" : "habitos__habit-card"}>
 
          <section className="habit-card__content">
 
             <div className="habit-card__title-area">
-               <h4>{title}</h4>
+               <h4>{habit.title}</h4>
             </div>
 
             <section className="habit-card__stats-area">
-               <StatsCard icon={FireIcon} amount={32} />
-               <StatsCard icon={IconCheckBlue} amount={32} />
-               <StatsCard icon={IconXBlue} amount={32} />
+               <StatsCard icon={FireIcon} amount={habit.streak} />
+               <StatsCard icon={IconCheckBlue} amount={habit.done} />
+               <StatsCard icon={IconXBlue} amount={habit.undone} />
             </section>
 
             <section className="habit-card__week-days-area">
 
-               <WeekDayIcon weekDay="D" active={true} />
-               <WeekDayIcon weekDay="S" active={false} />
-               <WeekDayIcon weekDay="T" active={false} />
-               <WeekDayIcon weekDay="Q" active={false} />
-               <WeekDayIcon weekDay="Q" active={false} />
-               <WeekDayIcon weekDay="S" active={false} />
-               <WeekDayIcon weekDay="S" active={false} />
+               {
+                  habit.weekDaysActive.map(weekDay => (
+                     <WeekDayIcon 
+                        key={weekDay.day} 
+                        weekDay={weekDay.day.toUpperCase().substring(0,1)} 
+                        active={weekDay.active} 
+                     />
+                  ))
+               }
 
             </section>
 

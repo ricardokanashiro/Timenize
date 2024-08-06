@@ -107,10 +107,6 @@ const ListTaskItem = ({
       setEditValue(children)
    }, [children])
 
-   useState(() => {
-      console.log(modalRef.current.getBoundingClientRect().top)
-   })
-
    return (
       <Draggable key={id} draggableId={id} index={index}>
          {(provided, snapshot) => {

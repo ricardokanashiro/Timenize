@@ -62,3 +62,165 @@ export let plans = [
       ]
    }
 ]
+
+export let habits = [
+   {
+      id: "32132121dsaa",
+      title: "Estudar Inglês",
+      streak: 0,
+      done: 0,
+      undone: 0,
+      inactive: false,
+      favorite: true,
+      weekDaysActive: [
+         {
+            day: "Domingo",
+            active: true
+         },
+         {
+            day: "Segunda",
+            active: true
+         },
+         {
+            day: "Terça",
+            active: false
+         },
+         {
+            day: "Quarta",
+            active: false
+         },
+         {
+            day: "Quinta",
+            active: false
+         },
+         {
+            day: "Sexta",
+            active: false
+         },
+         {
+            day: "Sábado",
+            active: false
+         },
+      ]
+   },
+
+   {
+      id: "3576454anbgfgduy",
+      title: "Praticar exercício físico",
+      streak: 0,
+      done: 0,
+      undone: 0,
+      inactive: false,
+      favorite: false,
+      weekDaysActive: [
+         {
+            day: "Domingo",
+            active: true
+         },
+         {
+            day: "Segunda",
+            active: true
+         },
+         {
+            day: "Terça",
+            active: false
+         },
+         {
+            day: "Quarta",
+            active: false
+         },
+         {
+            day: "Quinta",
+            active: false
+         },
+         {
+            day: "Sexta",
+            active: false
+         },
+         {
+            day: "Sábado",
+            active: false
+         },
+      ]
+   },
+
+   {
+      id: "3576454anbgfgduy",
+      title: "Praticar exercício físico",
+      streak: 0,
+      done: 0,
+      undone: 0,
+      inactive: false,
+      favorite: false,
+      weekDaysActive: [
+         {
+            day: "Domingo",
+            active: true
+         },
+         {
+            day: "Segunda",
+            active: true
+         },
+         {
+            day: "Terça",
+            active: false
+         },
+         {
+            day: "Quarta",
+            active: false
+         },
+         {
+            day: "Quinta",
+            active: false
+         },
+         {
+            day: "Sexta",
+            active: false
+         },
+         {
+            day: "Sábado",
+            active: false
+         },
+      ]
+   },
+
+   {
+      id: "3576454anbgfgduy",
+      title: "Praticar exercício físico",
+      streak: 0,
+      done: 0,
+      undone: 0,
+      inactive: true,
+      favorite: false,
+      weekDaysActive: [
+         {
+            day: "Domingo",
+            active: true
+         },
+         {
+            day: "Segunda",
+            active: true
+         },
+         {
+            day: "Terça",
+            active: false
+         },
+         {
+            day: "Quarta",
+            active: false
+         },
+         {
+            day: "Quinta",
+            active: false
+         },
+         {
+            day: "Sexta",
+            active: false
+         },
+         {
+            day: "Sábado",
+            active: false
+         },
+      ]
+   }
+]

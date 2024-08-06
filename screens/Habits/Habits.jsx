@@ -1,14 +1,20 @@
+"use client"
+
+import { useContext } from "react"
 import { ActionsArea, HabitCard, TitleArea } from "./components"
 
 import { IconHeart, IconList, IconEyeOff } from "@/assets"
+import { DataContext } from "@/contexts"
 
 import "@/css/screens/habitos/habitos.css"
 
 const Habits = () => {
+
+   const { sharedHabits, setSharedHabits } = useContext(DataContext)
+
    return (
 
       <section className="habitos">
-
          <ActionsArea />
 
          <section className="habitos__habits-section">
@@ -16,8 +22,12 @@ const Habits = () => {
             <TitleArea title="Favoritos" icon={IconHeart} alt="ícone de coração" />
 
             <section className="habits-section__habit-list">
-               <HabitCard title="Estudar Inglês" disabled={false} />
-               <HabitCard title="Fazer exercício físico" disabled={false} />
+
+               {
+                  sharedHabits.map(habit => habit.favorite && (
+                     <HabitCard key={habit.id} habit={habit} />
+                  ))
+               }
             </section>
 
 
@@ -26,10 +36,15 @@ const Habits = () => {
          <section className="habitos__habits-section">
 
             <TitleArea title="Todos" icon={IconList} alt="ícone de coração" />
-            
+
             <section className="habits-section__habit-list">
-               <HabitCard title="Comer Fruta" disabled={false} />
-               <HabitCard title="Programar" disabled={false} />
+
+               {
+                  sharedHabits.map(habit => (!habit.favorite && !habit.inactive) && (
+                     <HabitCard key={habit.id} habit={habit} />
+                  ))
+               }
+
             </section>
 
          </section>
@@ -37,10 +52,15 @@ const Habits = () => {
          <section className="habitos__habits-section">
 
             <TitleArea title="Inativos" icon={IconEyeOff} alt="ícone de coração" />
-            
+
             <section className="habits-section__habit-list">
-               <HabitCard title="Habito" disabled={true} />
-               <HabitCard title="Habito" disabled={true} />
+
+               {
+                  sharedHabits.map(habit => habit.inactive && (
+                     <HabitCard key={habit.id} habit={habit} />
+                  ))
+               }
+
             </section>
 
          </section>
