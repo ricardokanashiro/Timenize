@@ -1,23 +1,48 @@
-import { useState, useContext } from "react"
+import { useContext } from "react"
+
+import { v4 as uuidv4 } from "uuid"
 
 import { WeekDayArea } from "./components"
-import { ModalsContext } from "@/contexts"
+import { DataContext, ModalsContext } from "@/contexts"
+import { AddModalContext } from "./context/addModalContext"
 
 import "@/css/modal/create-habit-modal/create-habit-modal.css"
 
 const CreateHabitModal = () => {
 
-   const [weekDays, setWeekDays] = useState([
-      { day: "domingo", active: true },
-      { day: "segunda", active: false },
-      { day: "terça", active: false },
-      { day: "quarta", active: false },
-      { day: "quinta", active: false },
-      { day: "sexta", active: false },
-      { day: "sábado", active: false },
-   ])
-
    const { handleToggleCreateHabitModal } = useContext(ModalsContext)
+   const { setSharedHabits } = useContext(DataContext)
+
+   const {
+      habitTitle, setHabitTitle,
+      weekDays, tempWeekDays, setTempWeekDays
+   } = useContext(AddModalContext)
+
+   function resetModalStates() {
+      setHabitTitle("")
+      setTempWeekDays(weekDays)
+   }
+
+   function addHabit() {
+
+      setSharedHabits(prev => [
+         {
+            id: uuidv4(),
+            title: habitTitle,
+            streak: 0,
+            done: 0,
+            undone: 0,
+            inactive: false,
+            favorite: false,
+            weekDaysActive: tempWeekDays
+         },
+
+         ...prev
+      ])
+
+      resetModalStates()
+      handleToggleCreateHabitModal()
+   }
 
    return (
       <div className="create-habit-modal">
@@ -31,10 +56,17 @@ const CreateHabitModal = () => {
             <div className="create-habit-modal-configs">
 
                <div className="create-habit-modal__input-wrapper">
-                  <input type="text" placeholder="Nome do hábito" />
+                  <input
+                     type="text"
+                     placeholder="Nome do hábito"
+                     value={habitTitle}
+                     onChange={(e) => setHabitTitle(e.target.value)}
+                  />
                </div>
 
-               <WeekDayArea weekDays={weekDays} setWeekDays={setWeekDays} />
+               <WeekDayArea
+                  weekDays={weekDays}
+               />
 
             </div>
 
@@ -42,14 +74,17 @@ const CreateHabitModal = () => {
 
          <section className="create-habit-modal__actions-area">
 
-            <button 
-               className="create-habit-modal__cancel-btn" 
-               onClick={handleToggleCreateHabitModal}
+            <button
+               className="create-habit-modal__cancel-btn"
+               onClick={() => {
+                  handleToggleCreateHabitModal()
+                  resetModalStates()
+               }}
             >
                Cancelar
             </button>
 
-            <button className="create-habit-modal__add-btn">Criar</button>
+            <button className="create-habit-modal__add-btn" onClick={addHabit}>Criar</button>
          </section>
 
       </div>

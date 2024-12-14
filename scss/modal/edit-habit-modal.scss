@@ -1,0 +1,186 @@
+@use '../utils/' as *;
+
+.edit-habit-modal {
+
+   background-color: white;
+   width: min(90%, 50rem);
+   padding: clamp(2rem, 1.5rem + 2.5vw, 4rem) clamp(3rem, 2rem + 3vw, 5rem);
+   border-radius: .6rem;
+
+   h1 {
+      font-size: clamp(1.8rem, 1.1rem + 1.1vw, 2.3rem);
+      color: var(--font_color);
+   }
+
+   section {
+
+      width: 100%;
+      margin-top: 2.5rem;
+
+      h2 {
+         color: #838393;
+         font-weight: 400;
+         font-size: clamp(1.3rem, 0.75rem + 0.75vw, 1.5rem);
+      }
+
+      .edit-habit-modal__input-wrapper {
+         width: 100%;
+         background-color: var(--items_bg);
+         flex-grow: 1;
+         padding: 1rem 1.5rem;
+         border-radius: 0.6rem;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 1.4rem;
+         margin: 2rem 0 3rem 0;
+   
+         input {
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            width: 0;
+            flex: 1 1;
+            outline: none;
+            font-size: clamp(1rem, 0.65rem + 0.65vw, 1.3rem);
+            color: var(--font_color);
+         }
+      }
+   }
+}
+
+.edit-habit-modal__week-days-area {
+
+   @include flex(flex-start, center);
+   gap: 1rem;
+
+   button {
+      // width: clamp(1.8rem, 1rem + 1vw , 2.2rem);
+      // height: clamp(1.8rem, 1rem + 1vw , 2.2rem);
+      width: 2.2rem;
+      height: 2.2rem;
+      background-color: var(--buttons_bg);
+      color: var(--section_bg);
+      border-radius: .4rem;
+      // font-size: clamp(1rem, .6rem + .6vw , 1.4rem);
+      font-size: 1.4rem;
+      font-weight: 600;
+      cursor: pointer;
+   
+      @include flex(center, center);
+   }
+   
+   .edit-habit-modal__weekday-btn--inactive {
+      background-color: var(--details_color_three) !important;
+      color: var(--details_color_four) !important;
+   }
+}
+
+.edit-habit-modal__set-active-habit-area {
+
+   margin-top: 3rem;
+   @include flex(flex-start, center);
+
+   p {
+      width: 10rem;
+      color: #838393;
+      font-size: 1.2rem;
+   }
+}
+
+.edit-habit-modal__set-active-habit-area + 
+.edit-habit-modal__set-active-habit-area {
+   margin-top: 1.5rem;
+}
+
+.edit-habit-modal__config-switch {
+   margin: 2rem 0;
+}
+
+.edit-habit-modal__config-switch__switch {
+   background-color: var(--details_color_three);
+   width: 4.2rem;
+   height: 2.1rem;
+   border-radius: 2.1rem;
+   cursor: pointer;
+   position: relative;
+   transition: all 200ms ease-in;
+   
+   .edit-habit-modal__config-switch__circle {
+      background-color: white;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      position: absolute;
+      left: .21rem;
+      top: .21rem;
+      transition: all 200ms ease-in;
+   }
+}
+
+.edit-habit-modal__config-switch--active {
+
+   background-color: var(--details_color_two);
+
+   .edit-habit-modal__config-switch__circle {
+      transform: translateX(2.4rem - 0.42rem);
+   }
+}
+
+.edit-habit-modal__danger-zone {
+
+   button {
+      background-color: var(--buttons_bg);
+      color: var(--cards_bg);
+      font-size: clamp(.9rem, 0.6rem + 0.6vw, 1.2rem);
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+      font-weight: 500;
+      border-radius: 0.3rem;
+      border: 2px solid transparent;
+      transition-duration: 250ms;
+      transition-property: color, border, background-color;
+      margin-top: 3rem;
+   }
+
+   button:hover {
+      border-color: var(--buttons_bg);
+      color: var(--buttons_bg);
+      background-color: transparent;
+   }
+}
+
+.edit-habit-modal__actions-area {
+
+   @include flex(flex-end, center);
+   gap: 2rem;
+
+   .edit-habit-modal__cancel-btn {
+      font-size: clamp(1rem, 0.7rem + 0.7vw, 1.4rem);
+      background-color: transparent;
+      color: #838393;
+      padding: 0.8rem 1.6rem;
+      cursor: pointer;
+      font-weight: 500;
+      border-radius: 0.3rem;
+   }
+
+   .edit-habit-modal__save-btn {
+      font-size: clamp(1rem, 0.7rem + 0.7vw, 1.4rem);
+      background-color: var(--buttons_bg);
+      color: var(--cards_bg);
+      padding: 0.8rem 1.6rem;
+      cursor: pointer;
+      font-weight: 500;
+      border-radius: 0.3rem;
+      border: 2px solid transparent;
+      transition-duration: 250ms;
+      transition-property: color, border, background-color;
+   }
+
+   .edit-habit-modal__save-btn:hover {
+      border-color: var(--buttons_bg);
+      color: var(--buttons_bg);
+      background-color: transparent;
+   }
+}

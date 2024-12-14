@@ -1,15 +1,19 @@
+import { useContext } from "react"
+
 import Image from "next/image"
+
 import { WeekDayIcon, StatsCard } from "."
+import { ModalsContext, ThemeContext } from "@/contexts"
 
 import { IconEditWhite, IconXBlue, IconCheckBlue, FireIcon, IconEditDark } from "@/assets"
 
 import "@/css/screens/habitos/components/habit-card.css"
-import { useContext } from "react"
-import { ThemeContext } from "@/contexts"
+
 
 const HabitCard = ({ habit }) => {
 
    const { darkThemeActive } = useContext(ThemeContext)
+   const { handleToggleEditHabitModal } = useContext(ModalsContext)
 
    return (
       <div className={habit.inactive ? "habitos__habit-card habitos__habit-card--disabled" : "habitos__habit-card"}>
@@ -42,7 +46,7 @@ const HabitCard = ({ habit }) => {
 
             <section className="habit-card__actions-area">
 
-               <button>
+               <button onClick={handleToggleEditHabitModal}>
                   <span>Editar</span>
                   <Image src={darkThemeActive ? IconEditDark : IconEditWhite} alt="edit icon" />
                </button>

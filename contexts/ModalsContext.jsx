@@ -11,6 +11,7 @@ const ModalsProvider = ({ children }) => {
    const [createTaskModalActive, setCreateTaskModalActive] = useState(false)
 
    const [createHabitModalActive, setCreateHabitModalActive] = useState(false)
+   const [editHabitModalActive, setEditHabitModalActive] = useState(false)
 
    function handleToggleManageTaskListModal() {
       setModalWrapperActive(prev => !prev)
@@ -30,13 +31,20 @@ const ModalsProvider = ({ children }) => {
       document.body.classList.toggle('block-scroll')
    }
 
+   function handleToggleEditHabitModal() {
+      setModalWrapperActive(prev => !prev)
+      setEditHabitModalActive(prev => !prev)
+      document.body.classList.toggle('block-scroll')
+   }
+
    return (
       <ModalsContext.Provider value={
          {
             modalWrapperActive,
             manageTaskListModalActive, handleToggleManageTaskListModal,
             createTaskModalActive, handleToggleCreateTaskModal,
-            createHabitModalActive, handleToggleCreateHabitModal
+            createHabitModalActive, handleToggleCreateHabitModal,
+            editHabitModalActive, handleToggleEditHabitModal
          }
       }>
          {children}
